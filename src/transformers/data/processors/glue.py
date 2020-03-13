@@ -548,11 +548,12 @@ class BoolqProcessor(DataProcessor):
                 continue
             data = json.loads(line[0])
             guid = "%s-%s" % (set_type, line[0])
-            text_a = d["question"]
-            text_b = d["passage"]
-            label = d["label"]
+            text_a = data["question"]
+            text_b = data["passage"]
+            label = data["label"]
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
+    ##please
 
 
 glue_tasks_num_labels = {
