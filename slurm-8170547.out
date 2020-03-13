@@ -55,3 +55,19 @@
 03/12/2020 22:08:09 - INFO - transformers.tokenization_utils -   loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-vocab.json from cache at /home/an3056/.cache/torch/transformers/d0c5776499adc1ded22493fae699da0971c1ee4c2587111707a4d177d20257a2.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
 03/12/2020 22:08:09 - INFO - transformers.tokenization_utils -   loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-merges.txt from cache at /home/an3056/.cache/torch/transformers/b35e7cd126cd4229a746b5d5c29a749e8e84438b14bcdb575950584fe33207e8.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
 03/12/2020 22:08:10 - INFO - transformers.modeling_utils -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-pytorch_model.bin from cache at /home/an3056/.cache/torch/transformers/228756ed15b6d200d7cb45aaef08c087e2706f54cb912863d2efe07c89584eb7.49b88ba7ec2c26a7558dda98ca3884c3b80fa31cf43a1b1f23aef3ff81ba344e
+03/12/2020 22:08:21 - INFO - transformers.modeling_utils -   Weights of RobertaForSequenceClassification not initialized from pretrained model: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.weight', 'classifier.out_proj.bias']
+03/12/2020 22:08:21 - INFO - transformers.modeling_utils -   Weights from pretrained model not used in RobertaForSequenceClassification: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+03/12/2020 22:08:26 - INFO - __main__ -   Training/evaluation parameters Namespace(adam_epsilon=1e-08, cache_dir='', config_name='', data_dir='/scratch/an3056/nlu/data/BOOLQ', device=device(type='cuda'), do_eval=True, do_lower_case=False, do_train=True, eval_all_checkpoints=False, evaluate_during_training=False, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, learning_rate=2e-05, local_rank=-1, logging_steps=500, max_grad_norm=1.0, max_seq_length=128, max_steps=-1, model_name_or_path='roberta-base', model_type='roberta', n_gpu=1, no_cuda=False, num_train_epochs=3.0, output_dir='/scratch/an3056/nlu/code/transformers/BOOLQ_run/', output_mode='classification', overwrite_cache=False, overwrite_output_dir=False, per_gpu_eval_batch_size=8, per_gpu_train_batch_size=8, save_steps=500, seed=42, server_ip='', server_port='', task_name='boolq', tokenizer_name='', warmup_steps=0, weight_decay=0.0)
+03/12/2020 22:08:26 - INFO - __main__ -   Creating features from dataset file at /scratch/an3056/nlu/data/BOOLQ
+Traceback (most recent call last):
+  File "./examples/run_glue.py", line 701, in <module>
+    main()
+  File "./examples/run_glue.py", line 649, in main
+    train_dataset = load_and_cache_examples(args, args.task_name, tokenizer, evaluate=False)
+  File "./examples/run_glue.py", line 393, in load_and_cache_examples
+    processor.get_dev_examples(args.data_dir) if evaluate else processor.get_train_examples(args.data_dir)
+  File "/scratch/an3056/nlu/code/transformers/src/transformers/data/processors/glue.py", line 532, in get_train_examples
+    return self._create_examples(self._read_tsv(os.path.join(data_dir, "train.jsonl")), "train")
+  File "/scratch/an3056/nlu/code/transformers/src/transformers/data/processors/glue.py", line 548, in _create_examples
+    data = json.loads(line[0])
+NameError: name 'json' is not defined
