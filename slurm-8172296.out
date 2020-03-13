@@ -1,0 +1,2129 @@
+03/12/2020 23:21:27 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+03/12/2020 23:21:28 - INFO - transformers.configuration_utils -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-config.json from cache at /home/an3056/.cache/torch/transformers/e1a2a406b5a05063c31f4dfdee7608986ba7c6393f7f79db5e69dcd197208534.a7ab0e5de2d8321d6d6a15b199110f2c99be72976b7d151423cb8d8c261a13b6
+03/12/2020 23:21:28 - INFO - transformers.configuration_utils -   Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_ids": null,
+  "finetuning_task": "boolq",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+03/12/2020 23:21:28 - INFO - transformers.tokenization_utils -   loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-vocab.json from cache at /home/an3056/.cache/torch/transformers/d0c5776499adc1ded22493fae699da0971c1ee4c2587111707a4d177d20257a2.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
+03/12/2020 23:21:28 - INFO - transformers.tokenization_utils -   loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-merges.txt from cache at /home/an3056/.cache/torch/transformers/b35e7cd126cd4229a746b5d5c29a749e8e84438b14bcdb575950584fe33207e8.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+03/12/2020 23:21:28 - INFO - transformers.modeling_utils -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-pytorch_model.bin from cache at /home/an3056/.cache/torch/transformers/228756ed15b6d200d7cb45aaef08c087e2706f54cb912863d2efe07c89584eb7.49b88ba7ec2c26a7558dda98ca3884c3b80fa31cf43a1b1f23aef3ff81ba344e
+03/12/2020 23:21:32 - INFO - transformers.modeling_utils -   Weights of RobertaForSequenceClassification not initialized from pretrained model: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.weight', 'classifier.out_proj.bias']
+03/12/2020 23:21:32 - INFO - transformers.modeling_utils -   Weights from pretrained model not used in RobertaForSequenceClassification: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+03/12/2020 23:21:38 - INFO - __main__ -   Training/evaluation parameters Namespace(adam_epsilon=1e-08, cache_dir='', config_name='', data_dir='/scratch/an3056/nlu/data/BOOLQ', device=device(type='cuda'), do_eval=True, do_lower_case=False, do_train=True, eval_all_checkpoints=False, evaluate_during_training=False, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, learning_rate=2e-05, local_rank=-1, logging_steps=500, max_grad_norm=1.0, max_seq_length=128, max_steps=-1, model_name_or_path='roberta-base', model_type='roberta', n_gpu=1, no_cuda=False, num_train_epochs=3.0, output_dir='/scratch/an3056/nlu/code/transformers/BOOLQ_run/', output_mode='classification', overwrite_cache=False, overwrite_output_dir=False, per_gpu_eval_batch_size=8, per_gpu_train_batch_size=8, save_steps=500, seed=42, server_ip='', server_port='', task_name='boolq', tokenizer_name='', warmup_steps=0, weight_decay=0.0)
+03/12/2020 23:21:38 - INFO - __main__ -   Creating features from dataset file at /scratch/an3056/nlu/data/BOOLQ
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   Writing example 0/9426
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   guid: train-{"question": "do good samaritan laws protect those who help at an accident", "passage": "Good Samaritan law -- Good Samaritan laws offer legal protection to people who give reasonable assistance to those who are, or who they believe to be, injured, ill, in peril, or otherwise incapacitated. The protection is intended to reduce bystanders' hesitation to assist, for fear of being sued or prosecuted for unintentional injury or wrongful death. An example of such a law in common-law areas of Canada: a good Samaritan doctrine is a legal principle that prevents a rescuer who has voluntarily helped a victim in distress from being successfully sued for wrongdoing. Its purpose is to keep people from being reluctant to help a stranger in need for fear of legal repercussions should they make some mistake in treatment. By contrast, a duty to rescue law requires people to offer assistance and holds those who fail to do so liable.", "idx": 1, "label": true}
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   input_ids: 0 109 205 13049 271 15181 2074 1744 167 54 244 23 41 3213 2 2 2497 17882 15181 488 480 2497 17882 15181 2074 904 1030 2591 7 82 54 492 5701 3485 7 167 54 32 6 50 54 51 679 7 28 6 1710 6 4812 6 11 27791 6 50 3680 37195 15114 4 20 2591 16 3833 7 1888 31504 108 28946 7 3991 6 13 2490 9 145 8124 50 15984 13 39296 1356 50 28008 744 4 660 1246 9 215 10 488 11 1537 12 4656 911 9 896 35 10 205 17882 15181 26944 16 10 1030 9322 14 17410 10 13210 7414 54 34 17153 1147 10 1802 11 13250 31 145 5116 8124 13 10976 4 2
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   guid: train-{"question": "is windows movie maker part of windows essentials", "passage": "Windows Movie Maker -- Windows Movie Maker (formerly known as Windows Live Movie Maker in Windows 7) is a discontinued video editing software by Microsoft. It is a part of Windows Essentials software suite and offers the ability to create and edit videos as well as to publish them on OneDrive, Facebook, Vimeo, YouTube, and Flickr.", "idx": 2, "label": true}
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   input_ids: 0 16 6410 1569 4403 233 9 6410 28146 2 2 6039 13131 27253 480 6039 13131 27253 36 30520 684 25 6039 3561 13131 27253 11 6039 262 43 16 10 27251 569 5390 2257 30 3709 4 85 16 10 233 9 6039 14777 40288 2257 10606 8 1523 5 1460 7 1045 8 17668 3424 25 157 25 7 10732 106 15 509 29279 6 622 6 468 40247 6 4037 6 8 33608 4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   guid: train-{"question": "is confectionary sugar the same as powdered sugar", "passage": "Powdered sugar -- Powdered sugar, also called confectioners' sugar, icing sugar, and icing cake, is a finely ground sugar produced by milling granulated sugar into a powdered state. It usually contains a small amount of anti-caking agent to prevent clumping and improve flow. Although most often produced in a factory, powdered sugar can also be made by processing ordinary granulated sugar in a coffee grinder, or by crushing it by hand in a mortar and pestle.", "idx": 3, "label": true}
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   input_ids: 0 16 7856 20970 1766 4696 5 276 25 39143 4696 2 2 25347 417 3215 4696 480 25347 417 3215 4696 6 67 373 7856 20970 268 108 4696 6 30188 4696 6 8 30188 8492 6 16 10 29535 1255 4696 2622 30 7259 154 17227 12944 4696 88 10 39143 194 4 85 2333 6308 10 650 1280 9 1475 12 438 7520 2936 7 2097 3741 14672 8 1477 3041 4 2223 144 747 2622 11 10 5566 6 39143 4696 64 67 28 156 30 5774 7945 17227 12944 4696 11 10 3895 4435 7026 6 50 30 18389 24 30 865 11 10 24650 8 19024 459 4 2 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   guid: train-{"question": "is elder scrolls online the same as skyrim", "passage": "The Elder Scrolls Online -- As with other games in The Elder Scrolls series, the game is set on the continent of Tamriel. The events of the game occur a millennium before those of The Elder Scrolls V: Skyrim and around 800 years before The Elder Scrolls III: Morrowind and The Elder Scrolls IV: Oblivion. It has a broadly similar structure to Skyrim, with two separate conflicts progressing at the same time, one with the fate of the world in the balance, and one where the prize is supreme power on Tamriel. In The Elder Scrolls Online, the first struggle is against the Daedric Prince Molag Bal, who is attempting to meld the plane of Mundus with his realm of Coldharbour, and the second is to capture the vacant imperial throne, contested by three alliances of the mortal races. The player character has been sacrificed to Molag Bal, and Molag Bal has stolen their soul, the recovery of which is the primary game objective.", "idx": 4, "label": false}
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   input_ids: 0 16 15172 45726 804 5 276 25 2972 45810 2 2 20 23026 44936 5855 480 287 19 97 426 11 20 23026 44936 651 6 5 177 16 278 15 5 9183 9 7736 21194 4 20 1061 9 5 177 5948 10 38751 137 167 9 20 23026 44936 468 35 46218 8 198 5735 107 137 20 23026 44936 6395 35 27096 2028 8 20 23026 44936 10831 35 47898 4 85 34 10 11237 1122 3184 7 46218 6 19 80 2559 9549 20307 23 5 276 86 6 65 19 5 7658 9 5 232 11 5 2394 6 8 65 147 5 4588 16 15835 476 15 7736 21194 4 96 20 23026 44936 5855 6 5 78 3860 16 2
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   label: False (id = 0)
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   guid: train-{"question": "can you use oyster card at epsom station", "passage": "Epsom railway station -- Epsom railway station serves the town of Epsom in Surrey. It is located off Waterloo Road and is less than two minutes' walk from the High Street. It is not in the London Oyster card zone unlike Epsom Downs or Tattenham Corner stations. The station building was replaced in 2012/2013 with a new building with apartments above the station (see end of article).", "idx": 5, "label": false}
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   input_ids: 0 64 47 304 23136 3121 1886 23 364 3275 1075 1992 2 2 39414 1075 10780 1992 480 39414 1075 10780 1992 4542 5 1139 9 39414 1075 11 15693 4 85 16 2034 160 21478 1214 8 16 540 87 80 728 108 1656 31 5 755 852 4 85 16 45 11 5 928 17311 3121 1886 2056 7328 39414 1075 21144 50 32699 225 1908 15211 4492 4 20 1992 745 21 4209 11 1125 73 10684 19 10 92 745 19 10867 1065 5 1992 36 7048 253 9 1566 322 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:21:38 - INFO - transformers.data.processors.glue -   label: False (id = 0)
+03/12/2020 23:21:45 - INFO - __main__ -   Saving features into cached file /scratch/an3056/nlu/data/BOOLQ/cached_train_roberta-base_128_boolq
+03/12/2020 23:21:47 - INFO - __main__ -   ***** Running training *****
+03/12/2020 23:21:47 - INFO - __main__ -     Num examples = 9426
+03/12/2020 23:21:47 - INFO - __main__ -     Num Epochs = 3
+03/12/2020 23:21:47 - INFO - __main__ -     Instantaneous batch size per GPU = 8
+03/12/2020 23:21:47 - INFO - __main__ -     Total train batch size (w. parallel, distributed & accumulation) = 8
+03/12/2020 23:21:47 - INFO - __main__ -     Gradient Accumulation steps = 1
+03/12/2020 23:21:47 - INFO - __main__ -     Total optimization steps = 3537
+Epoch:   0%|          | 0/3 [00:00<?, ?it/s]
+Iteration:   0%|          | 0/1179 [00:00<?, ?it/s][A
+Iteration:   0%|          | 1/1179 [00:08<2:37:26,  8.02s/it][A
+Iteration:   0%|          | 2/1179 [00:08<1:50:48,  5.65s/it][A
+Iteration:   0%|          | 4/1179 [00:08<1:18:01,  3.98s/it][A
+Iteration:   1%|          | 6/1179 [00:08<55:05,  2.82s/it]  [A
+Iteration:   1%|          | 8/1179 [00:08<39:04,  2.00s/it][A
+Iteration:   1%|          | 10/1179 [00:08<27:52,  1.43s/it][A
+Iteration:   1%|          | 12/1179 [00:09<20:03,  1.03s/it][A
+Iteration:   1%|          | 14/1179 [00:09<14:35,  1.33it/s][A
+Iteration:   1%|▏         | 16/1179 [00:09<10:45,  1.80it/s][A
+Iteration:   2%|▏         | 18/1179 [00:09<08:05,  2.39it/s][A
+Iteration:   2%|▏         | 20/1179 [00:09<06:13,  3.11it/s][A
+Iteration:   2%|▏         | 22/1179 [00:10<04:54,  3.93it/s][A
+Iteration:   2%|▏         | 24/1179 [00:10<03:59,  4.82it/s][A
+Iteration:   2%|▏         | 26/1179 [00:10<03:20,  5.74it/s][A
+Iteration:   2%|▏         | 28/1179 [00:10<02:54,  6.60it/s][A
+Iteration:   3%|▎         | 30/1179 [00:10<02:35,  7.38it/s][A
+Iteration:   3%|▎         | 32/1179 [00:11<02:22,  8.06it/s][A
+Iteration:   3%|▎         | 34/1179 [00:11<02:13,  8.61it/s][A
+Iteration:   3%|▎         | 36/1179 [00:11<02:06,  9.04it/s][A
+Iteration:   3%|▎         | 38/1179 [00:11<02:01,  9.36it/s][A
+Iteration:   3%|▎         | 40/1179 [00:11<01:58,  9.61it/s][A
+Iteration:   4%|▎         | 42/1179 [00:12<01:56,  9.79it/s][A
+Iteration:   4%|▎         | 44/1179 [00:12<01:54,  9.91it/s][A
+Iteration:   4%|▍         | 46/1179 [00:12<01:53, 10.01it/s][A
+Iteration:   4%|▍         | 48/1179 [00:12<01:52, 10.08it/s][A
+Iteration:   4%|▍         | 50/1179 [00:12<01:51, 10.13it/s][A
+Iteration:   4%|▍         | 52/1179 [00:13<01:50, 10.17it/s][A
+Iteration:   5%|▍         | 54/1179 [00:13<01:50, 10.18it/s][A
+Iteration:   5%|▍         | 56/1179 [00:13<01:50, 10.20it/s][A
+Iteration:   5%|▍         | 58/1179 [00:13<01:49, 10.20it/s][A
+Iteration:   5%|▌         | 60/1179 [00:13<01:49, 10.20it/s][A
+Iteration:   5%|▌         | 62/1179 [00:14<01:49, 10.20it/s][A
+Iteration:   5%|▌         | 64/1179 [00:14<01:49, 10.20it/s][A
+Iteration:   6%|▌         | 66/1179 [00:14<01:49, 10.21it/s][A
+Iteration:   6%|▌         | 68/1179 [00:14<01:48, 10.21it/s][A
+Iteration:   6%|▌         | 70/1179 [00:14<01:48, 10.20it/s][A
+Iteration:   6%|▌         | 72/1179 [00:14<01:48, 10.18it/s][A
+Iteration:   6%|▋         | 74/1179 [00:15<01:48, 10.19it/s][A
+Iteration:   6%|▋         | 76/1179 [00:15<01:48, 10.20it/s][A
+Iteration:   7%|▋         | 78/1179 [00:15<01:47, 10.20it/s][A
+Iteration:   7%|▋         | 80/1179 [00:15<01:47, 10.21it/s][A
+Iteration:   7%|▋         | 82/1179 [00:15<01:47, 10.20it/s][A
+Iteration:   7%|▋         | 84/1179 [00:16<01:47, 10.21it/s][A
+Iteration:   7%|▋         | 86/1179 [00:16<01:47, 10.21it/s][A
+Iteration:   7%|▋         | 88/1179 [00:16<01:46, 10.22it/s][A
+Iteration:   8%|▊         | 90/1179 [00:16<01:46, 10.21it/s][A
+Iteration:   8%|▊         | 92/1179 [00:16<01:46, 10.21it/s][A
+Iteration:   8%|▊         | 94/1179 [00:17<01:46, 10.21it/s][A
+Iteration:   8%|▊         | 96/1179 [00:17<01:46, 10.21it/s][A
+Iteration:   8%|▊         | 98/1179 [00:17<01:45, 10.21it/s][A
+Iteration:   8%|▊         | 100/1179 [00:17<01:45, 10.20it/s][A
+Iteration:   9%|▊         | 102/1179 [00:17<01:45, 10.20it/s][A
+Iteration:   9%|▉         | 104/1179 [00:18<01:45, 10.21it/s][A
+Iteration:   9%|▉         | 106/1179 [00:18<01:45, 10.19it/s][A
+Iteration:   9%|▉         | 108/1179 [00:18<01:45, 10.19it/s][A
+Iteration:   9%|▉         | 110/1179 [00:18<01:44, 10.20it/s][A
+Iteration:   9%|▉         | 112/1179 [00:18<01:44, 10.19it/s][A
+Iteration:  10%|▉         | 114/1179 [00:19<01:44, 10.19it/s][A
+Iteration:  10%|▉         | 116/1179 [00:19<01:44, 10.20it/s][A
+Iteration:  10%|█         | 118/1179 [00:19<01:44, 10.20it/s][A
+Iteration:  10%|█         | 120/1179 [00:19<01:43, 10.21it/s][A
+Iteration:  10%|█         | 122/1179 [00:19<01:43, 10.20it/s][A
+Iteration:  11%|█         | 124/1179 [00:20<01:43, 10.20it/s][A
+Iteration:  11%|█         | 126/1179 [00:20<01:43, 10.20it/s][A
+Iteration:  11%|█         | 128/1179 [00:20<01:43, 10.20it/s][A
+Iteration:  11%|█         | 130/1179 [00:20<01:42, 10.20it/s][A
+Iteration:  11%|█         | 132/1179 [00:20<01:42, 10.19it/s][A
+Iteration:  11%|█▏        | 134/1179 [00:21<01:42, 10.19it/s][A
+Iteration:  12%|█▏        | 136/1179 [00:21<01:42, 10.20it/s][A
+Iteration:  12%|█▏        | 138/1179 [00:21<01:42, 10.20it/s][A
+Iteration:  12%|█▏        | 140/1179 [00:21<01:41, 10.21it/s][A
+Iteration:  12%|█▏        | 142/1179 [00:21<01:41, 10.22it/s][A
+Iteration:  12%|█▏        | 144/1179 [00:22<01:41, 10.22it/s][A
+Iteration:  12%|█▏        | 146/1179 [00:22<01:41, 10.21it/s][A
+Iteration:  13%|█▎        | 148/1179 [00:22<01:40, 10.21it/s][A
+Iteration:  13%|█▎        | 150/1179 [00:22<01:40, 10.21it/s][A
+Iteration:  13%|█▎        | 152/1179 [00:22<01:40, 10.21it/s][A
+Iteration:  13%|█▎        | 154/1179 [00:23<01:40, 10.21it/s][A
+Iteration:  13%|█▎        | 156/1179 [00:23<01:40, 10.21it/s][A
+Iteration:  13%|█▎        | 158/1179 [00:23<01:40, 10.21it/s][A
+Iteration:  14%|█▎        | 160/1179 [00:23<01:39, 10.21it/s][A
+Iteration:  14%|█▎        | 162/1179 [00:23<01:39, 10.21it/s][A
+Iteration:  14%|█▍        | 164/1179 [00:24<01:39, 10.18it/s][A
+Iteration:  14%|█▍        | 166/1179 [00:24<01:39, 10.20it/s][A
+Iteration:  14%|█▍        | 168/1179 [00:24<01:39, 10.20it/s][A
+Iteration:  14%|█▍        | 170/1179 [00:24<01:38, 10.21it/s][A
+Iteration:  15%|█▍        | 172/1179 [00:24<01:38, 10.22it/s][A
+Iteration:  15%|█▍        | 174/1179 [00:24<01:38, 10.23it/s][A
+Iteration:  15%|█▍        | 176/1179 [00:25<01:38, 10.23it/s][A
+Iteration:  15%|█▌        | 178/1179 [00:25<01:37, 10.22it/s][A
+Iteration:  15%|█▌        | 180/1179 [00:25<01:37, 10.22it/s][A
+Iteration:  15%|█▌        | 182/1179 [00:25<01:37, 10.22it/s][A
+Iteration:  16%|█▌        | 184/1179 [00:25<01:37, 10.22it/s][A
+Iteration:  16%|█▌        | 186/1179 [00:26<01:37, 10.20it/s][A
+Iteration:  16%|█▌        | 188/1179 [00:26<01:37, 10.19it/s][A
+Iteration:  16%|█▌        | 190/1179 [00:26<01:37, 10.19it/s][A
+Iteration:  16%|█▋        | 192/1179 [00:26<01:37, 10.11it/s][A
+Iteration:  16%|█▋        | 194/1179 [00:26<01:37, 10.14it/s][A
+Iteration:  17%|█▋        | 196/1179 [00:27<01:36, 10.16it/s][A
+Iteration:  17%|█▋        | 198/1179 [00:27<01:36, 10.18it/s][A
+Iteration:  17%|█▋        | 200/1179 [00:27<01:36, 10.20it/s][A
+Iteration:  17%|█▋        | 202/1179 [00:27<01:35, 10.20it/s][A
+Iteration:  17%|█▋        | 204/1179 [00:27<01:35, 10.22it/s][A
+Iteration:  17%|█▋        | 206/1179 [00:28<01:35, 10.22it/s][A
+Iteration:  18%|█▊        | 208/1179 [00:28<01:35, 10.21it/s][A
+Iteration:  18%|█▊        | 210/1179 [00:28<01:34, 10.21it/s][A
+Iteration:  18%|█▊        | 212/1179 [00:28<01:34, 10.21it/s][A
+Iteration:  18%|█▊        | 214/1179 [00:28<01:34, 10.22it/s][A
+Iteration:  18%|█▊        | 216/1179 [00:29<01:34, 10.22it/s][A
+Iteration:  18%|█▊        | 218/1179 [00:29<01:34, 10.22it/s][A
+Iteration:  19%|█▊        | 220/1179 [00:29<01:33, 10.21it/s][A
+Iteration:  19%|█▉        | 222/1179 [00:29<01:33, 10.22it/s][A
+Iteration:  19%|█▉        | 224/1179 [00:29<01:33, 10.22it/s][A
+Iteration:  19%|█▉        | 226/1179 [00:30<01:33, 10.22it/s][A
+Iteration:  19%|█▉        | 228/1179 [00:30<01:32, 10.23it/s][A
+Iteration:  20%|█▉        | 230/1179 [00:30<01:32, 10.23it/s][A
+Iteration:  20%|█▉        | 232/1179 [00:30<01:32, 10.24it/s][A
+Iteration:  20%|█▉        | 234/1179 [00:30<01:32, 10.23it/s][A
+Iteration:  20%|██        | 236/1179 [00:31<01:32, 10.24it/s][A
+Iteration:  20%|██        | 238/1179 [00:31<01:31, 10.24it/s][A
+Iteration:  20%|██        | 240/1179 [00:31<01:31, 10.23it/s][A
+Iteration:  21%|██        | 242/1179 [00:31<01:31, 10.22it/s][A
+Iteration:  21%|██        | 244/1179 [00:31<01:31, 10.22it/s][A
+Iteration:  21%|██        | 246/1179 [00:32<01:31, 10.22it/s][A
+Iteration:  21%|██        | 248/1179 [00:32<01:31, 10.22it/s][A
+Iteration:  21%|██        | 250/1179 [00:32<01:30, 10.22it/s][A
+Iteration:  21%|██▏       | 252/1179 [00:32<01:30, 10.23it/s][A
+Iteration:  22%|██▏       | 254/1179 [00:32<01:30, 10.24it/s][A
+Iteration:  22%|██▏       | 256/1179 [00:33<01:30, 10.21it/s][A
+Iteration:  22%|██▏       | 258/1179 [00:33<01:30, 10.23it/s][A
+Iteration:  22%|██▏       | 260/1179 [00:33<01:29, 10.22it/s][A
+Iteration:  22%|██▏       | 262/1179 [00:33<01:29, 10.23it/s][A
+Iteration:  22%|██▏       | 264/1179 [00:33<01:29, 10.23it/s][A
+Iteration:  23%|██▎       | 266/1179 [00:33<01:29, 10.22it/s][A
+Iteration:  23%|██▎       | 268/1179 [00:34<01:29, 10.21it/s][A
+Iteration:  23%|██▎       | 270/1179 [00:34<01:28, 10.21it/s][A
+Iteration:  23%|██▎       | 272/1179 [00:34<01:28, 10.22it/s][A
+Iteration:  23%|██▎       | 274/1179 [00:34<01:28, 10.23it/s][A
+Iteration:  23%|██▎       | 276/1179 [00:34<01:28, 10.23it/s][A
+Iteration:  24%|██▎       | 278/1179 [00:35<01:28, 10.23it/s][A
+Iteration:  24%|██▎       | 280/1179 [00:35<01:27, 10.24it/s][A
+Iteration:  24%|██▍       | 282/1179 [00:35<01:27, 10.24it/s][A
+Iteration:  24%|██▍       | 284/1179 [00:35<01:27, 10.25it/s][A
+Iteration:  24%|██▍       | 286/1179 [00:35<01:27, 10.25it/s][A
+Iteration:  24%|██▍       | 288/1179 [00:36<01:26, 10.26it/s][A
+Iteration:  25%|██▍       | 290/1179 [00:36<01:26, 10.25it/s][A
+Iteration:  25%|██▍       | 292/1179 [00:36<01:26, 10.25it/s][A
+Iteration:  25%|██▍       | 294/1179 [00:36<01:26, 10.24it/s][A
+Iteration:  25%|██▌       | 296/1179 [00:36<01:26, 10.24it/s][A
+Iteration:  25%|██▌       | 298/1179 [00:37<01:26, 10.24it/s][A
+Iteration:  25%|██▌       | 300/1179 [00:37<01:25, 10.23it/s][A
+Iteration:  26%|██▌       | 302/1179 [00:37<01:25, 10.24it/s][A
+Iteration:  26%|██▌       | 304/1179 [00:37<01:25, 10.23it/s][A
+Iteration:  26%|██▌       | 306/1179 [00:37<01:25, 10.24it/s][A
+Iteration:  26%|██▌       | 308/1179 [00:38<01:24, 10.25it/s][A
+Iteration:  26%|██▋       | 310/1179 [00:38<01:24, 10.26it/s][A
+Iteration:  26%|██▋       | 312/1179 [00:38<01:24, 10.25it/s][A
+Iteration:  27%|██▋       | 314/1179 [00:38<01:24, 10.25it/s][A
+Iteration:  27%|██▋       | 316/1179 [00:38<01:24, 10.25it/s][A
+Iteration:  27%|██▋       | 318/1179 [00:39<01:24, 10.25it/s][A
+Iteration:  27%|██▋       | 320/1179 [00:39<01:23, 10.24it/s][A
+Iteration:  27%|██▋       | 322/1179 [00:39<01:23, 10.25it/s][A
+Iteration:  27%|██▋       | 324/1179 [00:39<01:23, 10.25it/s][A
+Iteration:  28%|██▊       | 326/1179 [00:39<01:23, 10.25it/s][A
+Iteration:  28%|██▊       | 328/1179 [00:40<01:23, 10.25it/s][A
+Iteration:  28%|██▊       | 330/1179 [00:40<01:22, 10.24it/s][A
+Iteration:  28%|██▊       | 332/1179 [00:40<01:22, 10.23it/s][A
+Iteration:  28%|██▊       | 334/1179 [00:40<01:22, 10.24it/s][A
+Iteration:  28%|██▊       | 336/1179 [00:40<01:22, 10.24it/s][A
+Iteration:  29%|██▊       | 338/1179 [00:41<01:22, 10.24it/s][A
+Iteration:  29%|██▉       | 340/1179 [00:41<01:21, 10.25it/s][A
+Iteration:  29%|██▉       | 342/1179 [00:41<01:21, 10.25it/s][A
+Iteration:  29%|██▉       | 344/1179 [00:41<01:21, 10.25it/s][A
+Iteration:  29%|██▉       | 346/1179 [00:41<01:21, 10.25it/s][A
+Iteration:  30%|██▉       | 348/1179 [00:41<01:21, 10.24it/s][A
+Iteration:  30%|██▉       | 350/1179 [00:42<01:20, 10.25it/s][A
+Iteration:  30%|██▉       | 352/1179 [00:42<01:20, 10.25it/s][A
+Iteration:  30%|███       | 354/1179 [00:42<01:20, 10.25it/s][A
+Iteration:  30%|███       | 356/1179 [00:42<01:20, 10.23it/s][A
+Iteration:  30%|███       | 358/1179 [00:42<01:20, 10.24it/s][A
+Iteration:  31%|███       | 360/1179 [00:43<01:20, 10.23it/s][A
+Iteration:  31%|███       | 362/1179 [00:43<01:19, 10.24it/s][A
+Iteration:  31%|███       | 364/1179 [00:43<01:19, 10.24it/s][A
+Iteration:  31%|███       | 366/1179 [00:43<01:19, 10.24it/s][A
+Iteration:  31%|███       | 368/1179 [00:43<01:19, 10.23it/s][A
+Iteration:  31%|███▏      | 370/1179 [00:44<01:19, 10.23it/s][A
+Iteration:  32%|███▏      | 372/1179 [00:44<01:18, 10.22it/s][A
+Iteration:  32%|███▏      | 374/1179 [00:44<01:18, 10.22it/s][A
+Iteration:  32%|███▏      | 376/1179 [00:44<01:18, 10.23it/s][A
+Iteration:  32%|███▏      | 378/1179 [00:44<01:18, 10.23it/s][A
+Iteration:  32%|███▏      | 380/1179 [00:45<01:18, 10.22it/s][A
+Iteration:  32%|███▏      | 382/1179 [00:45<01:17, 10.22it/s][A
+Iteration:  33%|███▎      | 384/1179 [00:45<01:17, 10.23it/s][A
+Iteration:  33%|███▎      | 386/1179 [00:45<01:17, 10.23it/s][A
+Iteration:  33%|███▎      | 388/1179 [00:45<01:17, 10.24it/s][A
+Iteration:  33%|███▎      | 390/1179 [00:46<01:17, 10.23it/s][A
+Iteration:  33%|███▎      | 392/1179 [00:46<01:16, 10.24it/s][A
+Iteration:  33%|███▎      | 394/1179 [00:46<01:16, 10.25it/s][A
+Iteration:  34%|███▎      | 396/1179 [00:46<01:16, 10.26it/s][A
+Iteration:  34%|███▍      | 398/1179 [00:46<01:16, 10.26it/s][A
+Iteration:  34%|███▍      | 400/1179 [00:47<01:15, 10.26it/s][A
+Iteration:  34%|███▍      | 402/1179 [00:47<01:15, 10.27it/s][A
+Iteration:  34%|███▍      | 404/1179 [00:47<01:15, 10.26it/s][A
+Iteration:  34%|███▍      | 406/1179 [00:47<01:15, 10.27it/s][A
+Iteration:  35%|███▍      | 408/1179 [00:47<01:15, 10.27it/s][A
+Iteration:  35%|███▍      | 410/1179 [00:48<01:14, 10.26it/s][A
+Iteration:  35%|███▍      | 412/1179 [00:48<01:14, 10.26it/s][A
+Iteration:  35%|███▌      | 414/1179 [00:48<01:14, 10.23it/s][A
+Iteration:  35%|███▌      | 416/1179 [00:48<01:14, 10.23it/s][A
+Iteration:  35%|███▌      | 418/1179 [00:48<01:14, 10.22it/s][A
+Iteration:  36%|███▌      | 420/1179 [00:49<01:14, 10.22it/s][A
+Iteration:  36%|███▌      | 422/1179 [00:49<01:14, 10.22it/s][A
+Iteration:  36%|███▌      | 424/1179 [00:49<01:13, 10.21it/s][A
+Iteration:  36%|███▌      | 426/1179 [00:49<01:13, 10.21it/s][A
+Iteration:  36%|███▋      | 428/1179 [00:49<01:13, 10.21it/s][A
+Iteration:  36%|███▋      | 430/1179 [00:50<01:13, 10.21it/s][A
+Iteration:  37%|███▋      | 432/1179 [00:50<01:13, 10.23it/s][A
+Iteration:  37%|███▋      | 434/1179 [00:50<01:12, 10.24it/s][A
+Iteration:  37%|███▋      | 436/1179 [00:50<01:12, 10.25it/s][A
+Iteration:  37%|███▋      | 438/1179 [00:50<01:12, 10.25it/s][A
+Iteration:  37%|███▋      | 440/1179 [00:50<01:12, 10.25it/s][A
+Iteration:  37%|███▋      | 442/1179 [00:51<01:11, 10.26it/s][A
+Iteration:  38%|███▊      | 444/1179 [00:51<01:11, 10.26it/s][A
+Iteration:  38%|███▊      | 446/1179 [00:51<01:11, 10.26it/s][A
+Iteration:  38%|███▊      | 448/1179 [00:51<01:11, 10.26it/s][A
+Iteration:  38%|███▊      | 450/1179 [00:51<01:11, 10.26it/s][A
+Iteration:  38%|███▊      | 452/1179 [00:52<01:10, 10.25it/s][A
+Iteration:  39%|███▊      | 454/1179 [00:52<01:10, 10.26it/s][A
+Iteration:  39%|███▊      | 456/1179 [00:52<01:10, 10.25it/s][A
+Iteration:  39%|███▉      | 458/1179 [00:52<01:10, 10.25it/s][A
+Iteration:  39%|███▉      | 460/1179 [00:52<01:10, 10.25it/s][A
+Iteration:  39%|███▉      | 462/1179 [00:53<01:09, 10.25it/s][A
+Iteration:  39%|███▉      | 464/1179 [00:53<01:09, 10.24it/s][A
+Iteration:  40%|███▉      | 466/1179 [00:53<01:09, 10.24it/s][A
+Iteration:  40%|███▉      | 468/1179 [00:53<01:09, 10.24it/s][A
+Iteration:  40%|███▉      | 470/1179 [00:53<01:09, 10.23it/s][A
+Iteration:  40%|████      | 472/1179 [00:54<01:09, 10.23it/s][A
+Iteration:  40%|████      | 474/1179 [00:54<01:08, 10.22it/s][A
+Iteration:  40%|████      | 476/1179 [00:54<01:08, 10.23it/s][A
+Iteration:  41%|████      | 478/1179 [00:54<01:08, 10.23it/s][A
+Iteration:  41%|████      | 480/1179 [00:54<01:08, 10.23it/s][A
+Iteration:  41%|████      | 482/1179 [00:55<01:08, 10.23it/s][A
+Iteration:  41%|████      | 484/1179 [00:55<01:07, 10.23it/s][A
+Iteration:  41%|████      | 486/1179 [00:55<01:07, 10.23it/s][A
+Iteration:  41%|████▏     | 488/1179 [00:55<01:07, 10.23it/s][A
+Iteration:  42%|████▏     | 490/1179 [00:55<01:07, 10.23it/s][A
+Iteration:  42%|████▏     | 492/1179 [00:56<01:07, 10.23it/s][A
+Iteration:  42%|████▏     | 494/1179 [00:56<01:06, 10.24it/s][A
+Iteration:  42%|████▏     | 496/1179 [00:56<01:06, 10.24it/s][A
+Iteration:  42%|████▏     | 498/1179 [00:56<01:06, 10.25it/s][A/scratch/an3056/nlu/env/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:224: UserWarning: To get the last learning rate computed by the scheduler, please use `get_last_lr()`.
+  warnings.warn("To get the last learning rate computed by the scheduler, "
+03/12/2020 23:22:44 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-500/config.json
+03/12/2020 23:22:45 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-500/pytorch_model.bin
+03/12/2020 23:22:45 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-500
+03/12/2020 23:22:48 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-500
+
+Iteration:  42%|████▏     | 500/1179 [01:00<07:59,  1.42it/s][A
+Iteration:  42%|████▏     | 501/1179 [01:01<05:56,  1.90it/s][A
+Iteration:  43%|████▎     | 502/1179 [01:01<04:30,  2.50it/s][A
+Iteration:  43%|████▎     | 503/1179 [01:01<03:29,  3.22it/s][A
+Iteration:  43%|████▎     | 504/1179 [01:01<02:46,  4.04it/s][A
+Iteration:  43%|████▎     | 506/1179 [01:01<02:16,  4.93it/s][A
+Iteration:  43%|████▎     | 508/1179 [01:01<01:54,  5.84it/s][A
+Iteration:  43%|████▎     | 510/1179 [01:01<01:39,  6.71it/s][A
+Iteration:  43%|████▎     | 512/1179 [01:02<01:29,  7.49it/s][A
+Iteration:  44%|████▎     | 514/1179 [01:02<01:21,  8.16it/s][A
+Iteration:  44%|████▍     | 516/1179 [01:02<01:16,  8.69it/s][A
+Iteration:  44%|████▍     | 518/1179 [01:02<01:12,  9.12it/s][A
+Iteration:  44%|████▍     | 520/1179 [01:02<01:09,  9.43it/s][A
+Iteration:  44%|████▍     | 522/1179 [01:03<01:07,  9.66it/s][A
+Iteration:  44%|████▍     | 524/1179 [01:03<01:06,  9.83it/s][A
+Iteration:  45%|████▍     | 526/1179 [01:03<01:05,  9.95it/s][A
+Iteration:  45%|████▍     | 528/1179 [01:03<01:04, 10.03it/s][A
+Iteration:  45%|████▍     | 530/1179 [01:03<01:04, 10.08it/s][A
+Iteration:  45%|████▌     | 532/1179 [01:04<01:03, 10.13it/s][A
+Iteration:  45%|████▌     | 534/1179 [01:04<01:03, 10.16it/s][A
+Iteration:  45%|████▌     | 536/1179 [01:04<01:03, 10.19it/s][A
+Iteration:  46%|████▌     | 538/1179 [01:04<01:02, 10.21it/s][A
+Iteration:  46%|████▌     | 540/1179 [01:04<01:02, 10.22it/s][A
+Iteration:  46%|████▌     | 542/1179 [01:05<01:02, 10.23it/s][A
+Iteration:  46%|████▌     | 544/1179 [01:05<01:02, 10.23it/s][A
+Iteration:  46%|████▋     | 546/1179 [01:05<01:01, 10.24it/s][A
+Iteration:  46%|████▋     | 548/1179 [01:05<01:01, 10.25it/s][A
+Iteration:  47%|████▋     | 550/1179 [01:05<01:01, 10.24it/s][A
+Iteration:  47%|████▋     | 552/1179 [01:05<01:01, 10.24it/s][A
+Iteration:  47%|████▋     | 554/1179 [01:06<01:01, 10.23it/s][A
+Iteration:  47%|████▋     | 556/1179 [01:06<01:00, 10.23it/s][A
+Iteration:  47%|████▋     | 558/1179 [01:06<01:00, 10.22it/s][A
+Iteration:  47%|████▋     | 560/1179 [01:06<01:00, 10.22it/s][A
+Iteration:  48%|████▊     | 562/1179 [01:06<01:00, 10.22it/s][A
+Iteration:  48%|████▊     | 564/1179 [01:07<01:00, 10.22it/s][A
+Iteration:  48%|████▊     | 566/1179 [01:07<00:59, 10.23it/s][A
+Iteration:  48%|████▊     | 568/1179 [01:07<00:59, 10.24it/s][A
+Iteration:  48%|████▊     | 570/1179 [01:07<00:59, 10.24it/s][A
+Iteration:  49%|████▊     | 572/1179 [01:07<00:59, 10.25it/s][A
+Iteration:  49%|████▊     | 574/1179 [01:08<00:59, 10.25it/s][A
+Iteration:  49%|████▉     | 576/1179 [01:08<00:58, 10.24it/s][A
+Iteration:  49%|████▉     | 578/1179 [01:08<00:58, 10.24it/s][A
+Iteration:  49%|████▉     | 580/1179 [01:08<00:58, 10.24it/s][A
+Iteration:  49%|████▉     | 582/1179 [01:08<00:58, 10.25it/s][A
+Iteration:  50%|████▉     | 584/1179 [01:09<00:58, 10.25it/s][A
+Iteration:  50%|████▉     | 586/1179 [01:09<00:57, 10.26it/s][A
+Iteration:  50%|████▉     | 588/1179 [01:09<00:57, 10.26it/s][A
+Iteration:  50%|█████     | 590/1179 [01:09<00:57, 10.27it/s][A
+Iteration:  50%|█████     | 592/1179 [01:09<00:57, 10.26it/s][A
+Iteration:  50%|█████     | 594/1179 [01:10<00:57, 10.25it/s][A
+Iteration:  51%|█████     | 596/1179 [01:10<00:56, 10.24it/s][A
+Iteration:  51%|█████     | 598/1179 [01:10<00:56, 10.24it/s][A
+Iteration:  51%|█████     | 600/1179 [01:10<00:56, 10.25it/s][A
+Iteration:  51%|█████     | 602/1179 [01:10<00:56, 10.24it/s][A
+Iteration:  51%|█████     | 604/1179 [01:11<00:56, 10.25it/s][A
+Iteration:  51%|█████▏    | 606/1179 [01:11<00:55, 10.25it/s][A
+Iteration:  52%|█████▏    | 608/1179 [01:11<00:55, 10.24it/s][A
+Iteration:  52%|█████▏    | 610/1179 [01:11<00:55, 10.24it/s][A
+Iteration:  52%|█████▏    | 612/1179 [01:11<00:55, 10.23it/s][A
+Iteration:  52%|█████▏    | 614/1179 [01:12<00:55, 10.23it/s][A
+Iteration:  52%|█████▏    | 616/1179 [01:12<00:55, 10.23it/s][A
+Iteration:  52%|█████▏    | 618/1179 [01:12<00:54, 10.22it/s][A
+Iteration:  53%|█████▎    | 620/1179 [01:12<00:54, 10.22it/s][A
+Iteration:  53%|█████▎    | 622/1179 [01:12<00:54, 10.23it/s][A
+Iteration:  53%|█████▎    | 624/1179 [01:13<00:54, 10.24it/s][A
+Iteration:  53%|█████▎    | 626/1179 [01:13<00:53, 10.25it/s][A
+Iteration:  53%|█████▎    | 628/1179 [01:13<00:53, 10.25it/s][A
+Iteration:  53%|█████▎    | 630/1179 [01:13<00:53, 10.25it/s][A
+Iteration:  54%|█████▎    | 632/1179 [01:13<00:53, 10.24it/s][A
+Iteration:  54%|█████▍    | 634/1179 [01:14<00:53, 10.24it/s][A
+Iteration:  54%|█████▍    | 636/1179 [01:14<00:53, 10.24it/s][A
+Iteration:  54%|█████▍    | 638/1179 [01:14<00:52, 10.24it/s][A
+Iteration:  54%|█████▍    | 640/1179 [01:14<00:52, 10.23it/s][A
+Iteration:  54%|█████▍    | 642/1179 [01:14<00:52, 10.22it/s][A
+Iteration:  55%|█████▍    | 644/1179 [01:14<00:52, 10.21it/s][A
+Iteration:  55%|█████▍    | 646/1179 [01:15<00:52, 10.23it/s][A
+Iteration:  55%|█████▍    | 648/1179 [01:15<00:51, 10.23it/s][A
+Iteration:  55%|█████▌    | 650/1179 [01:15<00:51, 10.24it/s][A
+Iteration:  55%|█████▌    | 652/1179 [01:15<00:51, 10.25it/s][A
+Iteration:  55%|█████▌    | 654/1179 [01:15<00:51, 10.25it/s][A
+Iteration:  56%|█████▌    | 656/1179 [01:16<00:51, 10.24it/s][A
+Iteration:  56%|█████▌    | 658/1179 [01:16<00:50, 10.24it/s][A
+Iteration:  56%|█████▌    | 660/1179 [01:16<00:50, 10.23it/s][A
+Iteration:  56%|█████▌    | 662/1179 [01:16<00:50, 10.22it/s][A
+Iteration:  56%|█████▋    | 664/1179 [01:16<00:50, 10.21it/s][A
+Iteration:  56%|█████▋    | 666/1179 [01:17<00:50, 10.21it/s][A
+Iteration:  57%|█████▋    | 668/1179 [01:17<00:50, 10.20it/s][A
+Iteration:  57%|█████▋    | 670/1179 [01:17<00:49, 10.20it/s][A
+Iteration:  57%|█████▋    | 672/1179 [01:17<00:49, 10.21it/s][A
+Iteration:  57%|█████▋    | 674/1179 [01:17<00:49, 10.20it/s][A
+Iteration:  57%|█████▋    | 676/1179 [01:18<00:49, 10.19it/s][A
+Iteration:  58%|█████▊    | 678/1179 [01:18<00:49, 10.19it/s][A
+Iteration:  58%|█████▊    | 680/1179 [01:18<00:49, 10.18it/s][A
+Iteration:  58%|█████▊    | 682/1179 [01:18<00:48, 10.18it/s][A
+Iteration:  58%|█████▊    | 684/1179 [01:18<00:48, 10.19it/s][A
+Iteration:  58%|█████▊    | 686/1179 [01:19<00:48, 10.18it/s][A
+Iteration:  58%|█████▊    | 688/1179 [01:19<00:48, 10.20it/s][A
+Iteration:  59%|█████▊    | 690/1179 [01:19<00:47, 10.21it/s][A
+Iteration:  59%|█████▊    | 692/1179 [01:19<00:47, 10.22it/s][A
+Iteration:  59%|█████▉    | 694/1179 [01:19<00:47, 10.22it/s][A
+Iteration:  59%|█████▉    | 696/1179 [01:20<00:47, 10.23it/s][A
+Iteration:  59%|█████▉    | 698/1179 [01:20<00:47, 10.23it/s][A
+Iteration:  59%|█████▉    | 700/1179 [01:20<00:46, 10.23it/s][A
+Iteration:  60%|█████▉    | 702/1179 [01:20<00:46, 10.23it/s][A
+Iteration:  60%|█████▉    | 704/1179 [01:20<00:46, 10.23it/s][A
+Iteration:  60%|█████▉    | 706/1179 [01:21<00:46, 10.22it/s][A
+Iteration:  60%|██████    | 708/1179 [01:21<00:46, 10.23it/s][A
+Iteration:  60%|██████    | 710/1179 [01:21<00:45, 10.23it/s][A
+Iteration:  60%|██████    | 712/1179 [01:21<00:45, 10.22it/s][A
+Iteration:  61%|██████    | 714/1179 [01:21<00:45, 10.20it/s][A
+Iteration:  61%|██████    | 716/1179 [01:22<00:45, 10.21it/s][A
+Iteration:  61%|██████    | 718/1179 [01:22<00:45, 10.22it/s][A
+Iteration:  61%|██████    | 720/1179 [01:22<00:44, 10.22it/s][A
+Iteration:  61%|██████    | 722/1179 [01:22<00:44, 10.22it/s][A
+Iteration:  61%|██████▏   | 724/1179 [01:22<00:44, 10.23it/s][A
+Iteration:  62%|██████▏   | 726/1179 [01:23<00:44, 10.22it/s][A
+Iteration:  62%|██████▏   | 728/1179 [01:23<00:44, 10.22it/s][A
+Iteration:  62%|██████▏   | 730/1179 [01:23<00:43, 10.22it/s][A
+Iteration:  62%|██████▏   | 732/1179 [01:23<00:43, 10.22it/s][A
+Iteration:  62%|██████▏   | 734/1179 [01:23<00:43, 10.21it/s][A
+Iteration:  62%|██████▏   | 736/1179 [01:23<00:43, 10.21it/s][A
+Iteration:  63%|██████▎   | 738/1179 [01:24<00:43, 10.20it/s][A
+Iteration:  63%|██████▎   | 740/1179 [01:24<00:43, 10.19it/s][A
+Iteration:  63%|██████▎   | 742/1179 [01:24<00:42, 10.20it/s][A
+Iteration:  63%|██████▎   | 744/1179 [01:24<00:42, 10.17it/s][A
+Iteration:  63%|██████▎   | 746/1179 [01:24<00:44,  9.81it/s][A
+Iteration:  63%|██████▎   | 747/1179 [01:25<00:45,  9.54it/s][A
+Iteration:  63%|██████▎   | 748/1179 [01:25<00:46,  9.36it/s][A
+Iteration:  64%|██████▎   | 749/1179 [01:25<00:46,  9.29it/s][A
+Iteration:  64%|██████▎   | 751/1179 [01:25<00:44,  9.53it/s][A
+Iteration:  64%|██████▍   | 753/1179 [01:25<00:43,  9.72it/s][A
+Iteration:  64%|██████▍   | 755/1179 [01:25<00:43,  9.86it/s][A
+Iteration:  64%|██████▍   | 757/1179 [01:26<00:42,  9.96it/s][A
+Iteration:  64%|██████▍   | 759/1179 [01:26<00:41, 10.05it/s][A
+Iteration:  65%|██████▍   | 761/1179 [01:26<00:41, 10.10it/s][A
+Iteration:  65%|██████▍   | 763/1179 [01:26<00:41, 10.13it/s][A
+Iteration:  65%|██████▍   | 765/1179 [01:26<00:40, 10.16it/s][A
+Iteration:  65%|██████▌   | 767/1179 [01:27<00:40, 10.17it/s][A
+Iteration:  65%|██████▌   | 769/1179 [01:27<00:40, 10.19it/s][A
+Iteration:  65%|██████▌   | 771/1179 [01:27<00:40, 10.20it/s][A
+Iteration:  66%|██████▌   | 773/1179 [01:27<00:39, 10.20it/s][A
+Iteration:  66%|██████▌   | 775/1179 [01:27<00:39, 10.20it/s][A
+Iteration:  66%|██████▌   | 777/1179 [01:28<00:39, 10.21it/s][A
+Iteration:  66%|██████▌   | 779/1179 [01:28<00:39, 10.21it/s][A
+Iteration:  66%|██████▌   | 781/1179 [01:28<00:38, 10.22it/s][A
+Iteration:  66%|██████▋   | 783/1179 [01:28<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 785/1179 [01:28<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 787/1179 [01:29<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 789/1179 [01:29<00:38, 10.20it/s][A
+Iteration:  67%|██████▋   | 791/1179 [01:29<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 793/1179 [01:29<00:37, 10.21it/s][A
+Iteration:  67%|██████▋   | 795/1179 [01:29<00:37, 10.20it/s][A
+Iteration:  68%|██████▊   | 797/1179 [01:30<00:37, 10.20it/s][A
+Iteration:  68%|██████▊   | 799/1179 [01:30<00:37, 10.20it/s][A
+Iteration:  68%|██████▊   | 801/1179 [01:30<00:37, 10.20it/s][A
+Iteration:  68%|██████▊   | 803/1179 [01:30<00:36, 10.20it/s][A
+Iteration:  68%|██████▊   | 805/1179 [01:30<00:36, 10.21it/s][A
+Iteration:  68%|██████▊   | 807/1179 [01:31<00:36, 10.22it/s][A
+Iteration:  69%|██████▊   | 809/1179 [01:31<00:36, 10.22it/s][A
+Iteration:  69%|██████▉   | 811/1179 [01:31<00:36, 10.22it/s][A
+Iteration:  69%|██████▉   | 813/1179 [01:31<00:35, 10.21it/s][A
+Iteration:  69%|██████▉   | 815/1179 [01:31<00:35, 10.22it/s][A
+Iteration:  69%|██████▉   | 817/1179 [01:31<00:35, 10.21it/s][A
+Iteration:  69%|██████▉   | 819/1179 [01:32<00:35, 10.22it/s][A
+Iteration:  70%|██████▉   | 821/1179 [01:32<00:35, 10.21it/s][A
+Iteration:  70%|██████▉   | 823/1179 [01:32<00:34, 10.19it/s][A
+Iteration:  70%|██████▉   | 825/1179 [01:32<00:34, 10.20it/s][A
+Iteration:  70%|███████   | 827/1179 [01:32<00:34, 10.20it/s][A
+Iteration:  70%|███████   | 829/1179 [01:33<00:34, 10.20it/s][A
+Iteration:  70%|███████   | 831/1179 [01:33<00:34, 10.19it/s][A
+Iteration:  71%|███████   | 833/1179 [01:33<00:33, 10.19it/s][A
+Iteration:  71%|███████   | 835/1179 [01:33<00:33, 10.19it/s][A
+Iteration:  71%|███████   | 837/1179 [01:33<00:33, 10.20it/s][A
+Iteration:  71%|███████   | 839/1179 [01:34<00:33, 10.21it/s][A
+Iteration:  71%|███████▏  | 841/1179 [01:34<00:33, 10.22it/s][A
+Iteration:  72%|███████▏  | 843/1179 [01:34<00:32, 10.22it/s][A
+Iteration:  72%|███████▏  | 845/1179 [01:34<00:32, 10.22it/s][A
+Iteration:  72%|███████▏  | 847/1179 [01:34<00:32, 10.22it/s][A
+Iteration:  72%|███████▏  | 849/1179 [01:35<00:32, 10.23it/s][A
+Iteration:  72%|███████▏  | 851/1179 [01:35<00:32, 10.23it/s][A
+Iteration:  72%|███████▏  | 853/1179 [01:35<00:31, 10.23it/s][A
+Iteration:  73%|███████▎  | 855/1179 [01:35<00:31, 10.22it/s][A
+Iteration:  73%|███████▎  | 857/1179 [01:35<00:31, 10.21it/s][A
+Iteration:  73%|███████▎  | 859/1179 [01:36<00:31, 10.16it/s][A
+Iteration:  73%|███████▎  | 861/1179 [01:36<00:31, 10.17it/s][A
+Iteration:  73%|███████▎  | 863/1179 [01:36<00:31, 10.15it/s][A
+Iteration:  73%|███████▎  | 865/1179 [01:36<00:30, 10.14it/s][A
+Iteration:  74%|███████▎  | 867/1179 [01:36<00:30, 10.15it/s][A
+Iteration:  74%|███████▎  | 869/1179 [01:37<00:30, 10.16it/s][A
+Iteration:  74%|███████▍  | 871/1179 [01:37<00:30, 10.16it/s][A
+Iteration:  74%|███████▍  | 873/1179 [01:37<00:30, 10.17it/s][A
+Iteration:  74%|███████▍  | 875/1179 [01:37<00:29, 10.18it/s][A
+Iteration:  74%|███████▍  | 877/1179 [01:37<00:29, 10.19it/s][A
+Iteration:  75%|███████▍  | 879/1179 [01:38<00:29, 10.19it/s][A
+Iteration:  75%|███████▍  | 881/1179 [01:38<00:29, 10.20it/s][A
+Iteration:  75%|███████▍  | 883/1179 [01:38<00:29, 10.19it/s][A
+Iteration:  75%|███████▌  | 885/1179 [01:38<00:28, 10.19it/s][A
+Iteration:  75%|███████▌  | 887/1179 [01:38<00:28, 10.19it/s][A
+Iteration:  75%|███████▌  | 889/1179 [01:39<00:28, 10.20it/s][A
+Iteration:  76%|███████▌  | 891/1179 [01:39<00:28, 10.19it/s][A
+Iteration:  76%|███████▌  | 893/1179 [01:39<00:28, 10.19it/s][A
+Iteration:  76%|███████▌  | 895/1179 [01:39<00:27, 10.18it/s][A
+Iteration:  76%|███████▌  | 897/1179 [01:39<00:27, 10.17it/s][A
+Iteration:  76%|███████▋  | 899/1179 [01:40<00:27, 10.18it/s][A
+Iteration:  76%|███████▋  | 901/1179 [01:40<00:27, 10.18it/s][A
+Iteration:  77%|███████▋  | 903/1179 [01:40<00:27, 10.18it/s][A
+Iteration:  77%|███████▋  | 905/1179 [01:40<00:26, 10.19it/s][A
+Iteration:  77%|███████▋  | 907/1179 [01:40<00:26, 10.20it/s][A
+Iteration:  77%|███████▋  | 909/1179 [01:41<00:26, 10.20it/s][A
+Iteration:  77%|███████▋  | 911/1179 [01:41<00:26, 10.20it/s][A
+Iteration:  77%|███████▋  | 913/1179 [01:41<00:26, 10.21it/s][A
+Iteration:  78%|███████▊  | 915/1179 [01:41<00:25, 10.21it/s][A
+Iteration:  78%|███████▊  | 917/1179 [01:41<00:25, 10.21it/s][A
+Iteration:  78%|███████▊  | 919/1179 [01:41<00:25, 10.21it/s][A
+Iteration:  78%|███████▊  | 921/1179 [01:42<00:25, 10.20it/s][A
+Iteration:  78%|███████▊  | 923/1179 [01:42<00:25, 10.20it/s][A
+Iteration:  78%|███████▊  | 925/1179 [01:42<00:24, 10.19it/s][A
+Iteration:  79%|███████▊  | 927/1179 [01:42<00:24, 10.20it/s][A
+Iteration:  79%|███████▉  | 929/1179 [01:42<00:24, 10.20it/s][A
+Iteration:  79%|███████▉  | 931/1179 [01:43<00:24, 10.21it/s][A
+Iteration:  79%|███████▉  | 933/1179 [01:43<00:24, 10.21it/s][A
+Iteration:  79%|███████▉  | 935/1179 [01:43<00:23, 10.21it/s][A
+Iteration:  79%|███████▉  | 937/1179 [01:43<00:23, 10.21it/s][A
+Iteration:  80%|███████▉  | 939/1179 [01:43<00:23, 10.21it/s][A
+Iteration:  80%|███████▉  | 941/1179 [01:44<00:23, 10.20it/s][A
+Iteration:  80%|███████▉  | 943/1179 [01:44<00:23, 10.18it/s][A
+Iteration:  80%|████████  | 945/1179 [01:44<00:22, 10.18it/s][A
+Iteration:  80%|████████  | 947/1179 [01:44<00:22, 10.17it/s][A
+Iteration:  80%|████████  | 949/1179 [01:44<00:22, 10.16it/s][A
+Iteration:  81%|████████  | 951/1179 [01:45<00:22, 10.15it/s][A
+Iteration:  81%|████████  | 953/1179 [01:45<00:22, 10.15it/s][A
+Iteration:  81%|████████  | 955/1179 [01:45<00:22, 10.15it/s][A
+Iteration:  81%|████████  | 957/1179 [01:45<00:21, 10.16it/s][A
+Iteration:  81%|████████▏ | 959/1179 [01:45<00:21, 10.16it/s][A
+Iteration:  82%|████████▏ | 961/1179 [01:46<00:21, 10.17it/s][A
+Iteration:  82%|████████▏ | 963/1179 [01:46<00:21, 10.18it/s][A
+Iteration:  82%|████████▏ | 965/1179 [01:46<00:21, 10.19it/s][A
+Iteration:  82%|████████▏ | 967/1179 [01:46<00:20, 10.19it/s][A
+Iteration:  82%|████████▏ | 969/1179 [01:46<00:20, 10.18it/s][A
+Iteration:  82%|████████▏ | 971/1179 [01:47<00:20, 10.18it/s][A
+Iteration:  83%|████████▎ | 973/1179 [01:47<00:20, 10.19it/s][A
+Iteration:  83%|████████▎ | 975/1179 [01:47<00:20, 10.18it/s][A
+Iteration:  83%|████████▎ | 977/1179 [01:47<00:19, 10.19it/s][A
+Iteration:  83%|████████▎ | 979/1179 [01:47<00:19, 10.17it/s][A
+Iteration:  83%|████████▎ | 981/1179 [01:48<00:19, 10.18it/s][A
+Iteration:  83%|████████▎ | 983/1179 [01:48<00:19, 10.18it/s][A
+Iteration:  84%|████████▎ | 985/1179 [01:48<00:19, 10.18it/s][A
+Iteration:  84%|████████▎ | 987/1179 [01:48<00:18, 10.18it/s][A
+Iteration:  84%|████████▍ | 989/1179 [01:48<00:18, 10.18it/s][A
+Iteration:  84%|████████▍ | 991/1179 [01:49<00:18, 10.18it/s][A
+Iteration:  84%|████████▍ | 993/1179 [01:49<00:18, 10.20it/s][A
+Iteration:  84%|████████▍ | 995/1179 [01:49<00:18, 10.20it/s][A
+Iteration:  85%|████████▍ | 997/1179 [01:49<00:17, 10.20it/s][A
+Iteration:  85%|████████▍ | 999/1179 [01:49<00:17, 10.20it/s][A03/12/2020 23:23:37 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1000/config.json
+03/12/2020 23:23:38 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1000/pytorch_model.bin
+03/12/2020 23:23:38 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1000
+03/12/2020 23:23:41 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1000
+
+Iteration:  85%|████████▍ | 1001/1179 [01:53<02:00,  1.47it/s][A
+Iteration:  85%|████████▍ | 1002/1179 [01:54<01:29,  1.97it/s][A
+Iteration:  85%|████████▌ | 1003/1179 [01:54<01:07,  2.59it/s][A
+Iteration:  85%|████████▌ | 1005/1179 [01:54<00:52,  3.34it/s][A
+Iteration:  85%|████████▌ | 1007/1179 [01:54<00:41,  4.18it/s][A
+Iteration:  86%|████████▌ | 1009/1179 [01:54<00:33,  5.08it/s][A
+Iteration:  86%|████████▌ | 1011/1179 [01:54<00:28,  5.98it/s][A
+Iteration:  86%|████████▌ | 1013/1179 [01:55<00:24,  6.83it/s][A
+Iteration:  86%|████████▌ | 1015/1179 [01:55<00:21,  7.58it/s][A
+Iteration:  86%|████████▋ | 1017/1179 [01:55<00:19,  8.21it/s][A
+Iteration:  86%|████████▋ | 1019/1179 [01:55<00:18,  8.71it/s][A
+Iteration:  87%|████████▋ | 1021/1179 [01:55<00:17,  9.10it/s][A
+Iteration:  87%|████████▋ | 1023/1179 [01:56<00:16,  9.39it/s][A
+Iteration:  87%|████████▋ | 1025/1179 [01:56<00:16,  9.61it/s][A
+Iteration:  87%|████████▋ | 1027/1179 [01:56<00:15,  9.76it/s][A
+Iteration:  87%|████████▋ | 1029/1179 [01:56<00:15,  9.88it/s][A
+Iteration:  87%|████████▋ | 1031/1179 [01:56<00:14,  9.94it/s][A
+Iteration:  88%|████████▊ | 1033/1179 [01:57<00:14, 10.00it/s][A
+Iteration:  88%|████████▊ | 1035/1179 [01:57<00:14, 10.05it/s][A
+Iteration:  88%|████████▊ | 1037/1179 [01:57<00:14, 10.09it/s][A
+Iteration:  88%|████████▊ | 1039/1179 [01:57<00:13, 10.12it/s][A
+Iteration:  88%|████████▊ | 1041/1179 [01:57<00:13, 10.11it/s][A
+Iteration:  88%|████████▊ | 1043/1179 [01:58<00:13, 10.12it/s][A
+Iteration:  89%|████████▊ | 1045/1179 [01:58<00:13, 10.14it/s][A
+Iteration:  89%|████████▉ | 1047/1179 [01:58<00:13, 10.15it/s][A
+Iteration:  89%|████████▉ | 1049/1179 [01:58<00:12, 10.16it/s][A
+Iteration:  89%|████████▉ | 1051/1179 [01:58<00:12, 10.18it/s][A
+Iteration:  89%|████████▉ | 1053/1179 [01:59<00:12, 10.19it/s][A
+Iteration:  89%|████████▉ | 1055/1179 [01:59<00:12, 10.20it/s][A
+Iteration:  90%|████████▉ | 1057/1179 [01:59<00:11, 10.20it/s][A
+Iteration:  90%|████████▉ | 1059/1179 [01:59<00:11, 10.21it/s][A
+Iteration:  90%|████████▉ | 1061/1179 [01:59<00:11, 10.21it/s][A
+Iteration:  90%|█████████ | 1063/1179 [02:00<00:11, 10.20it/s][A
+Iteration:  90%|█████████ | 1065/1179 [02:00<00:11, 10.19it/s][A
+Iteration:  91%|█████████ | 1067/1179 [02:00<00:10, 10.19it/s][A
+Iteration:  91%|█████████ | 1069/1179 [02:00<00:10, 10.18it/s][A
+Iteration:  91%|█████████ | 1071/1179 [02:00<00:10, 10.18it/s][A
+Iteration:  91%|█████████ | 1073/1179 [02:01<00:10, 10.17it/s][A
+Iteration:  91%|█████████ | 1075/1179 [02:01<00:10, 10.17it/s][A
+Iteration:  91%|█████████▏| 1077/1179 [02:01<00:10, 10.16it/s][A
+Iteration:  92%|█████████▏| 1079/1179 [02:01<00:09, 10.15it/s][A
+Iteration:  92%|█████████▏| 1081/1179 [02:01<00:09, 10.15it/s][A
+Iteration:  92%|█████████▏| 1083/1179 [02:01<00:09, 10.16it/s][A
+Iteration:  92%|█████████▏| 1085/1179 [02:02<00:09, 10.17it/s][A
+Iteration:  92%|█████████▏| 1087/1179 [02:02<00:09, 10.17it/s][A
+Iteration:  92%|█████████▏| 1089/1179 [02:02<00:08, 10.18it/s][A
+Iteration:  93%|█████████▎| 1091/1179 [02:02<00:08, 10.18it/s][A
+Iteration:  93%|█████████▎| 1093/1179 [02:02<00:08, 10.19it/s][A
+Iteration:  93%|█████████▎| 1095/1179 [02:03<00:08, 10.19it/s][A
+Iteration:  93%|█████████▎| 1097/1179 [02:03<00:08, 10.19it/s][A
+Iteration:  93%|█████████▎| 1099/1179 [02:03<00:07, 10.18it/s][A
+Iteration:  93%|█████████▎| 1101/1179 [02:03<00:07, 10.17it/s][A
+Iteration:  94%|█████████▎| 1103/1179 [02:03<00:07, 10.17it/s][A
+Iteration:  94%|█████████▎| 1105/1179 [02:04<00:07, 10.16it/s][A
+Iteration:  94%|█████████▍| 1107/1179 [02:04<00:07, 10.16it/s][A
+Iteration:  94%|█████████▍| 1109/1179 [02:04<00:06, 10.17it/s][A
+Iteration:  94%|█████████▍| 1111/1179 [02:04<00:06, 10.17it/s][A
+Iteration:  94%|█████████▍| 1113/1179 [02:04<00:06, 10.17it/s][A
+Iteration:  95%|█████████▍| 1115/1179 [02:05<00:06, 10.18it/s][A
+Iteration:  95%|█████████▍| 1117/1179 [02:05<00:06, 10.19it/s][A
+Iteration:  95%|█████████▍| 1119/1179 [02:05<00:05, 10.20it/s][A
+Iteration:  95%|█████████▌| 1121/1179 [02:05<00:05, 10.20it/s][A
+Iteration:  95%|█████████▌| 1123/1179 [02:05<00:05, 10.21it/s][A
+Iteration:  95%|█████████▌| 1125/1179 [02:06<00:05, 10.20it/s][A
+Iteration:  96%|█████████▌| 1127/1179 [02:06<00:05, 10.20it/s][A
+Iteration:  96%|█████████▌| 1129/1179 [02:06<00:04, 10.17it/s][A
+Iteration:  96%|█████████▌| 1131/1179 [02:06<00:04, 10.16it/s][A
+Iteration:  96%|█████████▌| 1133/1179 [02:06<00:04, 10.16it/s][A
+Iteration:  96%|█████████▋| 1135/1179 [02:07<00:04, 10.15it/s][A
+Iteration:  96%|█████████▋| 1137/1179 [02:07<00:04, 10.15it/s][A
+Iteration:  97%|█████████▋| 1139/1179 [02:07<00:03, 10.15it/s][A
+Iteration:  97%|█████████▋| 1141/1179 [02:07<00:03, 10.14it/s][A
+Iteration:  97%|█████████▋| 1143/1179 [02:07<00:03, 10.14it/s][A
+Iteration:  97%|█████████▋| 1145/1179 [02:08<00:03, 10.15it/s][A
+Iteration:  97%|█████████▋| 1147/1179 [02:08<00:03, 10.15it/s][A
+Iteration:  97%|█████████▋| 1149/1179 [02:08<00:02, 10.15it/s][A
+Iteration:  98%|█████████▊| 1151/1179 [02:08<00:02, 10.17it/s][A
+Iteration:  98%|█████████▊| 1153/1179 [02:08<00:02, 10.18it/s][A
+Iteration:  98%|█████████▊| 1155/1179 [02:09<00:02, 10.19it/s][A
+Iteration:  98%|█████████▊| 1157/1179 [02:09<00:02, 10.20it/s][A
+Iteration:  98%|█████████▊| 1159/1179 [02:09<00:01, 10.20it/s][A
+Iteration:  98%|█████████▊| 1161/1179 [02:09<00:01, 10.19it/s][A
+Iteration:  99%|█████████▊| 1163/1179 [02:09<00:01, 10.18it/s][A
+Iteration:  99%|█████████▉| 1165/1179 [02:10<00:01, 10.17it/s][A
+Iteration:  99%|█████████▉| 1167/1179 [02:10<00:01, 10.17it/s][A
+Iteration:  99%|█████████▉| 1169/1179 [02:10<00:00, 10.17it/s][A
+Iteration:  99%|█████████▉| 1171/1179 [02:10<00:00, 10.16it/s][A
+Iteration:  99%|█████████▉| 1173/1179 [02:10<00:00, 10.16it/s][A
+Iteration: 100%|█████████▉| 1175/1179 [02:11<00:00, 10.17it/s][A
+Iteration: 100%|█████████▉| 1177/1179 [02:11<00:00, 10.17it/s][A
+Iteration: 100%|██████████| 1179/1179 [02:11<00:00,  8.65it/s][AIteration: 100%|██████████| 1179/1179 [02:11<00:00,  8.96it/s]
+Epoch:  33%|███▎      | 1/3 [02:11<04:23, 131.55s/it]
+Iteration:   0%|          | 0/1179 [00:00<?, ?it/s][A
+Iteration:   0%|          | 2/1179 [00:00<01:55, 10.21it/s][A
+Iteration:   0%|          | 4/1179 [00:00<01:55, 10.21it/s][A
+Iteration:   1%|          | 6/1179 [00:00<01:54, 10.21it/s][A
+Iteration:   1%|          | 8/1179 [00:00<01:54, 10.21it/s][A
+Iteration:   1%|          | 10/1179 [00:00<01:54, 10.18it/s][A
+Iteration:   1%|          | 11/1179 [00:01<01:55, 10.09it/s][A
+Iteration:   1%|          | 13/1179 [00:01<01:55, 10.12it/s][A
+Iteration:   1%|▏         | 15/1179 [00:01<01:54, 10.13it/s][A
+Iteration:   1%|▏         | 17/1179 [00:01<01:54, 10.14it/s][A
+Iteration:   2%|▏         | 19/1179 [00:01<01:54, 10.14it/s][A
+Iteration:   2%|▏         | 21/1179 [00:02<01:54, 10.14it/s][A
+Iteration:   2%|▏         | 23/1179 [00:02<01:54, 10.14it/s][A
+Iteration:   2%|▏         | 25/1179 [00:02<01:53, 10.15it/s][A
+Iteration:   2%|▏         | 27/1179 [00:02<01:53, 10.16it/s][A
+Iteration:   2%|▏         | 29/1179 [00:02<01:53, 10.17it/s][A
+Iteration:   3%|▎         | 31/1179 [00:03<01:52, 10.18it/s][A
+Iteration:   3%|▎         | 33/1179 [00:03<01:52, 10.19it/s][A
+Iteration:   3%|▎         | 35/1179 [00:03<01:52, 10.20it/s][A
+Iteration:   3%|▎         | 37/1179 [00:03<01:51, 10.21it/s][A
+Iteration:   3%|▎         | 39/1179 [00:03<01:51, 10.20it/s][A
+Iteration:   3%|▎         | 41/1179 [00:04<01:51, 10.21it/s][A
+Iteration:   4%|▎         | 43/1179 [00:04<01:51, 10.21it/s][A
+Iteration:   4%|▍         | 45/1179 [00:04<01:51, 10.21it/s][A
+Iteration:   4%|▍         | 47/1179 [00:04<01:50, 10.20it/s][A
+Iteration:   4%|▍         | 49/1179 [00:04<01:50, 10.19it/s][A
+Iteration:   4%|▍         | 51/1179 [00:05<01:50, 10.18it/s][A
+Iteration:   4%|▍         | 53/1179 [00:05<01:50, 10.18it/s][A
+Iteration:   5%|▍         | 55/1179 [00:05<01:50, 10.18it/s][A
+Iteration:   5%|▍         | 57/1179 [00:05<01:50, 10.18it/s][A
+Iteration:   5%|▌         | 59/1179 [00:05<01:50, 10.18it/s][A
+Iteration:   5%|▌         | 61/1179 [00:05<01:49, 10.18it/s][A
+Iteration:   5%|▌         | 63/1179 [00:06<01:49, 10.19it/s][A
+Iteration:   6%|▌         | 65/1179 [00:06<01:49, 10.19it/s][A
+Iteration:   6%|▌         | 67/1179 [00:06<01:49, 10.20it/s][A
+Iteration:   6%|▌         | 69/1179 [00:06<01:48, 10.19it/s][A
+Iteration:   6%|▌         | 71/1179 [00:06<01:48, 10.19it/s][A
+Iteration:   6%|▌         | 73/1179 [00:07<01:48, 10.19it/s][A
+Iteration:   6%|▋         | 75/1179 [00:07<01:48, 10.19it/s][A
+Iteration:   7%|▋         | 77/1179 [00:07<01:48, 10.19it/s][A
+Iteration:   7%|▋         | 79/1179 [00:07<01:47, 10.19it/s][A
+Iteration:   7%|▋         | 81/1179 [00:07<01:47, 10.18it/s][A
+Iteration:   7%|▋         | 83/1179 [00:08<01:47, 10.18it/s][A
+Iteration:   7%|▋         | 85/1179 [00:08<01:47, 10.15it/s][A
+Iteration:   7%|▋         | 87/1179 [00:08<01:47, 10.17it/s][A
+Iteration:   8%|▊         | 89/1179 [00:08<01:47, 10.17it/s][A
+Iteration:   8%|▊         | 91/1179 [00:08<01:46, 10.17it/s][A
+Iteration:   8%|▊         | 93/1179 [00:09<01:46, 10.18it/s][A
+Iteration:   8%|▊         | 95/1179 [00:09<01:46, 10.18it/s][A
+Iteration:   8%|▊         | 97/1179 [00:09<01:46, 10.18it/s][A
+Iteration:   8%|▊         | 99/1179 [00:09<01:46, 10.17it/s][A
+Iteration:   9%|▊         | 101/1179 [00:09<01:46, 10.17it/s][A
+Iteration:   9%|▊         | 103/1179 [00:10<01:45, 10.17it/s][A
+Iteration:   9%|▉         | 105/1179 [00:10<01:45, 10.19it/s][A
+Iteration:   9%|▉         | 107/1179 [00:10<01:45, 10.19it/s][A
+Iteration:   9%|▉         | 109/1179 [00:10<01:44, 10.20it/s][A
+Iteration:   9%|▉         | 111/1179 [00:10<01:44, 10.18it/s][A
+Iteration:  10%|▉         | 113/1179 [00:11<01:44, 10.17it/s][A
+Iteration:  10%|▉         | 115/1179 [00:11<01:44, 10.16it/s][A
+Iteration:  10%|▉         | 117/1179 [00:11<01:44, 10.17it/s][A
+Iteration:  10%|█         | 119/1179 [00:11<01:44, 10.15it/s][A
+Iteration:  10%|█         | 121/1179 [00:11<01:44, 10.15it/s][A
+Iteration:  10%|█         | 123/1179 [00:12<01:43, 10.16it/s][A
+Iteration:  11%|█         | 125/1179 [00:12<01:43, 10.16it/s][A
+Iteration:  11%|█         | 127/1179 [00:12<01:43, 10.15it/s][A
+Iteration:  11%|█         | 129/1179 [00:12<01:43, 10.15it/s][A
+Iteration:  11%|█         | 131/1179 [00:12<01:43, 10.16it/s][A
+Iteration:  11%|█▏        | 133/1179 [00:13<01:49,  9.51it/s][A
+Iteration:  11%|█▏        | 135/1179 [00:13<01:47,  9.71it/s][A
+Iteration:  12%|█▏        | 137/1179 [00:13<01:45,  9.84it/s][A
+Iteration:  12%|█▏        | 139/1179 [00:13<01:44,  9.95it/s][A
+Iteration:  12%|█▏        | 141/1179 [00:13<01:43, 10.02it/s][A
+Iteration:  12%|█▏        | 143/1179 [00:14<01:43, 10.06it/s][A
+Iteration:  12%|█▏        | 145/1179 [00:14<01:42, 10.10it/s][A
+Iteration:  12%|█▏        | 147/1179 [00:14<01:41, 10.13it/s][A
+Iteration:  13%|█▎        | 149/1179 [00:14<01:41, 10.15it/s][A
+Iteration:  13%|█▎        | 151/1179 [00:14<01:41, 10.17it/s][A
+Iteration:  13%|█▎        | 153/1179 [00:15<01:40, 10.18it/s][A
+Iteration:  13%|█▎        | 155/1179 [00:15<01:40, 10.20it/s][A
+Iteration:  13%|█▎        | 157/1179 [00:15<01:40, 10.20it/s][A
+Iteration:  13%|█▎        | 159/1179 [00:15<01:39, 10.21it/s][A
+Iteration:  14%|█▎        | 161/1179 [00:15<01:39, 10.22it/s][A
+Iteration:  14%|█▍        | 163/1179 [00:16<01:39, 10.21it/s][A
+Iteration:  14%|█▍        | 165/1179 [00:16<01:39, 10.20it/s][A
+Iteration:  14%|█▍        | 167/1179 [00:16<01:39, 10.18it/s][A
+Iteration:  14%|█▍        | 169/1179 [00:16<01:39, 10.17it/s][A
+Iteration:  15%|█▍        | 171/1179 [00:16<01:39, 10.17it/s][A
+Iteration:  15%|█▍        | 173/1179 [00:17<01:39, 10.15it/s][A
+Iteration:  15%|█▍        | 175/1179 [00:17<01:38, 10.14it/s][A
+Iteration:  15%|█▌        | 177/1179 [00:17<01:38, 10.14it/s][A
+Iteration:  15%|█▌        | 179/1179 [00:17<01:38, 10.14it/s][A
+Iteration:  15%|█▌        | 181/1179 [00:17<01:38, 10.14it/s][A
+Iteration:  16%|█▌        | 183/1179 [00:18<01:38, 10.14it/s][A
+Iteration:  16%|█▌        | 185/1179 [00:18<01:37, 10.15it/s][A
+Iteration:  16%|█▌        | 187/1179 [00:18<01:37, 10.15it/s][A
+Iteration:  16%|█▌        | 189/1179 [00:18<01:37, 10.16it/s][A
+Iteration:  16%|█▌        | 191/1179 [00:18<01:37, 10.17it/s][A
+Iteration:  16%|█▋        | 193/1179 [00:19<01:36, 10.18it/s][A
+Iteration:  17%|█▋        | 195/1179 [00:19<01:36, 10.19it/s][A
+Iteration:  17%|█▋        | 197/1179 [00:19<01:36, 10.20it/s][A
+Iteration:  17%|█▋        | 199/1179 [00:19<01:36, 10.20it/s][A
+Iteration:  17%|█▋        | 201/1179 [00:19<01:35, 10.20it/s][A
+Iteration:  17%|█▋        | 203/1179 [00:19<01:35, 10.21it/s][A
+Iteration:  17%|█▋        | 205/1179 [00:20<01:35, 10.21it/s][A
+Iteration:  18%|█▊        | 207/1179 [00:20<01:35, 10.21it/s][A
+Iteration:  18%|█▊        | 209/1179 [00:20<01:35, 10.21it/s][A
+Iteration:  18%|█▊        | 211/1179 [00:20<01:34, 10.21it/s][A
+Iteration:  18%|█▊        | 213/1179 [00:20<01:34, 10.22it/s][A
+Iteration:  18%|█▊        | 215/1179 [00:21<01:34, 10.21it/s][A
+Iteration:  18%|█▊        | 217/1179 [00:21<01:34, 10.21it/s][A
+Iteration:  19%|█▊        | 219/1179 [00:21<01:34, 10.21it/s][A
+Iteration:  19%|█▊        | 221/1179 [00:21<01:33, 10.20it/s][A
+Iteration:  19%|█▉        | 223/1179 [00:21<01:33, 10.18it/s][A
+Iteration:  19%|█▉        | 225/1179 [00:22<01:33, 10.16it/s][A
+Iteration:  19%|█▉        | 227/1179 [00:22<01:33, 10.16it/s][A
+Iteration:  19%|█▉        | 229/1179 [00:22<01:33, 10.15it/s][A
+Iteration:  20%|█▉        | 231/1179 [00:22<01:33, 10.15it/s][A
+Iteration:  20%|█▉        | 233/1179 [00:22<01:33, 10.15it/s][A
+Iteration:  20%|█▉        | 235/1179 [00:23<01:32, 10.16it/s][A
+Iteration:  20%|██        | 237/1179 [00:23<01:32, 10.17it/s][A
+Iteration:  20%|██        | 239/1179 [00:23<01:32, 10.18it/s][A
+Iteration:  20%|██        | 241/1179 [00:23<01:31, 10.20it/s][A
+Iteration:  21%|██        | 243/1179 [00:23<01:31, 10.20it/s][A
+Iteration:  21%|██        | 245/1179 [00:24<01:31, 10.20it/s][A
+Iteration:  21%|██        | 247/1179 [00:24<01:31, 10.21it/s][A
+Iteration:  21%|██        | 249/1179 [00:24<01:31, 10.21it/s][A
+Iteration:  21%|██▏       | 251/1179 [00:24<01:30, 10.21it/s][A
+Iteration:  21%|██▏       | 253/1179 [00:24<01:30, 10.21it/s][A
+Iteration:  22%|██▏       | 255/1179 [00:25<01:30, 10.20it/s][A
+Iteration:  22%|██▏       | 257/1179 [00:25<01:30, 10.19it/s][A
+Iteration:  22%|██▏       | 259/1179 [00:25<01:30, 10.18it/s][A
+Iteration:  22%|██▏       | 261/1179 [00:25<01:30, 10.16it/s][A
+Iteration:  22%|██▏       | 263/1179 [00:25<01:30, 10.18it/s][A
+Iteration:  22%|██▏       | 265/1179 [00:26<01:29, 10.19it/s][A
+Iteration:  23%|██▎       | 267/1179 [00:26<01:29, 10.20it/s][A
+Iteration:  23%|██▎       | 269/1179 [00:26<01:29, 10.20it/s][A
+Iteration:  23%|██▎       | 271/1179 [00:26<01:29, 10.19it/s][A
+Iteration:  23%|██▎       | 273/1179 [00:26<01:28, 10.18it/s][A
+Iteration:  23%|██▎       | 275/1179 [00:27<01:29, 10.11it/s][A
+Iteration:  23%|██▎       | 277/1179 [00:27<01:29, 10.11it/s][A
+Iteration:  24%|██▎       | 279/1179 [00:27<01:28, 10.13it/s][A
+Iteration:  24%|██▍       | 281/1179 [00:27<01:28, 10.15it/s][A
+Iteration:  24%|██▍       | 283/1179 [00:27<01:28, 10.16it/s][A
+Iteration:  24%|██▍       | 285/1179 [00:28<01:27, 10.16it/s][A
+Iteration:  24%|██▍       | 287/1179 [00:28<01:27, 10.17it/s][A
+Iteration:  25%|██▍       | 289/1179 [00:28<01:27, 10.17it/s][A
+Iteration:  25%|██▍       | 291/1179 [00:28<01:27, 10.18it/s][A
+Iteration:  25%|██▍       | 293/1179 [00:28<01:27, 10.18it/s][A
+Iteration:  25%|██▌       | 295/1179 [00:29<01:26, 10.18it/s][A
+Iteration:  25%|██▌       | 297/1179 [00:29<01:26, 10.19it/s][A
+Iteration:  25%|██▌       | 299/1179 [00:29<01:26, 10.19it/s][A
+Iteration:  26%|██▌       | 301/1179 [00:29<01:26, 10.20it/s][A
+Iteration:  26%|██▌       | 303/1179 [00:29<01:25, 10.20it/s][A
+Iteration:  26%|██▌       | 305/1179 [00:30<01:25, 10.21it/s][A
+Iteration:  26%|██▌       | 307/1179 [00:30<01:25, 10.21it/s][A
+Iteration:  26%|██▌       | 309/1179 [00:30<01:25, 10.22it/s][A
+Iteration:  26%|██▋       | 311/1179 [00:30<01:24, 10.22it/s][A
+Iteration:  27%|██▋       | 313/1179 [00:30<01:24, 10.23it/s][A
+Iteration:  27%|██▋       | 315/1179 [00:30<01:24, 10.23it/s][A
+Iteration:  27%|██▋       | 317/1179 [00:31<01:24, 10.22it/s][A
+Iteration:  27%|██▋       | 319/1179 [00:31<01:24, 10.20it/s][A03/12/2020 23:24:30 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1500/config.json
+03/12/2020 23:24:31 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1500/pytorch_model.bin
+03/12/2020 23:24:32 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1500
+03/12/2020 23:24:34 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-1500
+
+Iteration:  27%|██▋       | 321/1179 [00:35<09:52,  1.45it/s][A
+Iteration:  27%|██▋       | 322/1179 [00:35<07:21,  1.94it/s][A
+Iteration:  27%|██▋       | 323/1179 [00:35<05:35,  2.55it/s][A
+Iteration:  27%|██▋       | 324/1179 [00:35<04:20,  3.28it/s][A
+Iteration:  28%|██▊       | 326/1179 [00:36<03:27,  4.12it/s][A
+Iteration:  28%|██▊       | 328/1179 [00:36<02:49,  5.01it/s][A
+Iteration:  28%|██▊       | 330/1179 [00:36<02:23,  5.92it/s][A
+Iteration:  28%|██▊       | 332/1179 [00:36<02:05,  6.77it/s][A
+Iteration:  28%|██▊       | 334/1179 [00:36<01:52,  7.54it/s][A
+Iteration:  28%|██▊       | 336/1179 [00:37<01:43,  8.18it/s][A
+Iteration:  29%|██▊       | 338/1179 [00:37<01:36,  8.69it/s][A
+Iteration:  29%|██▉       | 340/1179 [00:37<01:32,  9.10it/s][A
+Iteration:  29%|██▉       | 342/1179 [00:37<01:28,  9.40it/s][A
+Iteration:  29%|██▉       | 344/1179 [00:37<01:26,  9.60it/s][A
+Iteration:  29%|██▉       | 346/1179 [00:37<01:25,  9.77it/s][A
+Iteration:  30%|██▉       | 348/1179 [00:38<01:24,  9.89it/s][A
+Iteration:  30%|██▉       | 350/1179 [00:38<01:23,  9.96it/s][A
+Iteration:  30%|██▉       | 352/1179 [00:38<01:22, 10.00it/s][A
+Iteration:  30%|███       | 354/1179 [00:38<01:22, 10.06it/s][A
+Iteration:  30%|███       | 356/1179 [00:38<01:21, 10.10it/s][A
+Iteration:  30%|███       | 358/1179 [00:39<01:21, 10.12it/s][A
+Iteration:  31%|███       | 360/1179 [00:39<01:20, 10.13it/s][A
+Iteration:  31%|███       | 362/1179 [00:39<01:20, 10.15it/s][A
+Iteration:  31%|███       | 364/1179 [00:39<01:20, 10.16it/s][A
+Iteration:  31%|███       | 366/1179 [00:39<01:19, 10.18it/s][A
+Iteration:  31%|███       | 368/1179 [00:40<01:19, 10.20it/s][A
+Iteration:  31%|███▏      | 370/1179 [00:40<01:19, 10.21it/s][A
+Iteration:  32%|███▏      | 372/1179 [00:40<01:19, 10.21it/s][A
+Iteration:  32%|███▏      | 374/1179 [00:40<01:18, 10.22it/s][A
+Iteration:  32%|███▏      | 376/1179 [00:40<01:18, 10.22it/s][A
+Iteration:  32%|███▏      | 378/1179 [00:41<01:18, 10.21it/s][A
+Iteration:  32%|███▏      | 380/1179 [00:41<01:18, 10.21it/s][A
+Iteration:  32%|███▏      | 382/1179 [00:41<01:18, 10.21it/s][A
+Iteration:  33%|███▎      | 384/1179 [00:41<01:17, 10.21it/s][A
+Iteration:  33%|███▎      | 386/1179 [00:41<01:17, 10.22it/s][A
+Iteration:  33%|███▎      | 388/1179 [00:42<01:17, 10.22it/s][A
+Iteration:  33%|███▎      | 390/1179 [00:42<01:17, 10.22it/s][A
+Iteration:  33%|███▎      | 392/1179 [00:42<01:17, 10.22it/s][A
+Iteration:  33%|███▎      | 394/1179 [00:42<01:16, 10.21it/s][A
+Iteration:  34%|███▎      | 396/1179 [00:42<01:16, 10.22it/s][A
+Iteration:  34%|███▍      | 398/1179 [00:43<01:16, 10.22it/s][A
+Iteration:  34%|███▍      | 400/1179 [00:43<01:16, 10.23it/s][A
+Iteration:  34%|███▍      | 402/1179 [00:43<01:16, 10.22it/s][A
+Iteration:  34%|███▍      | 404/1179 [00:43<01:15, 10.22it/s][A
+Iteration:  34%|███▍      | 406/1179 [00:43<01:15, 10.21it/s][A
+Iteration:  35%|███▍      | 408/1179 [00:44<01:15, 10.20it/s][A
+Iteration:  35%|███▍      | 410/1179 [00:44<01:15, 10.21it/s][A
+Iteration:  35%|███▍      | 412/1179 [00:44<01:15, 10.20it/s][A
+Iteration:  35%|███▌      | 414/1179 [00:44<01:15, 10.20it/s][A
+Iteration:  35%|███▌      | 416/1179 [00:44<01:14, 10.20it/s][A
+Iteration:  35%|███▌      | 418/1179 [00:45<01:14, 10.20it/s][A
+Iteration:  36%|███▌      | 420/1179 [00:45<01:14, 10.20it/s][A
+Iteration:  36%|███▌      | 422/1179 [00:45<01:14, 10.20it/s][A
+Iteration:  36%|███▌      | 424/1179 [00:45<01:13, 10.21it/s][A
+Iteration:  36%|███▌      | 426/1179 [00:45<01:13, 10.22it/s][A
+Iteration:  36%|███▋      | 428/1179 [00:46<01:13, 10.22it/s][A
+Iteration:  36%|███▋      | 430/1179 [00:46<01:13, 10.21it/s][A
+Iteration:  37%|███▋      | 432/1179 [00:46<01:13, 10.20it/s][A
+Iteration:  37%|███▋      | 434/1179 [00:46<01:13, 10.20it/s][A
+Iteration:  37%|███▋      | 436/1179 [00:46<01:12, 10.21it/s][A
+Iteration:  37%|███▋      | 438/1179 [00:47<01:12, 10.21it/s][A
+Iteration:  37%|███▋      | 440/1179 [00:47<01:12, 10.21it/s][A
+Iteration:  37%|███▋      | 442/1179 [00:47<01:12, 10.22it/s][A
+Iteration:  38%|███▊      | 444/1179 [00:47<01:11, 10.22it/s][A
+Iteration:  38%|███▊      | 446/1179 [00:47<01:11, 10.23it/s][A
+Iteration:  38%|███▊      | 448/1179 [00:47<01:11, 10.23it/s][A
+Iteration:  38%|███▊      | 450/1179 [00:48<01:11, 10.22it/s][A
+Iteration:  38%|███▊      | 452/1179 [00:48<01:11, 10.23it/s][A
+Iteration:  39%|███▊      | 454/1179 [00:48<01:10, 10.23it/s][A
+Iteration:  39%|███▊      | 456/1179 [00:48<01:10, 10.23it/s][A
+Iteration:  39%|███▉      | 458/1179 [00:48<01:10, 10.23it/s][A
+Iteration:  39%|███▉      | 460/1179 [00:49<01:10, 10.24it/s][A
+Iteration:  39%|███▉      | 462/1179 [00:49<01:10, 10.24it/s][A
+Iteration:  39%|███▉      | 464/1179 [00:49<01:09, 10.23it/s][A
+Iteration:  40%|███▉      | 466/1179 [00:49<01:09, 10.21it/s][A
+Iteration:  40%|███▉      | 468/1179 [00:49<01:09, 10.20it/s][A
+Iteration:  40%|███▉      | 470/1179 [00:50<01:09, 10.19it/s][A
+Iteration:  40%|████      | 472/1179 [00:50<01:09, 10.20it/s][A
+Iteration:  40%|████      | 474/1179 [00:50<01:09, 10.20it/s][A
+Iteration:  40%|████      | 476/1179 [00:50<01:09, 10.17it/s][A
+Iteration:  41%|████      | 478/1179 [00:50<01:08, 10.19it/s][A
+Iteration:  41%|████      | 480/1179 [00:51<01:08, 10.21it/s][A
+Iteration:  41%|████      | 482/1179 [00:51<01:08, 10.22it/s][A
+Iteration:  41%|████      | 484/1179 [00:51<01:07, 10.23it/s][A
+Iteration:  41%|████      | 486/1179 [00:51<01:07, 10.22it/s][A
+Iteration:  41%|████▏     | 488/1179 [00:51<01:07, 10.23it/s][A
+Iteration:  42%|████▏     | 490/1179 [00:52<01:07, 10.24it/s][A
+Iteration:  42%|████▏     | 492/1179 [00:52<01:07, 10.25it/s][A
+Iteration:  42%|████▏     | 494/1179 [00:52<01:06, 10.24it/s][A
+Iteration:  42%|████▏     | 496/1179 [00:52<01:06, 10.25it/s][A
+Iteration:  42%|████▏     | 498/1179 [00:52<01:06, 10.25it/s][A
+Iteration:  42%|████▏     | 500/1179 [00:53<01:06, 10.23it/s][A
+Iteration:  43%|████▎     | 502/1179 [00:53<01:06, 10.23it/s][A
+Iteration:  43%|████▎     | 504/1179 [00:53<01:05, 10.23it/s][A
+Iteration:  43%|████▎     | 506/1179 [00:53<01:05, 10.23it/s][A
+Iteration:  43%|████▎     | 508/1179 [00:53<01:05, 10.23it/s][A
+Iteration:  43%|████▎     | 510/1179 [00:54<01:05, 10.22it/s][A
+Iteration:  43%|████▎     | 512/1179 [00:54<01:05, 10.22it/s][A
+Iteration:  44%|████▎     | 514/1179 [00:54<01:05, 10.23it/s][A
+Iteration:  44%|████▍     | 516/1179 [00:54<01:04, 10.24it/s][A
+Iteration:  44%|████▍     | 518/1179 [00:54<01:04, 10.24it/s][A
+Iteration:  44%|████▍     | 520/1179 [00:55<01:04, 10.25it/s][A
+Iteration:  44%|████▍     | 522/1179 [00:55<01:04, 10.24it/s][A
+Iteration:  44%|████▍     | 524/1179 [00:55<01:03, 10.24it/s][A
+Iteration:  45%|████▍     | 526/1179 [00:55<01:03, 10.22it/s][A
+Iteration:  45%|████▍     | 528/1179 [00:55<01:03, 10.22it/s][A
+Iteration:  45%|████▍     | 530/1179 [00:56<01:03, 10.21it/s][A
+Iteration:  45%|████▌     | 532/1179 [00:56<01:03, 10.20it/s][A
+Iteration:  45%|████▌     | 534/1179 [00:56<01:03, 10.19it/s][A
+Iteration:  45%|████▌     | 536/1179 [00:56<01:03, 10.19it/s][A
+Iteration:  46%|████▌     | 538/1179 [00:56<01:02, 10.20it/s][A
+Iteration:  46%|████▌     | 540/1179 [00:56<01:02, 10.21it/s][A
+Iteration:  46%|████▌     | 542/1179 [00:57<01:02, 10.21it/s][A
+Iteration:  46%|████▌     | 544/1179 [00:57<01:02, 10.21it/s][A
+Iteration:  46%|████▋     | 546/1179 [00:57<01:02, 10.20it/s][A
+Iteration:  46%|████▋     | 548/1179 [00:57<01:01, 10.20it/s][A
+Iteration:  47%|████▋     | 550/1179 [00:57<01:01, 10.20it/s][A
+Iteration:  47%|████▋     | 552/1179 [00:58<01:01, 10.21it/s][A
+Iteration:  47%|████▋     | 554/1179 [00:58<01:01, 10.22it/s][A
+Iteration:  47%|████▋     | 556/1179 [00:58<01:00, 10.22it/s][A
+Iteration:  47%|████▋     | 558/1179 [00:58<01:00, 10.24it/s][A
+Iteration:  47%|████▋     | 560/1179 [00:58<01:00, 10.23it/s][A
+Iteration:  48%|████▊     | 562/1179 [00:59<01:00, 10.23it/s][A
+Iteration:  48%|████▊     | 564/1179 [00:59<01:00, 10.23it/s][A
+Iteration:  48%|████▊     | 566/1179 [00:59<00:59, 10.24it/s][A
+Iteration:  48%|████▊     | 568/1179 [00:59<00:59, 10.24it/s][A
+Iteration:  48%|████▊     | 570/1179 [00:59<00:59, 10.23it/s][A
+Iteration:  49%|████▊     | 572/1179 [01:00<00:59, 10.23it/s][A
+Iteration:  49%|████▊     | 574/1179 [01:00<00:59, 10.23it/s][A
+Iteration:  49%|████▉     | 576/1179 [01:00<00:58, 10.23it/s][A
+Iteration:  49%|████▉     | 578/1179 [01:00<00:58, 10.23it/s][A
+Iteration:  49%|████▉     | 580/1179 [01:00<00:58, 10.23it/s][A
+Iteration:  49%|████▉     | 582/1179 [01:01<00:58, 10.22it/s][A
+Iteration:  50%|████▉     | 584/1179 [01:01<00:58, 10.21it/s][A
+Iteration:  50%|████▉     | 586/1179 [01:01<00:58, 10.21it/s][A
+Iteration:  50%|████▉     | 588/1179 [01:01<00:57, 10.21it/s][A
+Iteration:  50%|█████     | 590/1179 [01:01<00:57, 10.21it/s][A
+Iteration:  50%|█████     | 592/1179 [01:02<00:57, 10.21it/s][A
+Iteration:  50%|█████     | 594/1179 [01:02<00:57, 10.21it/s][A
+Iteration:  51%|█████     | 596/1179 [01:02<00:57, 10.21it/s][A
+Iteration:  51%|█████     | 598/1179 [01:02<00:56, 10.21it/s][A
+Iteration:  51%|█████     | 600/1179 [01:02<00:56, 10.21it/s][A
+Iteration:  51%|█████     | 602/1179 [01:03<00:56, 10.21it/s][A
+Iteration:  51%|█████     | 604/1179 [01:03<00:56, 10.21it/s][A
+Iteration:  51%|█████▏    | 606/1179 [01:03<00:56, 10.22it/s][A
+Iteration:  52%|█████▏    | 608/1179 [01:03<00:55, 10.22it/s][A
+Iteration:  52%|█████▏    | 610/1179 [01:03<00:55, 10.22it/s][A
+Iteration:  52%|█████▏    | 612/1179 [01:04<00:55, 10.22it/s][A
+Iteration:  52%|█████▏    | 614/1179 [01:04<00:55, 10.22it/s][A
+Iteration:  52%|█████▏    | 616/1179 [01:04<00:55, 10.22it/s][A
+Iteration:  52%|█████▏    | 618/1179 [01:04<00:54, 10.22it/s][A
+Iteration:  53%|█████▎    | 620/1179 [01:04<00:54, 10.23it/s][A
+Iteration:  53%|█████▎    | 622/1179 [01:05<00:54, 10.23it/s][A
+Iteration:  53%|█████▎    | 624/1179 [01:05<00:54, 10.22it/s][A
+Iteration:  53%|█████▎    | 626/1179 [01:05<00:54, 10.22it/s][A
+Iteration:  53%|█████▎    | 628/1179 [01:05<00:53, 10.22it/s][A
+Iteration:  53%|█████▎    | 630/1179 [01:05<00:53, 10.22it/s][A
+Iteration:  54%|█████▎    | 632/1179 [01:05<00:53, 10.22it/s][A
+Iteration:  54%|█████▍    | 634/1179 [01:06<00:53, 10.21it/s][A
+Iteration:  54%|█████▍    | 636/1179 [01:06<00:53, 10.21it/s][A
+Iteration:  54%|█████▍    | 638/1179 [01:06<00:52, 10.22it/s][A
+Iteration:  54%|█████▍    | 640/1179 [01:06<00:52, 10.20it/s][A
+Iteration:  54%|█████▍    | 642/1179 [01:06<00:52, 10.19it/s][A
+Iteration:  55%|█████▍    | 644/1179 [01:07<00:52, 10.19it/s][A
+Iteration:  55%|█████▍    | 646/1179 [01:07<00:52, 10.18it/s][A
+Iteration:  55%|█████▍    | 648/1179 [01:07<00:52, 10.16it/s][A
+Iteration:  55%|█████▌    | 650/1179 [01:07<00:52, 10.14it/s][A
+Iteration:  55%|█████▌    | 652/1179 [01:07<00:51, 10.15it/s][A
+Iteration:  55%|█████▌    | 654/1179 [01:08<00:51, 10.15it/s][A
+Iteration:  56%|█████▌    | 656/1179 [01:08<00:51, 10.16it/s][A
+Iteration:  56%|█████▌    | 658/1179 [01:08<00:51, 10.16it/s][A
+Iteration:  56%|█████▌    | 660/1179 [01:08<00:51, 10.14it/s][A
+Iteration:  56%|█████▌    | 662/1179 [01:08<00:50, 10.15it/s][A
+Iteration:  56%|█████▋    | 664/1179 [01:09<00:50, 10.16it/s][A
+Iteration:  56%|█████▋    | 666/1179 [01:09<00:50, 10.16it/s][A
+Iteration:  57%|█████▋    | 668/1179 [01:09<00:50, 10.17it/s][A
+Iteration:  57%|█████▋    | 670/1179 [01:09<00:49, 10.18it/s][A
+Iteration:  57%|█████▋    | 672/1179 [01:09<00:49, 10.18it/s][A
+Iteration:  57%|█████▋    | 674/1179 [01:10<00:49, 10.18it/s][A
+Iteration:  57%|█████▋    | 676/1179 [01:10<00:49, 10.19it/s][A
+Iteration:  58%|█████▊    | 678/1179 [01:10<00:49, 10.19it/s][A
+Iteration:  58%|█████▊    | 680/1179 [01:10<00:48, 10.20it/s][A
+Iteration:  58%|█████▊    | 682/1179 [01:10<00:48, 10.20it/s][A
+Iteration:  58%|█████▊    | 684/1179 [01:11<00:48, 10.20it/s][A
+Iteration:  58%|█████▊    | 686/1179 [01:11<00:48, 10.21it/s][A
+Iteration:  58%|█████▊    | 688/1179 [01:11<00:48, 10.21it/s][A
+Iteration:  59%|█████▊    | 690/1179 [01:11<00:47, 10.21it/s][A
+Iteration:  59%|█████▊    | 692/1179 [01:11<00:47, 10.20it/s][A
+Iteration:  59%|█████▉    | 694/1179 [01:12<00:47, 10.19it/s][A
+Iteration:  59%|█████▉    | 696/1179 [01:12<00:47, 10.19it/s][A
+Iteration:  59%|█████▉    | 698/1179 [01:12<00:47, 10.19it/s][A
+Iteration:  59%|█████▉    | 700/1179 [01:12<00:46, 10.20it/s][A
+Iteration:  60%|█████▉    | 702/1179 [01:12<00:46, 10.20it/s][A
+Iteration:  60%|█████▉    | 704/1179 [01:13<00:46, 10.17it/s][A
+Iteration:  60%|█████▉    | 706/1179 [01:13<00:46, 10.17it/s][A
+Iteration:  60%|██████    | 708/1179 [01:13<00:46, 10.18it/s][A
+Iteration:  60%|██████    | 710/1179 [01:13<00:46, 10.18it/s][A
+Iteration:  60%|██████    | 712/1179 [01:13<00:45, 10.16it/s][A
+Iteration:  61%|██████    | 714/1179 [01:14<00:45, 10.17it/s][A
+Iteration:  61%|██████    | 716/1179 [01:14<00:45, 10.16it/s][A
+Iteration:  61%|██████    | 718/1179 [01:14<00:45, 10.17it/s][A
+Iteration:  61%|██████    | 720/1179 [01:14<00:45, 10.18it/s][A
+Iteration:  61%|██████    | 722/1179 [01:14<00:44, 10.20it/s][A
+Iteration:  61%|██████▏   | 724/1179 [01:15<00:44, 10.20it/s][A
+Iteration:  62%|██████▏   | 726/1179 [01:15<00:44, 10.21it/s][A
+Iteration:  62%|██████▏   | 728/1179 [01:15<00:44, 10.22it/s][A
+Iteration:  62%|██████▏   | 730/1179 [01:15<00:43, 10.22it/s][A
+Iteration:  62%|██████▏   | 732/1179 [01:15<00:43, 10.22it/s][A
+Iteration:  62%|██████▏   | 734/1179 [01:16<00:43, 10.22it/s][A
+Iteration:  62%|██████▏   | 736/1179 [01:16<00:43, 10.22it/s][A
+Iteration:  63%|██████▎   | 738/1179 [01:16<00:43, 10.22it/s][A
+Iteration:  63%|██████▎   | 740/1179 [01:16<00:42, 10.23it/s][A
+Iteration:  63%|██████▎   | 742/1179 [01:16<00:42, 10.22it/s][A
+Iteration:  63%|██████▎   | 744/1179 [01:16<00:42, 10.22it/s][A
+Iteration:  63%|██████▎   | 746/1179 [01:17<00:42, 10.23it/s][A
+Iteration:  63%|██████▎   | 748/1179 [01:17<00:42, 10.22it/s][A
+Iteration:  64%|██████▎   | 750/1179 [01:17<00:41, 10.23it/s][A
+Iteration:  64%|██████▍   | 752/1179 [01:17<00:41, 10.22it/s][A
+Iteration:  64%|██████▍   | 754/1179 [01:17<00:41, 10.22it/s][A
+Iteration:  64%|██████▍   | 756/1179 [01:18<00:41, 10.22it/s][A
+Iteration:  64%|██████▍   | 758/1179 [01:18<00:41, 10.21it/s][A
+Iteration:  64%|██████▍   | 760/1179 [01:18<00:40, 10.22it/s][A
+Iteration:  65%|██████▍   | 762/1179 [01:18<00:40, 10.22it/s][A
+Iteration:  65%|██████▍   | 764/1179 [01:18<00:40, 10.19it/s][A
+Iteration:  65%|██████▍   | 766/1179 [01:19<00:40, 10.18it/s][A
+Iteration:  65%|██████▌   | 768/1179 [01:19<00:40, 10.18it/s][A
+Iteration:  65%|██████▌   | 770/1179 [01:19<00:40, 10.19it/s][A
+Iteration:  65%|██████▌   | 772/1179 [01:19<00:39, 10.19it/s][A
+Iteration:  66%|██████▌   | 774/1179 [01:19<00:39, 10.20it/s][A
+Iteration:  66%|██████▌   | 776/1179 [01:20<00:39, 10.19it/s][A
+Iteration:  66%|██████▌   | 778/1179 [01:20<00:39, 10.20it/s][A
+Iteration:  66%|██████▌   | 780/1179 [01:20<00:39, 10.20it/s][A
+Iteration:  66%|██████▋   | 782/1179 [01:20<00:38, 10.20it/s][A
+Iteration:  66%|██████▋   | 784/1179 [01:20<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 786/1179 [01:21<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 788/1179 [01:21<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 790/1179 [01:21<00:38, 10.21it/s][A
+Iteration:  67%|██████▋   | 792/1179 [01:21<00:37, 10.21it/s][A
+Iteration:  67%|██████▋   | 794/1179 [01:21<00:37, 10.22it/s][A
+Iteration:  68%|██████▊   | 796/1179 [01:22<00:37, 10.22it/s][A
+Iteration:  68%|██████▊   | 798/1179 [01:22<00:37, 10.22it/s][A
+Iteration:  68%|██████▊   | 800/1179 [01:22<00:37, 10.22it/s][A
+Iteration:  68%|██████▊   | 802/1179 [01:22<00:36, 10.23it/s][A
+Iteration:  68%|██████▊   | 804/1179 [01:22<00:36, 10.23it/s][A
+Iteration:  68%|██████▊   | 806/1179 [01:23<00:36, 10.23it/s][A
+Iteration:  69%|██████▊   | 808/1179 [01:23<00:36, 10.22it/s][A
+Iteration:  69%|██████▊   | 810/1179 [01:23<00:36, 10.21it/s][A
+Iteration:  69%|██████▉   | 812/1179 [01:23<00:36, 10.19it/s][A
+Iteration:  69%|██████▉   | 814/1179 [01:23<00:35, 10.21it/s][A
+Iteration:  69%|██████▉   | 816/1179 [01:24<00:35, 10.22it/s][A
+Iteration:  69%|██████▉   | 818/1179 [01:24<00:35, 10.21it/s][A
+Iteration:  70%|██████▉   | 820/1179 [01:24<00:35, 10.20it/s][A03/12/2020 23:25:23 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2000/config.json
+03/12/2020 23:25:24 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2000/pytorch_model.bin
+03/12/2020 23:25:24 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2000
+03/12/2020 23:25:27 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2000
+
+Iteration:  70%|██████▉   | 822/1179 [01:28<04:02,  1.47it/s][A
+Iteration:  70%|██████▉   | 823/1179 [01:28<03:00,  1.97it/s][A
+Iteration:  70%|██████▉   | 824/1179 [01:28<02:16,  2.59it/s][A
+Iteration:  70%|███████   | 826/1179 [01:28<01:45,  3.34it/s][A
+Iteration:  70%|███████   | 828/1179 [01:29<01:23,  4.18it/s][A
+Iteration:  70%|███████   | 830/1179 [01:29<01:08,  5.08it/s][A
+Iteration:  71%|███████   | 832/1179 [01:29<00:57,  5.98it/s][A
+Iteration:  71%|███████   | 834/1179 [01:29<00:50,  6.83it/s][A
+Iteration:  71%|███████   | 836/1179 [01:29<00:45,  7.58it/s][A
+Iteration:  71%|███████   | 838/1179 [01:30<00:41,  8.21it/s][A
+Iteration:  71%|███████   | 840/1179 [01:30<00:38,  8.71it/s][A
+Iteration:  71%|███████▏  | 842/1179 [01:30<00:37,  9.10it/s][A
+Iteration:  72%|███████▏  | 844/1179 [01:30<00:35,  9.41it/s][A
+Iteration:  72%|███████▏  | 846/1179 [01:30<00:34,  9.64it/s][A
+Iteration:  72%|███████▏  | 848/1179 [01:31<00:33,  9.79it/s][A
+Iteration:  72%|███████▏  | 850/1179 [01:31<00:33,  9.90it/s][A
+Iteration:  72%|███████▏  | 852/1179 [01:31<00:32,  9.97it/s][A
+Iteration:  72%|███████▏  | 854/1179 [01:31<00:32, 10.03it/s][A
+Iteration:  73%|███████▎  | 856/1179 [01:31<00:32, 10.06it/s][A
+Iteration:  73%|███████▎  | 858/1179 [01:32<00:31, 10.10it/s][A
+Iteration:  73%|███████▎  | 860/1179 [01:32<00:31, 10.13it/s][A
+Iteration:  73%|███████▎  | 862/1179 [01:32<00:31, 10.14it/s][A
+Iteration:  73%|███████▎  | 864/1179 [01:32<00:31, 10.16it/s][A
+Iteration:  73%|███████▎  | 866/1179 [01:32<00:30, 10.17it/s][A
+Iteration:  74%|███████▎  | 868/1179 [01:33<00:30, 10.17it/s][A
+Iteration:  74%|███████▍  | 870/1179 [01:33<00:30, 10.16it/s][A
+Iteration:  74%|███████▍  | 872/1179 [01:33<00:30, 10.18it/s][A
+Iteration:  74%|███████▍  | 874/1179 [01:33<00:29, 10.19it/s][A
+Iteration:  74%|███████▍  | 876/1179 [01:33<00:29, 10.19it/s][A
+Iteration:  74%|███████▍  | 878/1179 [01:34<00:29, 10.20it/s][A
+Iteration:  75%|███████▍  | 880/1179 [01:34<00:29, 10.19it/s][A
+Iteration:  75%|███████▍  | 882/1179 [01:34<00:29, 10.19it/s][A
+Iteration:  75%|███████▍  | 884/1179 [01:34<00:28, 10.19it/s][A
+Iteration:  75%|███████▌  | 886/1179 [01:34<00:28, 10.20it/s][A
+Iteration:  75%|███████▌  | 888/1179 [01:34<00:28, 10.19it/s][A
+Iteration:  75%|███████▌  | 890/1179 [01:35<00:28, 10.20it/s][A
+Iteration:  76%|███████▌  | 892/1179 [01:35<00:28, 10.19it/s][A
+Iteration:  76%|███████▌  | 894/1179 [01:35<00:27, 10.19it/s][A
+Iteration:  76%|███████▌  | 896/1179 [01:35<00:27, 10.19it/s][A
+Iteration:  76%|███████▌  | 898/1179 [01:35<00:27, 10.18it/s][A
+Iteration:  76%|███████▋  | 900/1179 [01:36<00:27, 10.18it/s][A
+Iteration:  77%|███████▋  | 902/1179 [01:36<00:27, 10.17it/s][A
+Iteration:  77%|███████▋  | 904/1179 [01:36<00:27, 10.17it/s][A
+Iteration:  77%|███████▋  | 906/1179 [01:36<00:26, 10.17it/s][A
+Iteration:  77%|███████▋  | 908/1179 [01:36<00:26, 10.16it/s][A
+Iteration:  77%|███████▋  | 910/1179 [01:37<00:26, 10.16it/s][A
+Iteration:  77%|███████▋  | 912/1179 [01:37<00:26, 10.16it/s][A
+Iteration:  78%|███████▊  | 914/1179 [01:37<00:26, 10.16it/s][A
+Iteration:  78%|███████▊  | 916/1179 [01:37<00:25, 10.17it/s][A
+Iteration:  78%|███████▊  | 918/1179 [01:37<00:25, 10.18it/s][A
+Iteration:  78%|███████▊  | 920/1179 [01:38<00:25, 10.19it/s][A
+Iteration:  78%|███████▊  | 922/1179 [01:38<00:25, 10.19it/s][A
+Iteration:  78%|███████▊  | 924/1179 [01:38<00:25, 10.19it/s][A
+Iteration:  79%|███████▊  | 926/1179 [01:38<00:24, 10.19it/s][A
+Iteration:  79%|███████▊  | 928/1179 [01:38<00:24, 10.18it/s][A
+Iteration:  79%|███████▉  | 930/1179 [01:39<00:24, 10.10it/s][A
+Iteration:  79%|███████▉  | 932/1179 [01:39<00:24, 10.11it/s][A
+Iteration:  79%|███████▉  | 934/1179 [01:39<00:24, 10.12it/s][A
+Iteration:  79%|███████▉  | 936/1179 [01:39<00:23, 10.14it/s][A
+Iteration:  80%|███████▉  | 938/1179 [01:39<00:23, 10.15it/s][A
+Iteration:  80%|███████▉  | 940/1179 [01:40<00:23, 10.16it/s][A
+Iteration:  80%|███████▉  | 942/1179 [01:40<00:23, 10.16it/s][A
+Iteration:  80%|████████  | 944/1179 [01:40<00:23, 10.16it/s][A
+Iteration:  80%|████████  | 946/1179 [01:40<00:22, 10.16it/s][A
+Iteration:  80%|████████  | 948/1179 [01:40<00:22, 10.16it/s][A
+Iteration:  81%|████████  | 950/1179 [01:41<00:22, 10.16it/s][A
+Iteration:  81%|████████  | 952/1179 [01:41<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 954/1179 [01:41<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 956/1179 [01:41<00:21, 10.17it/s][A
+Iteration:  81%|████████▏ | 958/1179 [01:41<00:21, 10.17it/s][A
+Iteration:  81%|████████▏ | 960/1179 [01:42<00:21, 10.16it/s][A
+Iteration:  82%|████████▏ | 962/1179 [01:42<00:21, 10.16it/s][A
+Iteration:  82%|████████▏ | 964/1179 [01:42<00:21, 10.16it/s][A
+Iteration:  82%|████████▏ | 966/1179 [01:42<00:20, 10.16it/s][A
+Iteration:  82%|████████▏ | 968/1179 [01:42<00:20, 10.16it/s][A
+Iteration:  82%|████████▏ | 970/1179 [01:43<00:20, 10.17it/s][A
+Iteration:  82%|████████▏ | 972/1179 [01:43<00:20, 10.16it/s][A
+Iteration:  83%|████████▎ | 974/1179 [01:43<00:20, 10.16it/s][A
+Iteration:  83%|████████▎ | 976/1179 [01:43<00:19, 10.16it/s][A
+Iteration:  83%|████████▎ | 978/1179 [01:43<00:19, 10.17it/s][A
+Iteration:  83%|████████▎ | 980/1179 [01:44<00:19, 10.16it/s][A
+Iteration:  83%|████████▎ | 982/1179 [01:44<00:19, 10.16it/s][A
+Iteration:  83%|████████▎ | 984/1179 [01:44<00:19, 10.15it/s][A
+Iteration:  84%|████████▎ | 986/1179 [01:44<00:19, 10.15it/s][A
+Iteration:  84%|████████▍ | 988/1179 [01:44<00:18, 10.15it/s][A
+Iteration:  84%|████████▍ | 990/1179 [01:45<00:18, 10.16it/s][A
+Iteration:  84%|████████▍ | 992/1179 [01:45<00:18, 10.17it/s][A
+Iteration:  84%|████████▍ | 994/1179 [01:45<00:18, 10.16it/s][A
+Iteration:  84%|████████▍ | 996/1179 [01:45<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 998/1179 [01:45<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 1000/1179 [01:46<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 1002/1179 [01:46<00:17, 10.16it/s][A
+Iteration:  85%|████████▌ | 1004/1179 [01:46<00:17, 10.15it/s][A
+Iteration:  85%|████████▌ | 1006/1179 [01:46<00:17, 10.14it/s][A
+Iteration:  85%|████████▌ | 1008/1179 [01:46<00:16, 10.14it/s][A
+Iteration:  86%|████████▌ | 1010/1179 [01:47<00:16, 10.13it/s][A
+Iteration:  86%|████████▌ | 1012/1179 [01:47<00:16, 10.14it/s][A
+Iteration:  86%|████████▌ | 1014/1179 [01:47<00:16, 10.14it/s][A
+Iteration:  86%|████████▌ | 1016/1179 [01:47<00:16, 10.14it/s][A
+Iteration:  86%|████████▋ | 1018/1179 [01:47<00:15, 10.15it/s][A
+Iteration:  87%|████████▋ | 1020/1179 [01:47<00:15, 10.16it/s][A
+Iteration:  87%|████████▋ | 1022/1179 [01:48<00:15, 10.16it/s][A
+Iteration:  87%|████████▋ | 1024/1179 [01:48<00:15, 10.16it/s][A
+Iteration:  87%|████████▋ | 1026/1179 [01:48<00:15, 10.15it/s][A
+Iteration:  87%|████████▋ | 1028/1179 [01:48<00:14, 10.15it/s][A
+Iteration:  87%|████████▋ | 1030/1179 [01:48<00:14, 10.16it/s][A
+Iteration:  88%|████████▊ | 1032/1179 [01:49<00:14, 10.16it/s][A
+Iteration:  88%|████████▊ | 1034/1179 [01:49<00:14, 10.15it/s][A
+Iteration:  88%|████████▊ | 1036/1179 [01:49<00:14, 10.14it/s][A
+Iteration:  88%|████████▊ | 1038/1179 [01:49<00:13, 10.12it/s][A
+Iteration:  88%|████████▊ | 1040/1179 [01:49<00:13, 10.13it/s][A
+Iteration:  88%|████████▊ | 1042/1179 [01:50<00:13, 10.14it/s][A
+Iteration:  89%|████████▊ | 1044/1179 [01:50<00:13, 10.16it/s][A
+Iteration:  89%|████████▊ | 1046/1179 [01:50<00:13, 10.13it/s][A
+Iteration:  89%|████████▉ | 1048/1179 [01:50<00:12, 10.15it/s][A
+Iteration:  89%|████████▉ | 1050/1179 [01:50<00:12, 10.16it/s][A
+Iteration:  89%|████████▉ | 1052/1179 [01:51<00:12, 10.18it/s][A
+Iteration:  89%|████████▉ | 1054/1179 [01:51<00:12, 10.17it/s][A
+Iteration:  90%|████████▉ | 1056/1179 [01:51<00:12, 10.16it/s][A
+Iteration:  90%|████████▉ | 1058/1179 [01:51<00:11, 10.15it/s][A
+Iteration:  90%|████████▉ | 1060/1179 [01:51<00:11, 10.14it/s][A
+Iteration:  90%|█████████ | 1062/1179 [01:52<00:11, 10.15it/s][A
+Iteration:  90%|█████████ | 1064/1179 [01:52<00:11, 10.15it/s][A
+Iteration:  90%|█████████ | 1066/1179 [01:52<00:11, 10.15it/s][A
+Iteration:  91%|█████████ | 1068/1179 [01:52<00:10, 10.16it/s][A
+Iteration:  91%|█████████ | 1070/1179 [01:52<00:10, 10.17it/s][A
+Iteration:  91%|█████████ | 1072/1179 [01:53<00:10, 10.17it/s][A
+Iteration:  91%|█████████ | 1074/1179 [01:53<00:10, 10.17it/s][A
+Iteration:  91%|█████████▏| 1076/1179 [01:53<00:10, 10.17it/s][A
+Iteration:  91%|█████████▏| 1078/1179 [01:53<00:09, 10.18it/s][A
+Iteration:  92%|█████████▏| 1080/1179 [01:53<00:09, 10.19it/s][A
+Iteration:  92%|█████████▏| 1082/1179 [01:54<00:09, 10.19it/s][A
+Iteration:  92%|█████████▏| 1084/1179 [01:54<00:09, 10.19it/s][A
+Iteration:  92%|█████████▏| 1086/1179 [01:54<00:09, 10.19it/s][A
+Iteration:  92%|█████████▏| 1088/1179 [01:54<00:08, 10.20it/s][A
+Iteration:  92%|█████████▏| 1090/1179 [01:54<00:08, 10.20it/s][A
+Iteration:  93%|█████████▎| 1092/1179 [01:55<00:08, 10.21it/s][A
+Iteration:  93%|█████████▎| 1094/1179 [01:55<00:08, 10.20it/s][A
+Iteration:  93%|█████████▎| 1096/1179 [01:55<00:08, 10.18it/s][A
+Iteration:  93%|█████████▎| 1098/1179 [01:55<00:07, 10.18it/s][A
+Iteration:  93%|█████████▎| 1100/1179 [01:55<00:07, 10.17it/s][A
+Iteration:  93%|█████████▎| 1102/1179 [01:56<00:07, 10.15it/s][A
+Iteration:  94%|█████████▎| 1104/1179 [01:56<00:07, 10.14it/s][A
+Iteration:  94%|█████████▍| 1106/1179 [01:56<00:07, 10.14it/s][A
+Iteration:  94%|█████████▍| 1108/1179 [01:56<00:06, 10.15it/s][A
+Iteration:  94%|█████████▍| 1110/1179 [01:56<00:06, 10.15it/s][A
+Iteration:  94%|█████████▍| 1112/1179 [01:57<00:06, 10.15it/s][A
+Iteration:  94%|█████████▍| 1114/1179 [01:57<00:06, 10.16it/s][A
+Iteration:  95%|█████████▍| 1116/1179 [01:57<00:06, 10.16it/s][A
+Iteration:  95%|█████████▍| 1118/1179 [01:57<00:05, 10.17it/s][A
+Iteration:  95%|█████████▍| 1120/1179 [01:57<00:05, 10.18it/s][A
+Iteration:  95%|█████████▌| 1122/1179 [01:58<00:05, 10.17it/s][A
+Iteration:  95%|█████████▌| 1124/1179 [01:58<00:05, 10.19it/s][A
+Iteration:  96%|█████████▌| 1126/1179 [01:58<00:05, 10.19it/s][A
+Iteration:  96%|█████████▌| 1128/1179 [01:58<00:05, 10.18it/s][A
+Iteration:  96%|█████████▌| 1130/1179 [01:58<00:04, 10.18it/s][A
+Iteration:  96%|█████████▌| 1132/1179 [01:59<00:04, 10.18it/s][A
+Iteration:  96%|█████████▌| 1134/1179 [01:59<00:04, 10.17it/s][A
+Iteration:  96%|█████████▋| 1136/1179 [01:59<00:04, 10.16it/s][A
+Iteration:  97%|█████████▋| 1138/1179 [01:59<00:04, 10.16it/s][A
+Iteration:  97%|█████████▋| 1140/1179 [01:59<00:03, 10.16it/s][A
+Iteration:  97%|█████████▋| 1142/1179 [01:59<00:03, 10.17it/s][A
+Iteration:  97%|█████████▋| 1144/1179 [02:00<00:03, 10.17it/s][A
+Iteration:  97%|█████████▋| 1146/1179 [02:00<00:03, 10.18it/s][A
+Iteration:  97%|█████████▋| 1148/1179 [02:00<00:03, 10.18it/s][A
+Iteration:  98%|█████████▊| 1150/1179 [02:00<00:02, 10.19it/s][A
+Iteration:  98%|█████████▊| 1152/1179 [02:00<00:02, 10.19it/s][A
+Iteration:  98%|█████████▊| 1154/1179 [02:01<00:02, 10.20it/s][A
+Iteration:  98%|█████████▊| 1156/1179 [02:01<00:02, 10.20it/s][A
+Iteration:  98%|█████████▊| 1158/1179 [02:01<00:02, 10.19it/s][A
+Iteration:  98%|█████████▊| 1160/1179 [02:01<00:01, 10.18it/s][A
+Iteration:  99%|█████████▊| 1162/1179 [02:01<00:01, 10.18it/s][A
+Iteration:  99%|█████████▊| 1164/1179 [02:02<00:01, 10.15it/s][A
+Iteration:  99%|█████████▉| 1166/1179 [02:02<00:01, 10.15it/s][A
+Iteration:  99%|█████████▉| 1168/1179 [02:02<00:01, 10.15it/s][A
+Iteration:  99%|█████████▉| 1170/1179 [02:02<00:00, 10.16it/s][A
+Iteration:  99%|█████████▉| 1172/1179 [02:02<00:00, 10.17it/s][A
+Iteration: 100%|█████████▉| 1174/1179 [02:03<00:00, 10.17it/s][A
+Iteration: 100%|█████████▉| 1176/1179 [02:03<00:00, 10.18it/s][A
+Iteration: 100%|█████████▉| 1178/1179 [02:03<00:00, 10.18it/s][AIteration: 100%|██████████| 1179/1179 [02:03<00:00,  9.54it/s]
+Epoch:  67%|██████▋   | 2/3 [04:15<02:09, 129.17s/it]
+Iteration:   0%|          | 0/1179 [00:00<?, ?it/s][A
+Iteration:   0%|          | 2/1179 [00:00<01:55, 10.18it/s][A
+Iteration:   0%|          | 4/1179 [00:00<01:55, 10.17it/s][A
+Iteration:   1%|          | 6/1179 [00:00<01:55, 10.19it/s][A
+Iteration:   1%|          | 8/1179 [00:00<01:54, 10.19it/s][A
+Iteration:   1%|          | 10/1179 [00:00<01:54, 10.20it/s][A
+Iteration:   1%|          | 12/1179 [00:01<01:54, 10.20it/s][A
+Iteration:   1%|          | 14/1179 [00:01<01:54, 10.21it/s][A
+Iteration:   1%|▏         | 16/1179 [00:01<01:53, 10.20it/s][A
+Iteration:   2%|▏         | 18/1179 [00:01<01:53, 10.21it/s][A
+Iteration:   2%|▏         | 20/1179 [00:01<01:53, 10.21it/s][A
+Iteration:   2%|▏         | 22/1179 [00:02<01:53, 10.20it/s][A
+Iteration:   2%|▏         | 24/1179 [00:02<01:53, 10.18it/s][A
+Iteration:   2%|▏         | 26/1179 [00:02<01:53, 10.18it/s][A
+Iteration:   2%|▏         | 28/1179 [00:02<01:53, 10.18it/s][A
+Iteration:   3%|▎         | 30/1179 [00:02<01:52, 10.17it/s][A
+Iteration:   3%|▎         | 32/1179 [00:03<01:52, 10.17it/s][A
+Iteration:   3%|▎         | 34/1179 [00:03<01:52, 10.17it/s][A
+Iteration:   3%|▎         | 36/1179 [00:03<01:52, 10.16it/s][A
+Iteration:   3%|▎         | 38/1179 [00:03<01:52, 10.16it/s][A
+Iteration:   3%|▎         | 40/1179 [00:03<01:52, 10.17it/s][A
+Iteration:   4%|▎         | 42/1179 [00:04<01:51, 10.18it/s][A
+Iteration:   4%|▎         | 44/1179 [00:04<01:51, 10.17it/s][A
+Iteration:   4%|▍         | 46/1179 [00:04<01:51, 10.17it/s][A
+Iteration:   4%|▍         | 48/1179 [00:04<01:51, 10.18it/s][A
+Iteration:   4%|▍         | 50/1179 [00:04<01:50, 10.19it/s][A
+Iteration:   4%|▍         | 52/1179 [00:05<01:50, 10.19it/s][A
+Iteration:   5%|▍         | 54/1179 [00:05<01:50, 10.19it/s][A
+Iteration:   5%|▍         | 56/1179 [00:05<01:50, 10.19it/s][A
+Iteration:   5%|▍         | 58/1179 [00:05<01:49, 10.19it/s][A
+Iteration:   5%|▌         | 60/1179 [00:05<01:50, 10.17it/s][A
+Iteration:   5%|▌         | 62/1179 [00:06<01:49, 10.17it/s][A
+Iteration:   5%|▌         | 64/1179 [00:06<01:49, 10.18it/s][A
+Iteration:   6%|▌         | 66/1179 [00:06<01:49, 10.17it/s][A
+Iteration:   6%|▌         | 68/1179 [00:06<01:49, 10.17it/s][A
+Iteration:   6%|▌         | 70/1179 [00:06<01:49, 10.16it/s][A
+Iteration:   6%|▌         | 72/1179 [00:07<01:48, 10.16it/s][A
+Iteration:   6%|▋         | 74/1179 [00:07<01:48, 10.15it/s][A
+Iteration:   6%|▋         | 76/1179 [00:07<01:48, 10.14it/s][A
+Iteration:   7%|▋         | 78/1179 [00:07<01:48, 10.14it/s][A
+Iteration:   7%|▋         | 80/1179 [00:07<01:48, 10.15it/s][A
+Iteration:   7%|▋         | 82/1179 [00:08<01:48, 10.14it/s][A
+Iteration:   7%|▋         | 84/1179 [00:08<01:47, 10.16it/s][A
+Iteration:   7%|▋         | 86/1179 [00:08<01:47, 10.16it/s][A
+Iteration:   7%|▋         | 88/1179 [00:08<01:47, 10.16it/s][A
+Iteration:   8%|▊         | 90/1179 [00:08<01:47, 10.15it/s][A
+Iteration:   8%|▊         | 92/1179 [00:09<01:47, 10.14it/s][A
+Iteration:   8%|▊         | 94/1179 [00:09<01:46, 10.15it/s][A
+Iteration:   8%|▊         | 96/1179 [00:09<01:46, 10.13it/s][A
+Iteration:   8%|▊         | 98/1179 [00:09<01:46, 10.14it/s][A
+Iteration:   8%|▊         | 100/1179 [00:09<01:46, 10.14it/s][A
+Iteration:   9%|▊         | 102/1179 [00:10<01:46, 10.14it/s][A
+Iteration:   9%|▉         | 104/1179 [00:10<01:45, 10.15it/s][A
+Iteration:   9%|▉         | 106/1179 [00:10<01:45, 10.16it/s][A
+Iteration:   9%|▉         | 108/1179 [00:10<01:45, 10.17it/s][A
+Iteration:   9%|▉         | 110/1179 [00:10<01:45, 10.17it/s][A
+Iteration:   9%|▉         | 112/1179 [00:11<01:44, 10.17it/s][A
+Iteration:  10%|▉         | 114/1179 [00:11<01:44, 10.18it/s][A
+Iteration:  10%|▉         | 116/1179 [00:11<01:44, 10.19it/s][A
+Iteration:  10%|█         | 118/1179 [00:11<01:44, 10.18it/s][A
+Iteration:  10%|█         | 120/1179 [00:11<01:44, 10.17it/s][A
+Iteration:  10%|█         | 122/1179 [00:11<01:43, 10.18it/s][A
+Iteration:  11%|█         | 124/1179 [00:12<01:43, 10.18it/s][A
+Iteration:  11%|█         | 126/1179 [00:12<01:43, 10.19it/s][A
+Iteration:  11%|█         | 128/1179 [00:12<01:43, 10.18it/s][A
+Iteration:  11%|█         | 130/1179 [00:12<01:43, 10.17it/s][A
+Iteration:  11%|█         | 132/1179 [00:12<01:42, 10.18it/s][A
+Iteration:  11%|█▏        | 134/1179 [00:13<01:42, 10.16it/s][A
+Iteration:  12%|█▏        | 136/1179 [00:13<01:42, 10.16it/s][A
+Iteration:  12%|█▏        | 138/1179 [00:13<01:42, 10.17it/s][A
+Iteration:  12%|█▏        | 140/1179 [00:13<01:42, 10.16it/s][A03/12/2020 23:26:16 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2500/config.json
+03/12/2020 23:26:17 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2500/pytorch_model.bin
+03/12/2020 23:26:18 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2500
+03/12/2020 23:26:20 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-2500
+
+Iteration:  12%|█▏        | 142/1179 [00:18<12:12,  1.42it/s][A
+Iteration:  12%|█▏        | 143/1179 [00:18<09:05,  1.90it/s][A
+Iteration:  12%|█▏        | 144/1179 [00:18<06:54,  2.50it/s][A
+Iteration:  12%|█▏        | 145/1179 [00:18<05:21,  3.22it/s][A
+Iteration:  12%|█▏        | 147/1179 [00:18<04:15,  4.05it/s][A
+Iteration:  13%|█▎        | 149/1179 [00:18<03:28,  4.94it/s][A
+Iteration:  13%|█▎        | 151/1179 [00:18<02:56,  5.83it/s][A
+Iteration:  13%|█▎        | 153/1179 [00:19<02:33,  6.69it/s][A
+Iteration:  13%|█▎        | 155/1179 [00:19<02:17,  7.45it/s][A
+Iteration:  13%|█▎        | 157/1179 [00:19<02:06,  8.09it/s][A
+Iteration:  13%|█▎        | 159/1179 [00:19<01:58,  8.61it/s][A
+Iteration:  14%|█▎        | 161/1179 [00:19<01:52,  9.01it/s][A
+Iteration:  14%|█▍        | 163/1179 [00:20<01:48,  9.33it/s][A
+Iteration:  14%|█▍        | 165/1179 [00:20<01:46,  9.53it/s][A
+Iteration:  14%|█▍        | 167/1179 [00:20<01:44,  9.71it/s][A
+Iteration:  14%|█▍        | 169/1179 [00:20<01:42,  9.84it/s][A
+Iteration:  15%|█▍        | 171/1179 [00:20<01:41,  9.92it/s][A
+Iteration:  15%|█▍        | 173/1179 [00:21<01:40, 10.01it/s][A
+Iteration:  15%|█▍        | 175/1179 [00:21<01:39, 10.07it/s][A
+Iteration:  15%|█▌        | 177/1179 [00:21<01:39, 10.10it/s][A
+Iteration:  15%|█▌        | 179/1179 [00:21<01:38, 10.13it/s][A
+Iteration:  15%|█▌        | 181/1179 [00:21<01:38, 10.14it/s][A
+Iteration:  16%|█▌        | 183/1179 [00:22<01:38, 10.15it/s][A
+Iteration:  16%|█▌        | 185/1179 [00:22<01:37, 10.16it/s][A
+Iteration:  16%|█▌        | 187/1179 [00:22<01:37, 10.16it/s][A
+Iteration:  16%|█▌        | 189/1179 [00:22<01:37, 10.16it/s][A
+Iteration:  16%|█▌        | 191/1179 [00:22<01:37, 10.17it/s][A
+Iteration:  16%|█▋        | 193/1179 [00:23<01:36, 10.17it/s][A
+Iteration:  17%|█▋        | 195/1179 [00:23<01:36, 10.17it/s][A
+Iteration:  17%|█▋        | 197/1179 [00:23<01:36, 10.17it/s][A
+Iteration:  17%|█▋        | 199/1179 [00:23<01:36, 10.17it/s][A
+Iteration:  17%|█▋        | 201/1179 [00:23<01:36, 10.17it/s][A
+Iteration:  17%|█▋        | 203/1179 [00:24<01:35, 10.17it/s][A
+Iteration:  17%|█▋        | 205/1179 [00:24<01:36, 10.14it/s][A
+Iteration:  18%|█▊        | 207/1179 [00:24<01:35, 10.15it/s][A
+Iteration:  18%|█▊        | 209/1179 [00:24<01:35, 10.15it/s][A
+Iteration:  18%|█▊        | 211/1179 [00:24<01:35, 10.15it/s][A
+Iteration:  18%|█▊        | 213/1179 [00:25<01:35, 10.15it/s][A
+Iteration:  18%|█▊        | 215/1179 [00:25<01:35, 10.14it/s][A
+Iteration:  18%|█▊        | 217/1179 [00:25<01:34, 10.16it/s][A
+Iteration:  19%|█▊        | 219/1179 [00:25<01:34, 10.17it/s][A
+Iteration:  19%|█▊        | 221/1179 [00:25<01:34, 10.17it/s][A
+Iteration:  19%|█▉        | 223/1179 [00:26<01:34, 10.16it/s][A
+Iteration:  19%|█▉        | 225/1179 [00:26<01:33, 10.16it/s][A
+Iteration:  19%|█▉        | 227/1179 [00:26<01:33, 10.16it/s][A
+Iteration:  19%|█▉        | 229/1179 [00:26<01:33, 10.16it/s][A
+Iteration:  20%|█▉        | 231/1179 [00:26<01:33, 10.17it/s][A
+Iteration:  20%|█▉        | 233/1179 [00:26<01:33, 10.17it/s][A
+Iteration:  20%|█▉        | 235/1179 [00:27<01:32, 10.17it/s][A
+Iteration:  20%|██        | 237/1179 [00:27<01:32, 10.17it/s][A
+Iteration:  20%|██        | 239/1179 [00:27<01:32, 10.18it/s][A
+Iteration:  20%|██        | 241/1179 [00:27<01:32, 10.19it/s][A
+Iteration:  21%|██        | 243/1179 [00:27<01:31, 10.19it/s][A
+Iteration:  21%|██        | 245/1179 [00:28<01:31, 10.20it/s][A
+Iteration:  21%|██        | 247/1179 [00:28<01:31, 10.21it/s][A
+Iteration:  21%|██        | 249/1179 [00:28<01:31, 10.21it/s][A
+Iteration:  21%|██▏       | 251/1179 [00:28<01:30, 10.21it/s][A
+Iteration:  21%|██▏       | 253/1179 [00:28<01:30, 10.20it/s][A
+Iteration:  22%|██▏       | 255/1179 [00:29<01:30, 10.19it/s][A
+Iteration:  22%|██▏       | 257/1179 [00:29<01:30, 10.18it/s][A
+Iteration:  22%|██▏       | 259/1179 [00:29<01:30, 10.17it/s][A
+Iteration:  22%|██▏       | 261/1179 [00:29<01:30, 10.16it/s][A
+Iteration:  22%|██▏       | 263/1179 [00:29<01:30, 10.16it/s][A
+Iteration:  22%|██▏       | 265/1179 [00:30<01:30, 10.15it/s][A
+Iteration:  23%|██▎       | 267/1179 [00:30<01:29, 10.15it/s][A
+Iteration:  23%|██▎       | 269/1179 [00:30<01:29, 10.14it/s][A
+Iteration:  23%|██▎       | 271/1179 [00:30<01:29, 10.14it/s][A
+Iteration:  23%|██▎       | 273/1179 [00:30<01:29, 10.09it/s][A
+Iteration:  23%|██▎       | 275/1179 [00:31<01:32,  9.78it/s][A
+Iteration:  23%|██▎       | 276/1179 [00:31<01:34,  9.52it/s][A
+Iteration:  23%|██▎       | 277/1179 [00:31<01:37,  9.29it/s][A
+Iteration:  24%|██▎       | 278/1179 [00:31<01:38,  9.18it/s][A
+Iteration:  24%|██▎       | 279/1179 [00:31<01:39,  9.08it/s][A
+Iteration:  24%|██▎       | 280/1179 [00:31<01:39,  9.00it/s][A
+Iteration:  24%|██▍       | 281/1179 [00:31<01:39,  8.98it/s][A
+Iteration:  24%|██▍       | 282/1179 [00:31<01:40,  8.93it/s][A
+Iteration:  24%|██▍       | 283/1179 [00:32<01:40,  8.91it/s][A
+Iteration:  24%|██▍       | 284/1179 [00:32<01:40,  8.94it/s][A
+Iteration:  24%|██▍       | 285/1179 [00:32<01:39,  8.97it/s][A
+Iteration:  24%|██▍       | 286/1179 [00:32<01:39,  8.97it/s][A
+Iteration:  24%|██▍       | 287/1179 [00:32<01:39,  8.95it/s][A
+Iteration:  24%|██▍       | 288/1179 [00:32<01:39,  8.96it/s][A
+Iteration:  25%|██▍       | 289/1179 [00:32<01:38,  9.01it/s][A
+Iteration:  25%|██▍       | 290/1179 [00:32<01:38,  8.99it/s][A
+Iteration:  25%|██▍       | 291/1179 [00:32<01:38,  8.99it/s][A
+Iteration:  25%|██▍       | 292/1179 [00:33<01:39,  8.95it/s][A
+Iteration:  25%|██▍       | 293/1179 [00:33<01:39,  8.93it/s][A
+Iteration:  25%|██▍       | 294/1179 [00:33<01:39,  8.93it/s][A
+Iteration:  25%|██▌       | 295/1179 [00:33<01:38,  8.96it/s][A
+Iteration:  25%|██▌       | 296/1179 [00:33<01:38,  9.00it/s][A
+Iteration:  25%|██▌       | 297/1179 [00:33<01:37,  9.04it/s][A
+Iteration:  25%|██▌       | 298/1179 [00:33<01:36,  9.09it/s][A
+Iteration:  25%|██▌       | 299/1179 [00:33<01:36,  9.11it/s][A
+Iteration:  25%|██▌       | 300/1179 [00:33<01:36,  9.14it/s][A
+Iteration:  26%|██▌       | 301/1179 [00:34<01:36,  9.13it/s][A
+Iteration:  26%|██▌       | 302/1179 [00:34<01:36,  9.11it/s][A
+Iteration:  26%|██▌       | 303/1179 [00:34<01:35,  9.16it/s][A
+Iteration:  26%|██▌       | 304/1179 [00:34<01:34,  9.21it/s][A
+Iteration:  26%|██▌       | 305/1179 [00:34<01:34,  9.23it/s][A
+Iteration:  26%|██▌       | 306/1179 [00:34<01:34,  9.23it/s][A
+Iteration:  26%|██▌       | 307/1179 [00:34<01:34,  9.24it/s][A
+Iteration:  26%|██▌       | 308/1179 [00:34<01:33,  9.28it/s][A
+Iteration:  26%|██▌       | 309/1179 [00:34<01:33,  9.30it/s][A
+Iteration:  26%|██▋       | 310/1179 [00:35<01:33,  9.30it/s][A
+Iteration:  26%|██▋       | 311/1179 [00:35<01:33,  9.31it/s][A
+Iteration:  26%|██▋       | 312/1179 [00:35<01:33,  9.31it/s][A
+Iteration:  27%|██▋       | 313/1179 [00:35<01:32,  9.36it/s][A
+Iteration:  27%|██▋       | 314/1179 [00:35<01:31,  9.41it/s][A
+Iteration:  27%|██▋       | 315/1179 [00:35<01:31,  9.44it/s][A
+Iteration:  27%|██▋       | 316/1179 [00:35<01:31,  9.44it/s][A
+Iteration:  27%|██▋       | 317/1179 [00:35<01:31,  9.41it/s][A
+Iteration:  27%|██▋       | 318/1179 [00:35<01:32,  9.35it/s][A
+Iteration:  27%|██▋       | 319/1179 [00:35<01:32,  9.30it/s][A
+Iteration:  27%|██▋       | 320/1179 [00:36<01:32,  9.28it/s][A
+Iteration:  27%|██▋       | 321/1179 [00:36<01:33,  9.22it/s][A
+Iteration:  27%|██▋       | 322/1179 [00:36<01:33,  9.15it/s][A
+Iteration:  27%|██▋       | 323/1179 [00:36<01:33,  9.16it/s][A
+Iteration:  27%|██▋       | 324/1179 [00:36<01:33,  9.14it/s][A
+Iteration:  28%|██▊       | 325/1179 [00:36<01:33,  9.17it/s][A
+Iteration:  28%|██▊       | 326/1179 [00:36<01:33,  9.16it/s][A
+Iteration:  28%|██▊       | 327/1179 [00:36<01:33,  9.09it/s][A
+Iteration:  28%|██▊       | 328/1179 [00:36<01:33,  9.11it/s][A
+Iteration:  28%|██▊       | 329/1179 [00:37<01:33,  9.14it/s][A
+Iteration:  28%|██▊       | 330/1179 [00:37<01:33,  9.08it/s][A
+Iteration:  28%|██▊       | 331/1179 [00:37<01:33,  9.06it/s][A
+Iteration:  28%|██▊       | 332/1179 [00:37<01:33,  9.08it/s][A
+Iteration:  28%|██▊       | 333/1179 [00:37<01:33,  9.10it/s][A
+Iteration:  28%|██▊       | 334/1179 [00:37<01:33,  9.07it/s][A
+Iteration:  28%|██▊       | 335/1179 [00:37<01:33,  9.04it/s][A
+Iteration:  28%|██▊       | 336/1179 [00:37<01:33,  9.01it/s][A
+Iteration:  29%|██▊       | 337/1179 [00:37<01:33,  8.98it/s][A
+Iteration:  29%|██▊       | 338/1179 [00:38<01:33,  9.00it/s][A
+Iteration:  29%|██▉       | 339/1179 [00:38<01:33,  9.00it/s][A
+Iteration:  29%|██▉       | 340/1179 [00:38<01:33,  9.00it/s][A
+Iteration:  29%|██▉       | 341/1179 [00:38<01:33,  8.96it/s][A
+Iteration:  29%|██▉       | 342/1179 [00:38<01:33,  8.97it/s][A
+Iteration:  29%|██▉       | 343/1179 [00:38<01:33,  8.97it/s][A
+Iteration:  29%|██▉       | 344/1179 [00:38<01:33,  8.93it/s][A
+Iteration:  29%|██▉       | 345/1179 [00:38<01:33,  8.90it/s][A
+Iteration:  29%|██▉       | 346/1179 [00:38<01:34,  8.86it/s][A
+Iteration:  29%|██▉       | 347/1179 [00:39<01:33,  8.86it/s][A
+Iteration:  30%|██▉       | 348/1179 [00:39<01:34,  8.81it/s][A
+Iteration:  30%|██▉       | 349/1179 [00:39<01:34,  8.77it/s][A
+Iteration:  30%|██▉       | 350/1179 [00:39<01:32,  8.99it/s][A
+Iteration:  30%|██▉       | 352/1179 [00:39<01:28,  9.30it/s][A
+Iteration:  30%|███       | 354/1179 [00:39<01:26,  9.55it/s][A
+Iteration:  30%|███       | 356/1179 [00:40<01:24,  9.73it/s][A
+Iteration:  30%|███       | 358/1179 [00:40<01:23,  9.86it/s][A
+Iteration:  31%|███       | 360/1179 [00:40<01:22,  9.96it/s][A
+Iteration:  31%|███       | 362/1179 [00:40<01:21, 10.02it/s][A
+Iteration:  31%|███       | 364/1179 [00:40<01:20, 10.06it/s][A
+Iteration:  31%|███       | 366/1179 [00:40<01:20, 10.10it/s][A
+Iteration:  31%|███       | 368/1179 [00:41<01:20, 10.13it/s][A
+Iteration:  31%|███▏      | 370/1179 [00:41<01:19, 10.15it/s][A
+Iteration:  32%|███▏      | 372/1179 [00:41<01:19, 10.15it/s][A
+Iteration:  32%|███▏      | 374/1179 [00:41<01:19, 10.15it/s][A
+Iteration:  32%|███▏      | 376/1179 [00:41<01:19, 10.15it/s][A
+Iteration:  32%|███▏      | 378/1179 [00:42<01:18, 10.15it/s][A
+Iteration:  32%|███▏      | 380/1179 [00:42<01:18, 10.14it/s][A
+Iteration:  32%|███▏      | 382/1179 [00:42<01:18, 10.15it/s][A
+Iteration:  33%|███▎      | 384/1179 [00:42<01:18, 10.16it/s][A
+Iteration:  33%|███▎      | 386/1179 [00:42<01:18, 10.16it/s][A
+Iteration:  33%|███▎      | 388/1179 [00:43<01:17, 10.16it/s][A
+Iteration:  33%|███▎      | 390/1179 [00:43<01:17, 10.17it/s][A
+Iteration:  33%|███▎      | 392/1179 [00:43<01:17, 10.17it/s][A
+Iteration:  33%|███▎      | 394/1179 [00:43<01:17, 10.17it/s][A
+Iteration:  34%|███▎      | 396/1179 [00:43<01:16, 10.17it/s][A
+Iteration:  34%|███▍      | 398/1179 [00:44<01:16, 10.18it/s][A
+Iteration:  34%|███▍      | 400/1179 [00:44<01:16, 10.17it/s][A
+Iteration:  34%|███▍      | 402/1179 [00:44<01:16, 10.16it/s][A
+Iteration:  34%|███▍      | 404/1179 [00:44<01:16, 10.17it/s][A
+Iteration:  34%|███▍      | 406/1179 [00:44<01:15, 10.18it/s][A
+Iteration:  35%|███▍      | 408/1179 [00:45<01:15, 10.18it/s][A
+Iteration:  35%|███▍      | 410/1179 [00:45<01:15, 10.16it/s][A
+Iteration:  35%|███▍      | 412/1179 [00:45<01:15, 10.16it/s][A
+Iteration:  35%|███▌      | 414/1179 [00:45<01:15, 10.16it/s][A
+Iteration:  35%|███▌      | 416/1179 [00:45<01:15, 10.16it/s][A
+Iteration:  35%|███▌      | 418/1179 [00:46<01:14, 10.16it/s][A
+Iteration:  36%|███▌      | 420/1179 [00:46<01:14, 10.16it/s][A
+Iteration:  36%|███▌      | 422/1179 [00:46<01:14, 10.17it/s][A
+Iteration:  36%|███▌      | 424/1179 [00:46<01:14, 10.16it/s][A
+Iteration:  36%|███▌      | 426/1179 [00:46<01:14, 10.16it/s][A
+Iteration:  36%|███▋      | 428/1179 [00:47<01:13, 10.15it/s][A
+Iteration:  36%|███▋      | 430/1179 [00:47<01:13, 10.16it/s][A
+Iteration:  37%|███▋      | 432/1179 [00:47<01:13, 10.18it/s][A
+Iteration:  37%|███▋      | 434/1179 [00:47<01:13, 10.17it/s][A
+Iteration:  37%|███▋      | 436/1179 [00:47<01:13, 10.18it/s][A
+Iteration:  37%|███▋      | 438/1179 [00:48<01:12, 10.18it/s][A
+Iteration:  37%|███▋      | 440/1179 [00:48<01:12, 10.18it/s][A
+Iteration:  37%|███▋      | 442/1179 [00:48<01:12, 10.18it/s][A
+Iteration:  38%|███▊      | 444/1179 [00:48<01:12, 10.17it/s][A
+Iteration:  38%|███▊      | 446/1179 [00:48<01:12, 10.17it/s][A
+Iteration:  38%|███▊      | 448/1179 [00:49<01:11, 10.16it/s][A
+Iteration:  38%|███▊      | 450/1179 [00:49<01:11, 10.17it/s][A
+Iteration:  38%|███▊      | 452/1179 [00:49<01:11, 10.17it/s][A
+Iteration:  39%|███▊      | 454/1179 [00:49<01:11, 10.15it/s][A
+Iteration:  39%|███▊      | 456/1179 [00:49<01:11, 10.16it/s][A
+Iteration:  39%|███▉      | 458/1179 [00:50<01:10, 10.17it/s][A
+Iteration:  39%|███▉      | 460/1179 [00:50<01:10, 10.18it/s][A
+Iteration:  39%|███▉      | 462/1179 [00:50<01:10, 10.18it/s][A
+Iteration:  39%|███▉      | 464/1179 [00:50<01:10, 10.20it/s][A
+Iteration:  40%|███▉      | 466/1179 [00:50<01:09, 10.20it/s][A
+Iteration:  40%|███▉      | 468/1179 [00:51<01:09, 10.20it/s][A
+Iteration:  40%|███▉      | 470/1179 [00:51<01:09, 10.19it/s][A
+Iteration:  40%|████      | 472/1179 [00:51<01:09, 10.19it/s][A
+Iteration:  40%|████      | 474/1179 [00:51<01:09, 10.18it/s][A
+Iteration:  40%|████      | 476/1179 [00:51<01:09, 10.17it/s][A
+Iteration:  41%|████      | 478/1179 [00:52<01:08, 10.18it/s][A
+Iteration:  41%|████      | 480/1179 [00:52<01:08, 10.18it/s][A
+Iteration:  41%|████      | 482/1179 [00:52<01:08, 10.17it/s][A
+Iteration:  41%|████      | 484/1179 [00:52<01:08, 10.16it/s][A
+Iteration:  41%|████      | 486/1179 [00:52<01:08, 10.16it/s][A
+Iteration:  41%|████▏     | 488/1179 [00:52<01:08, 10.16it/s][A
+Iteration:  42%|████▏     | 490/1179 [00:53<01:07, 10.17it/s][A
+Iteration:  42%|████▏     | 492/1179 [00:53<01:07, 10.18it/s][A
+Iteration:  42%|████▏     | 494/1179 [00:53<01:07, 10.18it/s][A
+Iteration:  42%|████▏     | 496/1179 [00:53<01:07, 10.17it/s][A
+Iteration:  42%|████▏     | 498/1179 [00:53<01:06, 10.17it/s][A
+Iteration:  42%|████▏     | 500/1179 [00:54<01:06, 10.17it/s][A
+Iteration:  43%|████▎     | 502/1179 [00:54<01:06, 10.17it/s][A
+Iteration:  43%|████▎     | 504/1179 [00:54<01:06, 10.17it/s][A
+Iteration:  43%|████▎     | 506/1179 [00:54<01:06, 10.18it/s][A
+Iteration:  43%|████▎     | 508/1179 [00:54<01:05, 10.17it/s][A
+Iteration:  43%|████▎     | 510/1179 [00:55<01:06, 10.13it/s][A
+Iteration:  43%|████▎     | 512/1179 [00:55<01:05, 10.13it/s][A
+Iteration:  44%|████▎     | 514/1179 [00:55<01:05, 10.15it/s][A
+Iteration:  44%|████▍     | 516/1179 [00:55<01:05, 10.16it/s][A
+Iteration:  44%|████▍     | 518/1179 [00:55<01:04, 10.17it/s][A
+Iteration:  44%|████▍     | 520/1179 [00:56<01:04, 10.18it/s][A
+Iteration:  44%|████▍     | 522/1179 [00:56<01:04, 10.19it/s][A
+Iteration:  44%|████▍     | 524/1179 [00:56<01:04, 10.19it/s][A
+Iteration:  45%|████▍     | 526/1179 [00:56<01:04, 10.20it/s][A
+Iteration:  45%|████▍     | 528/1179 [00:56<01:03, 10.20it/s][A
+Iteration:  45%|████▍     | 530/1179 [00:57<01:03, 10.20it/s][A
+Iteration:  45%|████▌     | 532/1179 [00:57<01:03, 10.19it/s][A
+Iteration:  45%|████▌     | 534/1179 [00:57<01:03, 10.17it/s][A
+Iteration:  45%|████▌     | 536/1179 [00:57<01:03, 10.15it/s][A
+Iteration:  46%|████▌     | 538/1179 [00:57<01:03, 10.15it/s][A
+Iteration:  46%|████▌     | 540/1179 [00:58<01:02, 10.15it/s][A
+Iteration:  46%|████▌     | 542/1179 [00:58<01:02, 10.15it/s][A
+Iteration:  46%|████▌     | 544/1179 [00:58<01:02, 10.14it/s][A
+Iteration:  46%|████▋     | 546/1179 [00:58<01:02, 10.14it/s][A
+Iteration:  46%|████▋     | 548/1179 [00:58<01:02, 10.14it/s][A
+Iteration:  47%|████▋     | 550/1179 [00:59<01:01, 10.16it/s][A
+Iteration:  47%|████▋     | 552/1179 [00:59<01:01, 10.16it/s][A
+Iteration:  47%|████▋     | 554/1179 [00:59<01:01, 10.18it/s][A
+Iteration:  47%|████▋     | 556/1179 [00:59<01:01, 10.19it/s][A
+Iteration:  47%|████▋     | 558/1179 [00:59<01:00, 10.19it/s][A
+Iteration:  47%|████▋     | 560/1179 [01:00<01:00, 10.18it/s][A
+Iteration:  48%|████▊     | 562/1179 [01:00<01:00, 10.20it/s][A
+Iteration:  48%|████▊     | 564/1179 [01:00<01:00, 10.21it/s][A
+Iteration:  48%|████▊     | 566/1179 [01:00<01:00, 10.20it/s][A
+Iteration:  48%|████▊     | 568/1179 [01:00<00:59, 10.21it/s][A
+Iteration:  48%|████▊     | 570/1179 [01:01<00:59, 10.22it/s][A
+Iteration:  49%|████▊     | 572/1179 [01:01<00:59, 10.22it/s][A
+Iteration:  49%|████▊     | 574/1179 [01:01<00:59, 10.20it/s][A
+Iteration:  49%|████▉     | 576/1179 [01:01<00:59, 10.19it/s][A
+Iteration:  49%|████▉     | 578/1179 [01:01<00:59, 10.19it/s][A
+Iteration:  49%|████▉     | 580/1179 [01:02<00:58, 10.19it/s][A
+Iteration:  49%|████▉     | 582/1179 [01:02<00:58, 10.19it/s][A
+Iteration:  50%|████▉     | 584/1179 [01:02<00:58, 10.19it/s][A
+Iteration:  50%|████▉     | 586/1179 [01:02<00:58, 10.19it/s][A
+Iteration:  50%|████▉     | 588/1179 [01:02<00:57, 10.19it/s][A
+Iteration:  50%|█████     | 590/1179 [01:03<00:57, 10.20it/s][A
+Iteration:  50%|█████     | 592/1179 [01:03<00:57, 10.20it/s][A
+Iteration:  50%|█████     | 594/1179 [01:03<00:57, 10.20it/s][A
+Iteration:  51%|█████     | 596/1179 [01:03<00:57, 10.20it/s][A
+Iteration:  51%|█████     | 598/1179 [01:03<00:57, 10.19it/s][A
+Iteration:  51%|█████     | 600/1179 [01:03<00:56, 10.19it/s][A
+Iteration:  51%|█████     | 602/1179 [01:04<00:56, 10.19it/s][A
+Iteration:  51%|█████     | 604/1179 [01:04<00:56, 10.19it/s][A
+Iteration:  51%|█████▏    | 606/1179 [01:04<00:56, 10.17it/s][A
+Iteration:  52%|█████▏    | 608/1179 [01:04<00:56, 10.17it/s][A
+Iteration:  52%|█████▏    | 610/1179 [01:04<00:56, 10.16it/s][A
+Iteration:  52%|█████▏    | 612/1179 [01:05<00:55, 10.17it/s][A
+Iteration:  52%|█████▏    | 614/1179 [01:05<00:55, 10.17it/s][A
+Iteration:  52%|█████▏    | 616/1179 [01:05<00:55, 10.17it/s][A
+Iteration:  52%|█████▏    | 618/1179 [01:05<00:55, 10.18it/s][A
+Iteration:  53%|█████▎    | 620/1179 [01:05<00:54, 10.19it/s][A
+Iteration:  53%|█████▎    | 622/1179 [01:06<00:54, 10.19it/s][A
+Iteration:  53%|█████▎    | 624/1179 [01:06<00:54, 10.19it/s][A
+Iteration:  53%|█████▎    | 626/1179 [01:06<00:54, 10.19it/s][A
+Iteration:  53%|█████▎    | 628/1179 [01:06<00:54, 10.19it/s][A
+Iteration:  53%|█████▎    | 630/1179 [01:06<00:53, 10.18it/s][A
+Iteration:  54%|█████▎    | 632/1179 [01:07<00:53, 10.19it/s][A
+Iteration:  54%|█████▍    | 634/1179 [01:07<00:53, 10.18it/s][A
+Iteration:  54%|█████▍    | 636/1179 [01:07<00:53, 10.17it/s][A
+Iteration:  54%|█████▍    | 638/1179 [01:07<00:53, 10.16it/s][A
+Iteration:  54%|█████▍    | 640/1179 [01:07<00:53, 10.17it/s][A03/12/2020 23:27:10 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3000/config.json
+03/12/2020 23:27:12 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3000/pytorch_model.bin
+03/12/2020 23:27:12 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3000
+03/12/2020 23:27:14 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3000
+
+Iteration:  54%|█████▍    | 642/1179 [01:11<06:04,  1.47it/s][A
+Iteration:  55%|█████▍    | 643/1179 [01:12<04:31,  1.97it/s][A
+Iteration:  55%|█████▍    | 644/1179 [01:12<03:26,  2.59it/s][A
+Iteration:  55%|█████▍    | 645/1179 [01:12<02:40,  3.32it/s][A
+Iteration:  55%|█████▍    | 646/1179 [01:12<02:08,  4.15it/s][A
+Iteration:  55%|█████▍    | 648/1179 [01:12<01:45,  5.04it/s][A
+Iteration:  55%|█████▌    | 650/1179 [01:12<01:29,  5.94it/s][A
+Iteration:  55%|█████▌    | 652/1179 [01:12<01:17,  6.79it/s][A
+Iteration:  55%|█████▌    | 654/1179 [01:13<01:09,  7.55it/s][A
+Iteration:  56%|█████▌    | 656/1179 [01:13<01:03,  8.19it/s][A
+Iteration:  56%|█████▌    | 658/1179 [01:13<00:59,  8.70it/s][A
+Iteration:  56%|█████▌    | 660/1179 [01:13<00:57,  9.10it/s][A
+Iteration:  56%|█████▌    | 662/1179 [01:13<00:54,  9.40it/s][A
+Iteration:  56%|█████▋    | 664/1179 [01:14<00:53,  9.63it/s][A
+Iteration:  56%|█████▋    | 666/1179 [01:14<00:52,  9.79it/s][A
+Iteration:  57%|█████▋    | 668/1179 [01:14<00:51,  9.90it/s][A
+Iteration:  57%|█████▋    | 670/1179 [01:14<00:50,  9.99it/s][A
+Iteration:  57%|█████▋    | 672/1179 [01:14<00:50, 10.04it/s][A
+Iteration:  57%|█████▋    | 674/1179 [01:15<00:50, 10.09it/s][A
+Iteration:  57%|█████▋    | 676/1179 [01:15<00:49, 10.12it/s][A
+Iteration:  58%|█████▊    | 678/1179 [01:15<00:49, 10.13it/s][A
+Iteration:  58%|█████▊    | 680/1179 [01:15<00:49, 10.13it/s][A
+Iteration:  58%|█████▊    | 682/1179 [01:15<00:49, 10.14it/s][A
+Iteration:  58%|█████▊    | 684/1179 [01:16<00:48, 10.15it/s][A
+Iteration:  58%|█████▊    | 686/1179 [01:16<00:48, 10.15it/s][A
+Iteration:  58%|█████▊    | 688/1179 [01:16<00:48, 10.16it/s][A
+Iteration:  59%|█████▊    | 690/1179 [01:16<00:48, 10.17it/s][A
+Iteration:  59%|█████▊    | 692/1179 [01:16<00:47, 10.16it/s][A
+Iteration:  59%|█████▉    | 694/1179 [01:17<00:47, 10.15it/s][A
+Iteration:  59%|█████▉    | 696/1179 [01:17<00:47, 10.14it/s][A
+Iteration:  59%|█████▉    | 698/1179 [01:17<00:47, 10.14it/s][A
+Iteration:  59%|█████▉    | 700/1179 [01:17<00:47, 10.14it/s][A
+Iteration:  60%|█████▉    | 702/1179 [01:17<00:47, 10.13it/s][A
+Iteration:  60%|█████▉    | 704/1179 [01:18<00:46, 10.13it/s][A
+Iteration:  60%|█████▉    | 706/1179 [01:18<00:46, 10.14it/s][A
+Iteration:  60%|██████    | 708/1179 [01:18<00:46, 10.15it/s][A
+Iteration:  60%|██████    | 710/1179 [01:18<00:46, 10.16it/s][A
+Iteration:  60%|██████    | 712/1179 [01:18<00:45, 10.16it/s][A
+Iteration:  61%|██████    | 714/1179 [01:19<00:45, 10.17it/s][A
+Iteration:  61%|██████    | 716/1179 [01:19<00:45, 10.17it/s][A
+Iteration:  61%|██████    | 718/1179 [01:19<00:45, 10.18it/s][A
+Iteration:  61%|██████    | 720/1179 [01:19<00:45, 10.19it/s][A
+Iteration:  61%|██████    | 722/1179 [01:19<00:44, 10.19it/s][A
+Iteration:  61%|██████▏   | 724/1179 [01:20<00:44, 10.20it/s][A
+Iteration:  62%|██████▏   | 726/1179 [01:20<00:44, 10.20it/s][A
+Iteration:  62%|██████▏   | 728/1179 [01:20<00:44, 10.19it/s][A
+Iteration:  62%|██████▏   | 730/1179 [01:20<00:44, 10.19it/s][A
+Iteration:  62%|██████▏   | 732/1179 [01:20<00:43, 10.19it/s][A
+Iteration:  62%|██████▏   | 734/1179 [01:21<00:43, 10.19it/s][A
+Iteration:  62%|██████▏   | 736/1179 [01:21<00:43, 10.19it/s][A
+Iteration:  63%|██████▎   | 738/1179 [01:21<00:43, 10.19it/s][A
+Iteration:  63%|██████▎   | 740/1179 [01:21<00:43, 10.19it/s][A
+Iteration:  63%|██████▎   | 742/1179 [01:21<00:42, 10.19it/s][A
+Iteration:  63%|██████▎   | 744/1179 [01:22<00:42, 10.19it/s][A
+Iteration:  63%|██████▎   | 746/1179 [01:22<00:42, 10.19it/s][A
+Iteration:  63%|██████▎   | 748/1179 [01:22<00:42, 10.18it/s][A
+Iteration:  64%|██████▎   | 750/1179 [01:22<00:42, 10.18it/s][A
+Iteration:  64%|██████▍   | 752/1179 [01:22<00:41, 10.17it/s][A
+Iteration:  64%|██████▍   | 754/1179 [01:23<00:41, 10.15it/s][A
+Iteration:  64%|██████▍   | 756/1179 [01:23<00:41, 10.14it/s][A
+Iteration:  64%|██████▍   | 758/1179 [01:23<00:41, 10.13it/s][A
+Iteration:  64%|██████▍   | 760/1179 [01:23<00:41, 10.13it/s][A
+Iteration:  65%|██████▍   | 762/1179 [01:23<00:41, 10.14it/s][A
+Iteration:  65%|██████▍   | 764/1179 [01:24<00:40, 10.15it/s][A
+Iteration:  65%|██████▍   | 766/1179 [01:24<00:40, 10.15it/s][A
+Iteration:  65%|██████▌   | 768/1179 [01:24<00:40, 10.16it/s][A
+Iteration:  65%|██████▌   | 770/1179 [01:24<00:40, 10.16it/s][A
+Iteration:  65%|██████▌   | 772/1179 [01:24<00:40, 10.16it/s][A
+Iteration:  66%|██████▌   | 774/1179 [01:24<00:39, 10.17it/s][A
+Iteration:  66%|██████▌   | 776/1179 [01:25<00:39, 10.17it/s][A
+Iteration:  66%|██████▌   | 778/1179 [01:25<00:39, 10.17it/s][A
+Iteration:  66%|██████▌   | 780/1179 [01:25<00:39, 10.18it/s][A
+Iteration:  66%|██████▋   | 782/1179 [01:25<00:38, 10.18it/s][A
+Iteration:  66%|██████▋   | 784/1179 [01:25<00:38, 10.18it/s][A
+Iteration:  67%|██████▋   | 786/1179 [01:26<00:38, 10.19it/s][A
+Iteration:  67%|██████▋   | 788/1179 [01:26<00:38, 10.18it/s][A
+Iteration:  67%|██████▋   | 790/1179 [01:26<00:38, 10.18it/s][A
+Iteration:  67%|██████▋   | 792/1179 [01:26<00:38, 10.18it/s][A
+Iteration:  67%|██████▋   | 794/1179 [01:26<00:37, 10.18it/s][A
+Iteration:  68%|██████▊   | 796/1179 [01:27<00:37, 10.17it/s][A
+Iteration:  68%|██████▊   | 798/1179 [01:27<00:37, 10.18it/s][A
+Iteration:  68%|██████▊   | 800/1179 [01:27<00:37, 10.18it/s][A
+Iteration:  68%|██████▊   | 802/1179 [01:27<00:37, 10.18it/s][A
+Iteration:  68%|██████▊   | 804/1179 [01:27<00:36, 10.17it/s][A
+Iteration:  68%|██████▊   | 806/1179 [01:28<00:36, 10.17it/s][A
+Iteration:  69%|██████▊   | 808/1179 [01:28<00:36, 10.18it/s][A
+Iteration:  69%|██████▊   | 810/1179 [01:28<00:36, 10.17it/s][A
+Iteration:  69%|██████▉   | 812/1179 [01:28<00:36, 10.17it/s][A
+Iteration:  69%|██████▉   | 814/1179 [01:28<00:35, 10.18it/s][A
+Iteration:  69%|██████▉   | 816/1179 [01:29<00:35, 10.18it/s][A
+Iteration:  69%|██████▉   | 818/1179 [01:29<00:35, 10.19it/s][A
+Iteration:  70%|██████▉   | 820/1179 [01:29<00:35, 10.19it/s][A
+Iteration:  70%|██████▉   | 822/1179 [01:29<00:35, 10.19it/s][A
+Iteration:  70%|██████▉   | 824/1179 [01:29<00:34, 10.19it/s][A
+Iteration:  70%|███████   | 826/1179 [01:30<00:34, 10.20it/s][A
+Iteration:  70%|███████   | 828/1179 [01:30<00:34, 10.20it/s][A
+Iteration:  70%|███████   | 830/1179 [01:30<00:34, 10.20it/s][A
+Iteration:  71%|███████   | 832/1179 [01:30<00:34, 10.18it/s][A
+Iteration:  71%|███████   | 834/1179 [01:30<00:33, 10.18it/s][A
+Iteration:  71%|███████   | 836/1179 [01:31<00:33, 10.19it/s][A
+Iteration:  71%|███████   | 838/1179 [01:31<00:33, 10.17it/s][A
+Iteration:  71%|███████   | 840/1179 [01:31<00:33, 10.17it/s][A
+Iteration:  71%|███████▏  | 842/1179 [01:31<00:33, 10.18it/s][A
+Iteration:  72%|███████▏  | 844/1179 [01:31<00:32, 10.18it/s][A
+Iteration:  72%|███████▏  | 846/1179 [01:32<00:32, 10.19it/s][A
+Iteration:  72%|███████▏  | 848/1179 [01:32<00:32, 10.19it/s][A
+Iteration:  72%|███████▏  | 850/1179 [01:32<00:32, 10.19it/s][A
+Iteration:  72%|███████▏  | 852/1179 [01:32<00:32, 10.19it/s][A
+Iteration:  72%|███████▏  | 854/1179 [01:32<00:31, 10.19it/s][A
+Iteration:  73%|███████▎  | 856/1179 [01:33<00:31, 10.20it/s][A
+Iteration:  73%|███████▎  | 858/1179 [01:33<00:31, 10.20it/s][A
+Iteration:  73%|███████▎  | 860/1179 [01:33<00:31, 10.20it/s][A
+Iteration:  73%|███████▎  | 862/1179 [01:33<00:31, 10.20it/s][A
+Iteration:  73%|███████▎  | 864/1179 [01:33<00:30, 10.19it/s][A
+Iteration:  73%|███████▎  | 866/1179 [01:34<00:30, 10.18it/s][A
+Iteration:  74%|███████▎  | 868/1179 [01:34<00:30, 10.18it/s][A
+Iteration:  74%|███████▍  | 870/1179 [01:34<00:30, 10.18it/s][A
+Iteration:  74%|███████▍  | 872/1179 [01:34<00:30, 10.18it/s][A
+Iteration:  74%|███████▍  | 874/1179 [01:34<00:29, 10.18it/s][A
+Iteration:  74%|███████▍  | 876/1179 [01:35<00:29, 10.18it/s][A
+Iteration:  74%|███████▍  | 878/1179 [01:35<00:29, 10.18it/s][A
+Iteration:  75%|███████▍  | 880/1179 [01:35<00:29, 10.16it/s][A
+Iteration:  75%|███████▍  | 882/1179 [01:35<00:29, 10.16it/s][A
+Iteration:  75%|███████▍  | 884/1179 [01:35<00:29, 10.17it/s][A
+Iteration:  75%|███████▌  | 886/1179 [01:35<00:28, 10.17it/s][A
+Iteration:  75%|███████▌  | 888/1179 [01:36<00:28, 10.17it/s][A
+Iteration:  75%|███████▌  | 890/1179 [01:36<00:28, 10.16it/s][A
+Iteration:  76%|███████▌  | 892/1179 [01:36<00:28, 10.17it/s][A
+Iteration:  76%|███████▌  | 894/1179 [01:36<00:28, 10.16it/s][A
+Iteration:  76%|███████▌  | 896/1179 [01:36<00:27, 10.17it/s][A
+Iteration:  76%|███████▌  | 898/1179 [01:37<00:27, 10.17it/s][A
+Iteration:  76%|███████▋  | 900/1179 [01:37<00:27, 10.17it/s][A
+Iteration:  77%|███████▋  | 902/1179 [01:37<00:27, 10.17it/s][A
+Iteration:  77%|███████▋  | 904/1179 [01:37<00:27, 10.18it/s][A
+Iteration:  77%|███████▋  | 906/1179 [01:37<00:26, 10.18it/s][A
+Iteration:  77%|███████▋  | 908/1179 [01:38<00:26, 10.19it/s][A
+Iteration:  77%|███████▋  | 910/1179 [01:38<00:26, 10.20it/s][A
+Iteration:  77%|███████▋  | 912/1179 [01:38<00:26, 10.20it/s][A
+Iteration:  78%|███████▊  | 914/1179 [01:38<00:25, 10.20it/s][A
+Iteration:  78%|███████▊  | 916/1179 [01:38<00:25, 10.20it/s][A
+Iteration:  78%|███████▊  | 918/1179 [01:39<00:25, 10.19it/s][A
+Iteration:  78%|███████▊  | 920/1179 [01:39<00:25, 10.18it/s][A
+Iteration:  78%|███████▊  | 922/1179 [01:39<00:25, 10.18it/s][A
+Iteration:  78%|███████▊  | 924/1179 [01:39<00:25, 10.17it/s][A
+Iteration:  79%|███████▊  | 926/1179 [01:39<00:24, 10.16it/s][A
+Iteration:  79%|███████▊  | 928/1179 [01:40<00:24, 10.16it/s][A
+Iteration:  79%|███████▉  | 930/1179 [01:40<00:24, 10.15it/s][A
+Iteration:  79%|███████▉  | 932/1179 [01:40<00:24, 10.15it/s][A
+Iteration:  79%|███████▉  | 934/1179 [01:40<00:24, 10.17it/s][A
+Iteration:  79%|███████▉  | 936/1179 [01:40<00:23, 10.17it/s][A
+Iteration:  80%|███████▉  | 938/1179 [01:41<00:23, 10.17it/s][A
+Iteration:  80%|███████▉  | 940/1179 [01:41<00:23, 10.16it/s][A
+Iteration:  80%|███████▉  | 942/1179 [01:41<00:23, 10.17it/s][A
+Iteration:  80%|████████  | 944/1179 [01:41<00:23, 10.16it/s][A
+Iteration:  80%|████████  | 946/1179 [01:41<00:22, 10.17it/s][A
+Iteration:  80%|████████  | 948/1179 [01:42<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 950/1179 [01:42<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 952/1179 [01:42<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 954/1179 [01:42<00:22, 10.17it/s][A
+Iteration:  81%|████████  | 956/1179 [01:42<00:21, 10.17it/s][A
+Iteration:  81%|████████▏ | 958/1179 [01:43<00:21, 10.18it/s][A
+Iteration:  81%|████████▏ | 960/1179 [01:43<00:21, 10.18it/s][A
+Iteration:  82%|████████▏ | 962/1179 [01:43<00:21, 10.18it/s][A
+Iteration:  82%|████████▏ | 964/1179 [01:43<00:21, 10.19it/s][A
+Iteration:  82%|████████▏ | 966/1179 [01:43<00:20, 10.19it/s][A
+Iteration:  82%|████████▏ | 968/1179 [01:44<00:20, 10.19it/s][A
+Iteration:  82%|████████▏ | 970/1179 [01:44<00:20, 10.18it/s][A
+Iteration:  82%|████████▏ | 972/1179 [01:44<00:20, 10.18it/s][A
+Iteration:  83%|████████▎ | 974/1179 [01:44<00:20, 10.16it/s][A
+Iteration:  83%|████████▎ | 976/1179 [01:44<00:19, 10.16it/s][A
+Iteration:  83%|████████▎ | 978/1179 [01:45<00:19, 10.15it/s][A
+Iteration:  83%|████████▎ | 980/1179 [01:45<00:19, 10.16it/s][A
+Iteration:  83%|████████▎ | 982/1179 [01:45<00:19, 10.17it/s][A
+Iteration:  83%|████████▎ | 984/1179 [01:45<00:19, 10.18it/s][A
+Iteration:  84%|████████▎ | 986/1179 [01:45<00:18, 10.19it/s][A
+Iteration:  84%|████████▍ | 988/1179 [01:46<00:18, 10.20it/s][A
+Iteration:  84%|████████▍ | 990/1179 [01:46<00:18, 10.20it/s][A
+Iteration:  84%|████████▍ | 992/1179 [01:46<00:18, 10.21it/s][A
+Iteration:  84%|████████▍ | 994/1179 [01:46<00:18, 10.20it/s][A
+Iteration:  84%|████████▍ | 996/1179 [01:46<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 998/1179 [01:46<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 1000/1179 [01:47<00:17, 10.17it/s][A
+Iteration:  85%|████████▍ | 1002/1179 [01:47<00:17, 10.18it/s][A
+Iteration:  85%|████████▌ | 1004/1179 [01:47<00:17, 10.18it/s][A
+Iteration:  85%|████████▌ | 1006/1179 [01:47<00:16, 10.18it/s][A
+Iteration:  85%|████████▌ | 1008/1179 [01:47<00:16, 10.18it/s][A
+Iteration:  86%|████████▌ | 1010/1179 [01:48<00:16, 10.18it/s][A
+Iteration:  86%|████████▌ | 1012/1179 [01:48<00:16, 10.17it/s][A
+Iteration:  86%|████████▌ | 1014/1179 [01:48<00:16, 10.18it/s][A
+Iteration:  86%|████████▌ | 1016/1179 [01:48<00:16, 10.18it/s][A
+Iteration:  86%|████████▋ | 1018/1179 [01:48<00:15, 10.17it/s][A
+Iteration:  87%|████████▋ | 1020/1179 [01:49<00:15, 10.15it/s][A
+Iteration:  87%|████████▋ | 1022/1179 [01:49<00:15, 10.15it/s][A
+Iteration:  87%|████████▋ | 1024/1179 [01:49<00:15, 10.14it/s][A
+Iteration:  87%|████████▋ | 1026/1179 [01:49<00:15, 10.15it/s][A
+Iteration:  87%|████████▋ | 1028/1179 [01:49<00:14, 10.15it/s][A
+Iteration:  87%|████████▋ | 1030/1179 [01:50<00:14, 10.16it/s][A
+Iteration:  88%|████████▊ | 1032/1179 [01:50<00:14, 10.15it/s][A
+Iteration:  88%|████████▊ | 1034/1179 [01:50<00:14, 10.16it/s][A
+Iteration:  88%|████████▊ | 1036/1179 [01:50<00:14, 10.16it/s][A
+Iteration:  88%|████████▊ | 1038/1179 [01:50<00:13, 10.16it/s][A
+Iteration:  88%|████████▊ | 1040/1179 [01:51<00:13, 10.17it/s][A
+Iteration:  88%|████████▊ | 1042/1179 [01:51<00:13, 10.17it/s][A
+Iteration:  89%|████████▊ | 1044/1179 [01:51<00:13, 10.17it/s][A
+Iteration:  89%|████████▊ | 1046/1179 [01:51<00:13, 10.17it/s][A
+Iteration:  89%|████████▉ | 1048/1179 [01:51<00:12, 10.17it/s][A
+Iteration:  89%|████████▉ | 1050/1179 [01:52<00:12, 10.17it/s][A
+Iteration:  89%|████████▉ | 1052/1179 [01:52<00:12, 10.15it/s][A
+Iteration:  89%|████████▉ | 1054/1179 [01:52<00:12, 10.16it/s][A
+Iteration:  90%|████████▉ | 1056/1179 [01:52<00:12, 10.17it/s][A
+Iteration:  90%|████████▉ | 1058/1179 [01:52<00:11, 10.16it/s][A
+Iteration:  90%|████████▉ | 1060/1179 [01:53<00:11, 10.16it/s][A
+Iteration:  90%|█████████ | 1062/1179 [01:53<00:11, 10.17it/s][A
+Iteration:  90%|█████████ | 1064/1179 [01:53<00:11, 10.16it/s][A
+Iteration:  90%|█████████ | 1066/1179 [01:53<00:11, 10.15it/s][A
+Iteration:  91%|█████████ | 1068/1179 [01:53<00:10, 10.14it/s][A
+Iteration:  91%|█████████ | 1070/1179 [01:54<00:10, 10.14it/s][A
+Iteration:  91%|█████████ | 1072/1179 [01:54<00:10, 10.14it/s][A
+Iteration:  91%|█████████ | 1074/1179 [01:54<00:10, 10.13it/s][A
+Iteration:  91%|█████████▏| 1076/1179 [01:54<00:10, 10.14it/s][A
+Iteration:  91%|█████████▏| 1078/1179 [01:54<00:09, 10.16it/s][A
+Iteration:  92%|█████████▏| 1080/1179 [01:55<00:09, 10.16it/s][A
+Iteration:  92%|█████████▏| 1082/1179 [01:55<00:09, 10.17it/s][A
+Iteration:  92%|█████████▏| 1084/1179 [01:55<00:09, 10.18it/s][A
+Iteration:  92%|█████████▏| 1086/1179 [01:55<00:09, 10.18it/s][A
+Iteration:  92%|█████████▏| 1088/1179 [01:55<00:08, 10.18it/s][A
+Iteration:  92%|█████████▏| 1090/1179 [01:56<00:08, 10.18it/s][A
+Iteration:  93%|█████████▎| 1092/1179 [01:56<00:08, 10.19it/s][A
+Iteration:  93%|█████████▎| 1094/1179 [01:56<00:08, 10.18it/s][A
+Iteration:  93%|█████████▎| 1096/1179 [01:56<00:08, 10.17it/s][A
+Iteration:  93%|█████████▎| 1098/1179 [01:56<00:07, 10.17it/s][A
+Iteration:  93%|█████████▎| 1100/1179 [01:57<00:07, 10.17it/s][A
+Iteration:  93%|█████████▎| 1102/1179 [01:57<00:07, 10.16it/s][A
+Iteration:  94%|█████████▎| 1104/1179 [01:57<00:07, 10.12it/s][A
+Iteration:  94%|█████████▍| 1106/1179 [01:57<00:07, 10.14it/s][A
+Iteration:  94%|█████████▍| 1108/1179 [01:57<00:06, 10.15it/s][A
+Iteration:  94%|█████████▍| 1110/1179 [01:58<00:06, 10.16it/s][A
+Iteration:  94%|█████████▍| 1112/1179 [01:58<00:06, 10.17it/s][A
+Iteration:  94%|█████████▍| 1114/1179 [01:58<00:06, 10.17it/s][A
+Iteration:  95%|█████████▍| 1116/1179 [01:58<00:06, 10.17it/s][A
+Iteration:  95%|█████████▍| 1118/1179 [01:58<00:05, 10.17it/s][A
+Iteration:  95%|█████████▍| 1120/1179 [01:58<00:05, 10.17it/s][A
+Iteration:  95%|█████████▌| 1122/1179 [01:59<00:05, 10.17it/s][A
+Iteration:  95%|█████████▌| 1124/1179 [01:59<00:05, 10.16it/s][A
+Iteration:  96%|█████████▌| 1126/1179 [01:59<00:05, 10.16it/s][A
+Iteration:  96%|█████████▌| 1128/1179 [01:59<00:05, 10.17it/s][A
+Iteration:  96%|█████████▌| 1130/1179 [01:59<00:04, 10.17it/s][A
+Iteration:  96%|█████████▌| 1132/1179 [02:00<00:04, 10.16it/s][A
+Iteration:  96%|█████████▌| 1134/1179 [02:00<00:04, 10.16it/s][A
+Iteration:  96%|█████████▋| 1136/1179 [02:00<00:04, 10.17it/s][A
+Iteration:  97%|█████████▋| 1138/1179 [02:00<00:04, 10.17it/s][A
+Iteration:  97%|█████████▋| 1140/1179 [02:00<00:03, 10.18it/s][A03/12/2020 23:28:03 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3500/config.json
+03/12/2020 23:28:05 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3500/pytorch_model.bin
+03/12/2020 23:28:05 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3500
+03/12/2020 23:28:07 - INFO - __main__ -   Saving optimizer and scheduler states to /scratch/an3056/nlu/code/transformers/BOOLQ_run/checkpoint-3500
+
+Iteration:  97%|█████████▋| 1142/1179 [02:05<00:25,  1.48it/s][A
+Iteration:  97%|█████████▋| 1143/1179 [02:05<00:18,  1.98it/s][A
+Iteration:  97%|█████████▋| 1144/1179 [02:05<00:13,  2.60it/s][A
+Iteration:  97%|█████████▋| 1145/1179 [02:05<00:10,  3.34it/s][A
+Iteration:  97%|█████████▋| 1147/1179 [02:05<00:07,  4.18it/s][A
+Iteration:  97%|█████████▋| 1149/1179 [02:05<00:05,  5.08it/s][A
+Iteration:  98%|█████████▊| 1151/1179 [02:05<00:04,  5.98it/s][A
+Iteration:  98%|█████████▊| 1153/1179 [02:06<00:03,  6.83it/s][A
+Iteration:  98%|█████████▊| 1155/1179 [02:06<00:03,  7.58it/s][A
+Iteration:  98%|█████████▊| 1157/1179 [02:06<00:02,  8.21it/s][A
+Iteration:  98%|█████████▊| 1159/1179 [02:06<00:02,  8.73it/s][A
+Iteration:  98%|█████████▊| 1161/1179 [02:06<00:01,  9.12it/s][A
+Iteration:  99%|█████████▊| 1163/1179 [02:07<00:01,  9.42it/s][A
+Iteration:  99%|█████████▉| 1165/1179 [02:07<00:01,  9.65it/s][A
+Iteration:  99%|█████████▉| 1167/1179 [02:07<00:01,  9.81it/s][A
+Iteration:  99%|█████████▉| 1169/1179 [02:07<00:01,  9.93it/s][A
+Iteration:  99%|█████████▉| 1171/1179 [02:07<00:00, 10.01it/s][A
+Iteration:  99%|█████████▉| 1173/1179 [02:08<00:00, 10.07it/s][A
+Iteration: 100%|█████████▉| 1175/1179 [02:08<00:00, 10.10it/s][A
+Iteration: 100%|█████████▉| 1177/1179 [02:08<00:00, 10.12it/s][A
+Iteration: 100%|██████████| 1179/1179 [02:08<00:00, 10.51it/s][AIteration: 100%|██████████| 1179/1179 [02:08<00:00,  9.17it/s]
+Epoch: 100%|██████████| 3/3 [06:23<00:00, 129.01s/it]Epoch: 100%|██████████| 3/3 [06:23<00:00, 127.93s/it]
+03/12/2020 23:28:11 - INFO - __main__ -    global_step = 3537, average loss = 0.5203339001019021
+03/12/2020 23:28:11 - INFO - __main__ -   Saving model checkpoint to /scratch/an3056/nlu/code/transformers/BOOLQ_run/
+03/12/2020 23:28:11 - INFO - transformers.configuration_utils -   Configuration saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/config.json
+03/12/2020 23:28:12 - INFO - transformers.modeling_utils -   Model weights saved in /scratch/an3056/nlu/code/transformers/BOOLQ_run/pytorch_model.bin
+03/12/2020 23:28:12 - INFO - transformers.configuration_utils -   loading configuration file /scratch/an3056/nlu/code/transformers/BOOLQ_run/config.json
+03/12/2020 23:28:12 - INFO - transformers.configuration_utils -   Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForSequenceClassification"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_ids": null,
+  "finetuning_task": "boolq",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+03/12/2020 23:28:12 - INFO - transformers.modeling_utils -   loading weights file /scratch/an3056/nlu/code/transformers/BOOLQ_run/pytorch_model.bin
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   Model name '/scratch/an3056/nlu/code/transformers/BOOLQ_run/' not found in model shortcut name list (roberta-base, roberta-large, roberta-large-mnli, distilroberta-base, roberta-base-openai-detector, roberta-large-openai-detector). Assuming '/scratch/an3056/nlu/code/transformers/BOOLQ_run/' is a path, a model identifier, or url to a directory containing tokenizer files.
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   Didn't find file /scratch/an3056/nlu/code/transformers/BOOLQ_run/added_tokens.json. We won't load it.
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/vocab.json
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/merges.txt
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file None
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/special_tokens_map.json
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/tokenizer_config.json
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   Model name '/scratch/an3056/nlu/code/transformers/BOOLQ_run/' not found in model shortcut name list (roberta-base, roberta-large, roberta-large-mnli, distilroberta-base, roberta-base-openai-detector, roberta-large-openai-detector). Assuming '/scratch/an3056/nlu/code/transformers/BOOLQ_run/' is a path, a model identifier, or url to a directory containing tokenizer files.
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   Didn't find file /scratch/an3056/nlu/code/transformers/BOOLQ_run/added_tokens.json. We won't load it.
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/vocab.json
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/merges.txt
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file None
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/special_tokens_map.json
+03/12/2020 23:28:16 - INFO - transformers.tokenization_utils -   loading file /scratch/an3056/nlu/code/transformers/BOOLQ_run/tokenizer_config.json
+03/12/2020 23:28:16 - INFO - __main__ -   Evaluate the following checkpoints: ['/scratch/an3056/nlu/code/transformers/BOOLQ_run/']
+03/12/2020 23:28:16 - INFO - transformers.configuration_utils -   loading configuration file /scratch/an3056/nlu/code/transformers/BOOLQ_run/config.json
+03/12/2020 23:28:16 - INFO - transformers.configuration_utils -   Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForSequenceClassification"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_ids": null,
+  "finetuning_task": "boolq",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+03/12/2020 23:28:16 - INFO - transformers.modeling_utils -   loading weights file /scratch/an3056/nlu/code/transformers/BOOLQ_run/pytorch_model.bin
+03/12/2020 23:28:20 - INFO - __main__ -   Creating features from dataset file at /scratch/an3056/nlu/data/BOOLQ
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   Writing example 0/3269
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   guid: dev-{"question": "is house tax and property tax are same", "passage": "Property tax -- Property tax or 'house tax' is a local tax on buildings, along with appurtenant land. It is and imposed on the Possessor (not the custodian of property as per 1978, 44th amendment of constitution). It resembles the US-type wealth tax and differs from the excise-type UK rate. The tax power is vested in the states and is delegated to local bodies, specifying the valuation method, rate band, and collection procedures. The tax base is the annual rental value (ARV) or area-based rating. Owner-occupied and other properties not producing rent are assessed on cost and then converted into ARV by applying a percentage of cost, usually four percent. Vacant land is generally exempt. Central government properties are exempt. Instead a 'service charge' is permissible under executive order. Properties of foreign missions also enjoy tax exemption without requiring reciprocity. The tax is usually accompanied by service taxes, e.g., water tax, drainage tax, conservancy (sanitation) tax, lighting tax, all using the same tax base. The rate structure is flat on rural (panchayat) properties, but in the urban (municipal) areas it is mildly progressive with about 80% of assessments falling in the first two brackets.", "idx": 1, "label": true}
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   input_ids: 0 16 790 629 8 1038 629 32 276 2 2 10491 629 480 10491 629 50 128 3138 629 108 16 10 400 629 15 3413 6 552 19 1553 710 3869 927 1212 4 85 16 8 5713 15 5 24330 33728 36 3654 5 22790 811 9 1038 25 228 14428 6 3550 212 8322 9 7255 322 85 26254 5 382 12 12528 4764 629 8 31381 31 5 28994 12 12528 987 731 4 20 629 476 16 29994 11 5 982 8 16 42304 7 400 3738 6 39140 5 7440 5448 6 731 1971 6 8 2783 6196 4 20 629 1542 16 5 1013 7582 923 36 2747 846 43 50 443 12 805 691 4 23027 12 22385 2
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   guid: dev-{"question": "is pain experienced in a missing body part or paralyzed area", "passage": "Phantom pain -- Phantom pain sensations are described as perceptions that an individual experiences relating to a limb or an organ that is not physically part of the body. Limb loss is a result of either removal by amputation or congenital limb deficiency. However, phantom limb sensations can also occur following nerve avulsion or spinal cord injury.", "idx": 2, "label": true}
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   input_ids: 0 16 2400 2984 11 10 1716 809 233 50 28582 443 2 2 30099 2400 480 30099 2400 40680 32 1602 25 22981 14 41 1736 3734 8941 7 10 29654 50 41 6757 14 16 45 7217 233 9 5 809 4 8300 428 872 16 10 898 9 1169 7129 30 29327 1258 50 36764 8632 29654 30367 4 635 6 43741 29654 40680 64 67 5948 511 10387 6402 31254 50 21431 13051 1356 4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   guid: dev-{"question": "is harry potter and the escape from gringotts a roller coaster ride", "passage": "Harry Potter and the Escape from Gringotts -- Harry Potter and the Escape from Gringotts is an indoor steel roller coaster at Universal Studios Florida, a theme park located within the Universal Orlando Resort. Similar to dark rides, the roller coaster utilizes special effects in a controlled-lighting environment and also employs motion-based 3-D projection of both animation and live-action sequences to enhance the experience. The ride, which is themed to the Gringotts Wizarding Bank, became the flagship attraction for the expanded Wizarding World of Harry Potter when it opened on July 8, 2014.", "idx": 3, "label": true}
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   input_ids: 0 16 12280 1506 4728 1334 8 5 5111 31 4435 154 1242 1872 10 15950 28910 3068 2 2 3268 10997 8 5 29872 31 272 4506 1242 1872 480 3268 10997 8 5 29872 31 272 4506 1242 1872 16 41 11894 3689 15950 28910 23 9973 11863 1261 6 10 4782 2221 2034 624 5 9973 5854 10989 4 17110 7 2933 9668 6 5 15950 28910 33778 780 3038 11 10 4875 12 30181 1737 8 67 13774 4298 12 805 155 12 495 18144 9 258 19269 8 697 12 10845 26929 7 6292 5 676 4 20 3068 6 61 16 22952 7 5 272 4506 1242 1872 31893 154 788 6 1059 5 8589 13003 13 5 4939 31893 154 2
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   guid: dev-{"question": "is there a difference between hydroxyzine hcl and hydroxyzine pam", "passage": "Hydroxyzine -- Hydroxyzine preparations require a doctor's prescription. The drug is available in two formulations, the pamoate and the dihydrochloride or hydrochloride salts. Vistaril, Equipose, Masmoran, and Paxistil are preparations of the pamoate salt, while Atarax, Alamon, Aterax, Durrax, Tran-Q, Orgatrax, Quiess, and Tranquizine are of the hydrochloride salt.", "idx": 4, "label": true}
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   input_ids: 0 16 89 10 2249 227 13575 32027 329 833 1368 3998 8 13575 32027 329 833 181 424 2 2 19019 32027 329 833 480 19019 32027 329 833 11780 2703 10 3299 18 9243 4 20 1262 16 577 11 80 40759 6 5 181 12705 877 8 5 2269 30420 1001 39220 1949 50 13575 39220 1949 41871 4 468 31732 718 6 44064 3876 6 5822 15188 260 6 8 37816 661 718 32 11780 9 5 181 12705 877 6740 6 150 497 271 3631 6 726 22704 6 83 1334 3631 6 7925 35054 6 2393 260 12 1864 6 1793 571 15560 1178 6 3232 118 3361 6 8 2393 42134 1210 833 32 9 5 13575 39220 1949 6740 2
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   label: True (id = 1)
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   *** Example ***
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   guid: dev-{"question": "is barq's root beer a pepsi product", "passage": "Barq's -- Barq's /\u02c8b\u0251\u02d0rks/ is an American soft drink. Its brand of root beer is notable for having caffeine. Barq's, created by Edward Barq and bottled since the turn of the 20th century, is owned by the Barq family but bottled by the Coca-Cola Company. It was known as Barq's Famous Olde Tyme Root Beer until 2012.", "idx": 5, "label": false}
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   input_ids: 0 16 2003 1343 18 9749 4437 10 181 2462 11000 1152 2 2 1731 1343 18 480 1731 1343 18 1589 49066 428 35423 3602 43621 16948 338 2258 73 16 41 470 3793 4076 4 3139 1518 9 9749 4437 16 8091 13 519 26604 4 1731 1343 18 6 1412 30 7393 1731 1343 8 23874 187 5 1004 9 5 291 212 3220 6 16 2164 30 5 1731 1343 284 53 23874 30 5 16103 12 16791 1260 4 85 21 684 25 1731 1343 18 28942 3470 242 5957 1794 17132 15065 454 1125 4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   attention_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   token_type_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+03/12/2020 23:28:20 - INFO - transformers.data.processors.glue -   label: False (id = 0)
+03/12/2020 23:28:23 - INFO - __main__ -   Saving features into cached file /scratch/an3056/nlu/data/BOOLQ/cached_dev_roberta-base_128_boolq
+03/12/2020 23:28:23 - INFO - __main__ -   ***** Running evaluation  *****
+03/12/2020 23:28:23 - INFO - __main__ -     Num examples = 3269
+03/12/2020 23:28:23 - INFO - __main__ -     Batch size = 8
+Evaluating:   0%|          | 0/409 [00:00<?, ?it/s]Evaluating:   1%|          | 5/409 [00:00<00:08, 47.59it/s]Evaluating:   2%|▏         | 10/409 [00:00<00:08, 47.70it/s]Evaluating:   4%|▎         | 15/409 [00:00<00:08, 47.74it/s]Evaluating:   5%|▍         | 20/409 [00:00<00:08, 47.78it/s]Evaluating:   6%|▌         | 25/409 [00:00<00:08, 47.85it/s]Evaluating:   7%|▋         | 30/409 [00:00<00:07, 47.90it/s]Evaluating:   9%|▊         | 35/409 [00:00<00:07, 47.90it/s]Evaluating:  10%|▉         | 40/409 [00:00<00:07, 47.83it/s]Evaluating:  11%|█         | 45/409 [00:00<00:07, 47.78it/s]Evaluating:  12%|█▏        | 50/409 [00:01<00:07, 47.85it/s]Evaluating:  13%|█▎        | 55/409 [00:01<00:07, 47.88it/s]Evaluating:  15%|█▍        | 60/409 [00:01<00:07, 47.80it/s]Evaluating:  16%|█▌        | 65/409 [00:01<00:07, 47.71it/s]Evaluating:  17%|█▋        | 70/409 [00:01<00:07, 47.64it/s]Evaluating:  18%|█▊        | 75/409 [00:01<00:06, 47.74it/s]Evaluating:  20%|█▉        | 80/409 [00:01<00:06, 47.82it/s]Evaluating:  21%|██        | 85/409 [00:01<00:06, 47.88it/s]Evaluating:  22%|██▏       | 90/409 [00:01<00:06, 47.89it/s]Evaluating:  23%|██▎       | 95/409 [00:01<00:06, 47.94it/s]Evaluating:  24%|██▍       | 100/409 [00:02<00:06, 47.96it/s]Evaluating:  26%|██▌       | 105/409 [00:02<00:06, 47.90it/s]Evaluating:  27%|██▋       | 110/409 [00:02<00:06, 47.92it/s]Evaluating:  28%|██▊       | 115/409 [00:02<00:06, 47.57it/s]Evaluating:  29%|██▉       | 120/409 [00:02<00:06, 47.71it/s]Evaluating:  31%|███       | 125/409 [00:02<00:05, 47.75it/s]Evaluating:  32%|███▏      | 130/409 [00:02<00:05, 47.74it/s]Evaluating:  33%|███▎      | 135/409 [00:02<00:05, 47.71it/s]Evaluating:  34%|███▍      | 140/409 [00:02<00:05, 47.70it/s]Evaluating:  35%|███▌      | 145/409 [00:03<00:05, 47.72it/s]Evaluating:  37%|███▋      | 150/409 [00:03<00:05, 47.72it/s]Evaluating:  38%|███▊      | 155/409 [00:03<00:05, 47.66it/s]Evaluating:  39%|███▉      | 160/409 [00:03<00:05, 47.66it/s]Evaluating:  40%|████      | 165/409 [00:03<00:05, 47.71it/s]Evaluating:  42%|████▏     | 170/409 [00:03<00:05, 47.75it/s]Evaluating:  43%|████▎     | 175/409 [00:03<00:04, 47.67it/s]Evaluating:  44%|████▍     | 180/409 [00:03<00:04, 47.65it/s]Evaluating:  45%|████▌     | 185/409 [00:03<00:04, 47.67it/s]Evaluating:  46%|████▋     | 190/409 [00:03<00:04, 47.72it/s]Evaluating:  48%|████▊     | 195/409 [00:04<00:04, 47.66it/s]Evaluating:  49%|████▉     | 200/409 [00:04<00:04, 47.63it/s]Evaluating:  50%|█████     | 205/409 [00:04<00:04, 47.62it/s]Evaluating:  51%|█████▏    | 210/409 [00:04<00:04, 47.70it/s]Evaluating:  53%|█████▎    | 215/409 [00:04<00:04, 47.77it/s]Evaluating:  54%|█████▍    | 220/409 [00:04<00:03, 47.68it/s]Evaluating:  55%|█████▌    | 225/409 [00:04<00:03, 47.67it/s]Evaluating:  56%|█████▌    | 230/409 [00:04<00:03, 47.70it/s]Evaluating:  57%|█████▋    | 235/409 [00:04<00:03, 47.78it/s]Evaluating:  59%|█████▊    | 240/409 [00:05<00:03, 47.80it/s]Evaluating:  60%|█████▉    | 245/409 [00:05<00:03, 47.67it/s]Evaluating:  61%|██████    | 250/409 [00:05<00:03, 47.64it/s]Evaluating:  62%|██████▏   | 255/409 [00:05<00:03, 47.66it/s]Evaluating:  64%|██████▎   | 260/409 [00:05<00:03, 47.73it/s]Evaluating:  65%|██████▍   | 265/409 [00:05<00:03, 47.68it/s]Evaluating:  66%|██████▌   | 270/409 [00:05<00:02, 47.67it/s]Evaluating:  67%|██████▋   | 275/409 [00:05<00:02, 47.75it/s]Evaluating:  68%|██████▊   | 280/409 [00:05<00:02, 47.71it/s]Evaluating:  70%|██████▉   | 285/409 [00:05<00:02, 47.61it/s]Evaluating:  71%|███████   | 290/409 [00:06<00:02, 47.59it/s]Evaluating:  72%|███████▏  | 295/409 [00:06<00:02, 47.60it/s]Evaluating:  73%|███████▎  | 300/409 [00:06<00:02, 47.60it/s]Evaluating:  75%|███████▍  | 305/409 [00:06<00:02, 47.49it/s]Evaluating:  76%|███████▌  | 310/409 [00:06<00:02, 47.49it/s]Evaluating:  77%|███████▋  | 315/409 [00:06<00:01, 47.52it/s]Evaluating:  78%|███████▊  | 320/409 [00:06<00:01, 47.60it/s]Evaluating:  79%|███████▉  | 325/409 [00:06<00:01, 47.58it/s]Evaluating:  81%|████████  | 330/409 [00:06<00:01, 47.55it/s]Evaluating:  82%|████████▏ | 335/409 [00:07<00:01, 47.57it/s]Evaluating:  83%|████████▎ | 340/409 [00:07<00:01, 47.62it/s]Evaluating:  84%|████████▍ | 345/409 [00:07<00:01, 47.63it/s]Evaluating:  86%|████████▌ | 350/409 [00:07<00:01, 47.62it/s]Evaluating:  87%|████████▋ | 355/409 [00:07<00:01, 47.59it/s]Evaluating:  88%|████████▊ | 360/409 [00:07<00:01, 47.62it/s]Evaluating:  89%|████████▉ | 365/409 [00:07<00:00, 47.69it/s]Evaluating:  90%|█████████ | 370/409 [00:07<00:00, 47.76it/s]Evaluating:  92%|█████████▏| 375/409 [00:07<00:00, 47.69it/s]Evaluating:  93%|█████████▎| 380/409 [00:07<00:00, 47.63it/s]Evaluating:  94%|█████████▍| 385/409 [00:08<00:00, 47.65it/s]Evaluating:  95%|█████████▌| 390/409 [00:08<00:00, 47.74it/s]Evaluating:  97%|█████████▋| 395/409 [00:08<00:00, 47.81it/s]Evaluating:  98%|█████████▊| 400/409 [00:08<00:00, 47.82it/s]Evaluating:  99%|█████████▉| 405/409 [00:08<00:00, 47.90it/s]Evaluating: 100%|██████████| 409/409 [00:08<00:00, 46.97it/s]
+03/12/2020 23:28:32 - INFO - __main__ -   ***** Eval results  *****
+03/12/2020 23:28:32 - INFO - __main__ -     acc = 0.7748546956255735
+{"learning_rate": 1.717274526434832e-05, "loss": 0.6671574719548226, "step": 500}
+{"learning_rate": 1.4345490528696637e-05, "loss": 0.6307611884474754, "step": 1000}
+{"learning_rate": 1.1518235793044954e-05, "loss": 0.5684927522391081, "step": 1500}
+{"learning_rate": 8.690981057393272e-06, "loss": 0.5223836172968149, "step": 2000}
+{"learning_rate": 5.8637263217415896e-06, "loss": 0.46988012903928755, "step": 2500}
+{"learning_rate": 3.0364715860899067e-06, "loss": 0.3984403317719698, "step": 3000}
+{"learning_rate": 2.0921685043822448e-07, "loss": 0.39092642076313494, "step": 3500}
